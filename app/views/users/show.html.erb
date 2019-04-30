@@ -12,6 +12,16 @@
   <%= @user.age %>
 </p>
 
+<p>
+  <strong>Skills:</strong>
+  <ul>
+  <% @user.skills.each do |skill| %>
+  <li>
+  <%= skill.name %>
+  </li>
+  <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
