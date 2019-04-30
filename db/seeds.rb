@@ -6,6 +6,30 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+skills = [
+  "After Effects",
+  "Final Cut Pro",
+  "Illustrator",
+  "InDesign", 
+  "Photoshop",
+  "Premiere Pro",
+  "Sketch",
+  "Bash/Shell",
+  "C#",
+  "C++",
+  "CSS",
+  "HTML",
+  "Java",
+  "JavaScript",
+  "Python",
+  "Ruby",
+  "SQL"
+]
+
+skills.each do |skill|
+  Skill.create(name: skill)
+  puts "Created the skill: #{skill}"
+end
 
 locations = [
   "CBD",
@@ -37,4 +61,13 @@ for i in 1..10
   )
   puts "Created #{i} users"
 end
+
+users = User.all
+users.each do |user|
+    rand(1..4).times do
+    idx = rand(0..(Skill.all.length - 1))
+    user.skills << Skill.all[idx] unless user.skills.include?(Skill.all[idx])
+  end
+end
+
 
