@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'user/index'
   devise_for :users
-  root to: "user#index"
+  root to: "users#index"
+  resources :users
 end
