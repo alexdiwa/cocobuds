@@ -32,11 +32,17 @@ skills.each do |skill|
 end
 
 locations = [
-  "CBD",
+  "Sydney CBD",
   "Inner West",
+  "Eastern Suburbs",
   "North Shore",
+  "Northern Beaches",
+  "North West",
+  "Hills District",
   "Western Suburbs",
-  "Eastern Suburbs"
+  "South Sydney",
+  "Sutherland Shire",
+  "South West"
 ]
 
 locations.each do |location|
@@ -55,7 +61,7 @@ for i in 1..20
     bio: Faker::Hipster.paragraph(5),
     portfolio_url: "http://#{Faker::Internet.domain_name}",
     profile_complete: false,
-    location_id: rand(1..5),
+    location_id: rand(1..locations.length),
     company: Faker::Company.name,
     occupation: Faker::Name.last_name
   )
