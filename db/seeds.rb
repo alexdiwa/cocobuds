@@ -52,7 +52,7 @@ for i in 1..10
     last_name: Faker::Name.last_name,
     role: rand(0..1),
     age: rand(18..40),
-    bio: Faker::Hipster.sentence(3, true, 4),
+    bio: Faker::Hipster.paragraph(5),
     portfolio_url: "http://#{Faker::Internet.domain_name}",
     profile_complete: false,
     location_id: rand(1..5),
