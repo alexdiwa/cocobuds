@@ -47,7 +47,12 @@
       <%= form.label :location_id %>
       <%= form.select(:location_id, locations.map{ |location| [location.name, location.id] }) %>
     </div>
-    
+
+    <div>
+      <%= form.label :portfolio_url %>
+      <%= form.url_field :portfolio_url %>
+    </div>
+
     <div>
       <%= form.label :bio %>
       <%= form.text_area :bio %>
