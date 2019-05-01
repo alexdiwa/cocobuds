@@ -3,15 +3,14 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, only: [:edit, :update, :destroy]
   before_action :set_roles_locations_skills, only: [:new, :edit]
+  before_action :redirect_to_donate, only: [:index, :show, :edit, :new]
   before_action :redirect_to_update_profile, only: [:index, :show, :edit]
-  before_action :show_skills, only: [:new, :edit]
   before_action :update_skills, only: [:update]
 
 
   # GET /users
   # GET /users.json
   def index
-    # @users = User.all
     @users = User.all.order(:last_name)
   end
 
@@ -24,7 +23,6 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    # @user = User.new
     @user = current_user
   end
 
@@ -35,7 +33,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    # @user = User.new(user_params)
     @user = current_user
 
     respond_to do |format|
@@ -83,13 +80,7 @@ class UsersController < ApplicationController
       @roles = User.roles.keys
       @locations = Location.all
       @skills = Skill.all
-    end
-
-    def show_skills
-      @skills = Skill.all
-      #pluck gets the names of all the skills the user has selected previously
       @selected_skills = current_user.skills.pluck(:name)
-      #resets the skills to be empty again
     end
 
     def update_skills
@@ -111,6 +102,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:picture, :first_name, :last_name, :age, :role, :skills, :bio, :portfolio_url, :occupation, :company, :location_id)
+    end
+
+    def redirect_to_donate
+      redirect_to "/pages/donate" if current_user.stripe_payment != true
     end
 
     def redirect_to_update_profile
