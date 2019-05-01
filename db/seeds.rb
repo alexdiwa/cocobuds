@@ -60,7 +60,7 @@ for i in 1..20
     age: rand(18..40),
     bio: Faker::Hipster.paragraph(5),
     portfolio_url: "http://#{Faker::Internet.domain_name}",
-    profile_complete: false,
+    profile_complete: true,
     location_id: rand(1..locations.length),
     company: Faker::Company.name,
     occupation: Faker::Name.last_name

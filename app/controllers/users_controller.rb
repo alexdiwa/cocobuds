@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, only: [:edit, :update, :destroy]
   before_action :set_roles_locations_skills, only: [:new, :edit]
+  before_action :redirect_to_update_profile, only: [:index, :show, :edit]
+  before_action :show_skills, only: [:new, :edit]
+  before_action :update_skills, only: [:update]
+
 
   # GET /users
   # GET /users.json
@@ -57,6 +61,11 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+
+    if @user.first_name && @user.last_name && @user.role && @user.location_id
+      @user.profile_complete = true
+      @user.save
+    end
   end
 
   # DELETE /users/1
@@ -76,6 +85,18 @@ class UsersController < ApplicationController
       @skills = Skill.all
     end
 
+    def show_skills
+      @skills = Skill.all
+      #pluck gets the names of all the skills the user has selected previously
+      @selected_skills = current_user.skills.pluck(:name)
+      #resets the skills to be empty again
+    end
+
+    def update_skills
+      current_user.skills = []
+      @skill_ids = params[:skills]
+      @skill_ids.each { |skill_id| current_user.skills << Skill.find(skill_id) }
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -89,6 +110,12 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:picture, :first_name, :last_name, :age, :role, :bio, :portfolio_url, :occupation, :company, :location_id)
+      params.require(:user).permit(:picture, :first_name, :last_name, :age, :role, :skills, :bio, :portfolio_url, :occupation, :company, :location_id)
+    end
+
+    def redirect_to_update_profile
+      if current_user.profile_complete != true
+        redirect_to new_user_path, notice: 'You need to fill in your profile before you proceed!'
+      end
     end
 end
