@@ -86,7 +86,7 @@ class UsersController < ApplicationController
     def update_skills
       current_user.skills = []
       @skill_ids = params[:skills]
-      @skill_ids.each { |skill_id| current_user.skills << Skill.find(skill_id) }
+      @skill_ids.each { |skill_id| current_user.skills << Skill.find(skill_id) } unless @skill_ids.blank?
     end
 
     # Use callbacks to share common setup or constraints between actions.
