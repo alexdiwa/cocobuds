@@ -14,7 +14,7 @@
   <%= form_with model: user, local: true do |form| %>
     <div>
       <%= form.label :first_name %>
-      <%= form.text_field :first_name %>
+      <%= form.text_field :first_name, :required => true %>
     </div>
     <div>
       <%= form.label :last_name %>
@@ -24,13 +24,13 @@
     <% roles.each do |option| %>
       <div>
       <%= form.radio_button :role, option %>
-      <%= form.label "role_#{option}".to_sym, option %>
+      <%= form.label "role_#{option}".to_sym, option, :required => true %>
       </div>
     <% end %>
 
     <div>
       <%= form.label :age %>
-      <%= form.number_field :age %>
+      <%= form.number_field :age, :required => true %>
     </div>
 
     <div>
@@ -55,7 +55,7 @@
 
     <div>
       <%= form.label :bio %>
-      <%= form.text_area :bio %>
+      <%= form.text_area :bio, :required => true %>
     </div>
 
   <div class="actions">
