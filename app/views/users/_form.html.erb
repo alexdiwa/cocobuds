@@ -24,7 +24,7 @@
     </div>
     <div>
       <%= form.label :last_name %>
-      <%= form.text_field :last_name %>
+      <%= form.text_field :last_name, :required => true %>
     </div>
 
     <% roles.each do |option| %>
@@ -36,7 +36,7 @@
 
     <div>
       <%= form.label :age %>
-      <%= form.number_field :age, :required => true %>
+      <%= form.number_field :age %>
     </div>
 
     <div>
@@ -61,7 +61,7 @@
 
     <div>
       <%= form.label :bio %>
-      <%= form.text_area :bio, :required => true %>
+      <%= form.text_area :bio %>
     </div>
 
   <div class="actions">
