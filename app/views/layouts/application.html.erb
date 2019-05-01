@@ -9,7 +9,6 @@
     <script src="https://js.stripe.com/v3/"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
   <% if user_signed_in? %>
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
