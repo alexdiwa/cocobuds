@@ -57,8 +57,6 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-
-    if 
   end
 
   # DELETE /users/1
