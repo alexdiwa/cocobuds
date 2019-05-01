@@ -32,11 +32,17 @@ skills.each do |skill|
 end
 
 locations = [
-  "CBD",
+  "Sydney CBD",
   "Inner West",
+  "Eastern Suburbs",
   "North Shore",
+  "Northern Beaches",
+  "North West",
+  "Hills District",
   "Western Suburbs",
-  "Eastern Suburbs"
+  "South Sydney",
+  "Sutherland Shire",
+  "South West"
 ]
 
 locations.each do |location|
@@ -44,7 +50,7 @@ locations.each do |location|
   puts "Created location: #{location}"
 end
 
-for i in 1..10
+for i in 1..20
   User.create(
     email: "ama+#{i}@test.com",
     password: "testpass",
@@ -52,10 +58,10 @@ for i in 1..10
     last_name: Faker::Name.last_name,
     role: rand(0..1),
     age: rand(18..40),
-    bio: Faker::Hipster.sentence(3, true, 4),
+    bio: Faker::Hipster.paragraph(5),
     portfolio_url: "http://#{Faker::Internet.domain_name}",
     profile_complete: false,
-    location_id: rand(1..5),
+    location_id: rand(1..locations.length),
     company: Faker::Company.name,
     occupation: Faker::Name.last_name
   )

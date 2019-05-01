@@ -13,6 +13,30 @@
 </p>
 
 <p>
+  <strong>Location:</strong>
+  <%= @location.name %>
+</p>
+
+<p>
+  <a href="<%= @user.portfolio_url %>" target="_blank">Website</a>
+</p>
+
+<p>
+  <strong>Occupation:</strong>
+  <%= @user.occupation %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @user.company %>
+</p>
+
+<p>
+  <strong>About Me:</strong>
+  <%= @user.bio %>
+</p>
+
+<p>
   <strong>Skills:</strong>
   <ul>
   <% @user.skills.each do |skill| %>
@@ -23,5 +47,7 @@
   </ul>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<% if @user.id == current_user.id %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
 <%= link_to 'Back', users_path %>
