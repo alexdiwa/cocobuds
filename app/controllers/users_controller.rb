@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, only: [:edit, :update, :destroy]
   before_action :set_roles_locations_skills, only: [:new, :edit]
+  before_action :redirect_to_donate, only: [:index, :show, :edit, :new]
   before_action :redirect_to_update_profile, only: [:index, :show, :edit]
   before_action :show_skills, only: [:new, :edit]
   before_action :update_skills, only: [:update]
@@ -111,6 +112,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:picture, :first_name, :last_name, :age, :role, :skills, :bio, :portfolio_url, :occupation, :company, :location_id)
+    end
+
+    def redirect_to_donate
+      redirect_to "/pages/donate" if current_user.stripe_payment != "PAID"
     end
 
     def redirect_to_update_profile
