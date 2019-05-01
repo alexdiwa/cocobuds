@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def show 
     @name = "#{current_user.first_name} #{current_user.last_name}"
     stripe_session = Stripe::Checkout::Session.create(
@@ -21,7 +20,7 @@ class PagesController < ApplicationController
         cancel_url: 'http://localhost:3000/cancel',
     )
     @stripe_session_id = stripe_session.id
+    
     render template: "pages/#{params[:page]}"
   end
-
 end
