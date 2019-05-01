@@ -12,6 +12,12 @@
   <% end %>
   
   <%= form_with model: user, local: true do |form| %>
+
+    <div>
+    <%= form.label :picture %>
+    <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+    </div>
+
     <div>
       <%= form.label :first_name %>
       <%= form.text_field :first_name, :required => true %>
