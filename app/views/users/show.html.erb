@@ -1,4 +1,8 @@
 <p>
+<%= image_tag @user.picture if @user.picture.attached? %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @user.first_name %> <%= @user.last_name %>
 </p>

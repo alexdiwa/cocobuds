@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :users_skills, dependent: :destroy
   has_many :skills, through: :users_skills
   enum role: { developer: 0, designer: 1 }
+  has_one_attached :picture
 end
