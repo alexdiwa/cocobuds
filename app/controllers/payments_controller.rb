@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
     end
 
     def success
-        current_user.stripe_payment = "PAID"
+        current_user.stripe_payment = true
         current_user.save
     end
 end

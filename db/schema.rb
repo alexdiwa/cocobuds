@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_011301) do
     t.integer "role"
     t.text "bio"
     t.string "portfolio_url"
-    t.string "stripe_payment"
+    t.boolean "stripe_payment"
     t.boolean "profile_complete"
     t.string "occupation"
     t.string "company"
