@@ -35,6 +35,18 @@
     <% end %>
 
     <div>
+    <% @skills.each do |skill| %>
+      <ul>
+      <% if @selected_skills.include?(skill.name) %>
+      <li><input class="checkbox" type="checkbox" name="skills[]" id="<%= skill.id %>" value="<%= skill.id %>" checked> <label for="<%= skill.id %>"><%= skill.name %></label></li>
+      <% else %>
+      <li><input class="checkbox" type="checkbox" name="skills[]" id="<%= skill.id %>" value="<%= skill.id %>"> <label for="<%= skill.id %>"><%= skill.name %></label></li>
+      <% end %>
+      </ul>
+    <% end %>
+    </div>
+
+    <div>
       <%= form.label :age %>
       <%= form.number_field :age %>
     </div>
@@ -67,4 +79,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
 <% end %>
