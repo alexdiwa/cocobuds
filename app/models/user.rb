@@ -8,13 +8,4 @@ class User < ApplicationRecord
   has_many :skills, through: :users_skills
   enum role: { developer: 0, designer: 1 }
   has_one_attached :picture
-
-  def self.search(search)
-    if search
-      where(["first_name LIKE ?","%#{search}%"])
-    else
-      all
-    end
-  end
-
 end

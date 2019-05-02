@@ -11,9 +11,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    # @users = User.all.order(:last_name)
-    @users = User.search(params[:search])
-
+    @users = User.all.order(:last_name)
+    @locations = Location.all.pluck(:id)
+    location_name = params[:location]
+    location_id = Location.find_by(name: location_name).id
+    unless params[:location].blank?
+      @users = @users.where(location_id: location_id)
+    end
   end
 
   # GET /users/1
