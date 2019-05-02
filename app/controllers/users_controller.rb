@@ -11,13 +11,15 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.order(:last_name)
+    # @users = User.all.order(:last_name)
+    @users = User.search(params[:search])
+
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    location_id = @user.location_id
+    location_id = @user.location_id 
     @location = Location.find(location_id)
   end
 
