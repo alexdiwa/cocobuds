@@ -20,10 +20,12 @@ class UsersController < ApplicationController
     @users = @users.where(location_id: location_id) unless params[:location].blank?
 
     # Filter search by designer/developer
-    @roles = User.roles.keys
-    role_name = params[:role]
-    role_enum = User.roles[role_name]
-    @users = @users.where(role: role_enum) unless params[:role].blank?
+    @roles = User.roles.keys.map { |key| key.capitalize }
+    unless params[:role].blank?
+      role_name = params[:role].downcase
+      role_enum = User.roles[role_name]
+      @users = @users.where(role: role_enum)
+    end
 
     # Filter search by skills
     @skills = Skill.all
