@@ -50,7 +50,7 @@ locations.each do |location|
   puts "Created location: #{location}"
 end
 
-for i in 1..20
+for i in 1..50
   User.create(
     email: "ama+#{i}@test.com",
     password: "testpass",
