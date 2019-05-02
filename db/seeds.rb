@@ -50,7 +50,7 @@ locations.each do |location|
   puts "Created location: #{location}"
 end
 
-for i in 1..20
+for i in 1..80
   User.create(
     email: "ama+#{i}@test.com",
     password: "testpass",
@@ -71,7 +71,7 @@ end
 
 users = User.all
 users.each do |user|
-    rand(1..4).times do
+    rand(1..6).times do
     idx = rand(0..(Skill.all.length - 1))
     user.skills << Skill.all[idx] unless user.skills.include?(Skill.all[idx])
   end
