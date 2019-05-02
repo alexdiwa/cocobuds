@@ -12,12 +12,42 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all.order(:last_name)
+
+    # Filter search by location
+    @locations = Location.all.pluck(:name)
+    location_name = params[:location]
+    location_id = Location.find_by(name: location_name)
+    @users = @users.where(location_id: location_id) unless params[:location].blank?
+
+    # Filter search by designer/developer
+    @roles = User.roles.keys.map { |key| key.capitalize }
+    unless params[:role].blank?
+      role_name = params[:role].downcase
+      role_enum = User.roles[role_name]
+      @users = @users.where(role: role_enum)
+    end
+
+    # Filter search by skills
+    @skills = Skill.all
+    unless params[:skills].blank?
+      # Converting all skill ids passed through params to integers, yielding an array e.g. [1, 2, 3]
+      skill_ids = params[:skills].map { |skill_id| skill_id.to_i }
+      # initialising empty array of users who have matching skills
+      skilled_users = []
+      # iterating through array of users
+      @users.each do |user| 
+        # adding the user to the skilled users array if the user knows all of the skills passed through the checkbox form i.e. params
+        skilled_users << user if skill_ids.all? { |skill| user.skills.ids.include?(skill) }
+      end
+      # updating the list of @users to be the skilled users
+      @users = skilled_users
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    location_id = @user.location_id
+    location_id = @user.location_id 
     @location = Location.find(location_id)
   end
 
