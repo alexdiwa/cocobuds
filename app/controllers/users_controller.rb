@@ -89,33 +89,45 @@ class UsersController < ApplicationController
 
       # Filter search by location
       @locations = Location.all.pluck(:name)
-      location_name = params[:location]
-      location_id = Location.find_by(name: location_name)
-      @users = @users.where(location_id: location_id) unless params[:location].blank?
+      unless params[:location].blank?
+        @location_name = params[:location]
+        location_id = Location.find_by(name: @location_name)
+        @users = @users.where(location_id: location_id)
+      end
   
       # Filter search by designer/developer
       @roles = User.roles.keys.map { |key| key.capitalize }
       unless params[:role].blank?
-        role_name = params[:role].downcase
-        role_enum = User.roles[role_name]
+        @role_name = params[:role]
+        role_enum = User.roles[@role_name.downcase]
         @users = @users.where(role: role_enum)
       end
-  
-      # Filter search by skills
+
+      #Search by single skill for home and preview pages
+      skilled_users = []
+      unless params[:skill].blank?
+        @skill_name = params[:skill]
+        skill_id = Skill.find_by(name: @skill_name).id
+        @users.each do |user|
+          skilled_users << user if user.skills.ids.include?(skill_id)
+        end 
+      end 
+
+    
+      # Filter search by skills for index page(primary search)
       @skills = Skill.all
       unless params[:skills].blank?
         # Converting all skill ids passed through params to integers, yielding an array e.g. [1, 2, 3]
         skill_ids = params[:skills].map { |skill_id| skill_id.to_i }
         # initialising empty array of users who have matching skills
-        skilled_users = []
         # iterating through array of users
         @users.each do |user| 
           # adding the user to the skilled users array if the user knows all of the skills passed through the checkbox form i.e. params
           skilled_users << user if skill_ids.all? { |skill| user.skills.ids.include?(skill) }
         end
-        # updating the list of @users to be the skilled users
-        @users = skilled_users
       end
+      @users = skilled_users
+     
     end 
 
 
