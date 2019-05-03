@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+  <%= link_to user_path(user.id), class: "card mb-3" do %>
+    <div class="card-body">
+      <%= user.first_name %>  <%= user.last_name %>
+    </div>
+  <% end %>
+<% end %>

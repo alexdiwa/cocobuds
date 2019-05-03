@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'messages/index'
+  get 'conversations/index'
+  devise_for :users, :controllers => { registrations: 'registrations' }
+ 
+  root to: "users#home"
+  get "/users/preview", to: "users#preview", as: "preview"
+  resources :users
+  get "/pages/:page", to: "pages#show"
+  post "/payments", to: "payments#stripe"
+  get "/payments/success", to: "payments#success"
+
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
 end
