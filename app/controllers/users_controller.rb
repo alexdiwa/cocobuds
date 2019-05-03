@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Profile saved!' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -99,8 +99,8 @@ class UsersController < ApplicationController
       # Filter search by designer/developer
       @roles = User.roles.keys.map { |key| key.capitalize }
       unless params[:role].blank?
-        @role_name = params[:role]
-        role_enum = User.roles[@role_name.downcase]
+        @role_name = params[:role].downcase
+        role_enum = User.roles[@role_name]
         @users = @users.where(role: role_enum)
       end
       
