@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end 
 
   def preview
+  
   end 
 
   # GET /users/1
@@ -94,7 +95,7 @@ class UsersController < ApplicationController
         location_id = Location.find_by(name: @location_name)
         @users = @users.where(location_id: location_id)
       end
-  
+      byebug
       # Filter search by designer/developer
       @roles = User.roles.keys.map { |key| key.capitalize }
       unless params[:role].blank?
@@ -102,7 +103,7 @@ class UsersController < ApplicationController
         role_enum = User.roles[@role_name.downcase]
         @users = @users.where(role: role_enum)
       end
-
+      byebug
       #Search by single skill for home and preview pages
       skilled_users = []
       unless params[:skill].blank?
@@ -112,7 +113,7 @@ class UsersController < ApplicationController
           skilled_users << user if user.skills.ids.include?(skill_id)
         end 
       end 
-
+      byebug
     
       # Filter search by skills for index page(primary search)
       @skills = Skill.all

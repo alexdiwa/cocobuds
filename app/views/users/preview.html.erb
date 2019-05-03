@@ -1,4 +1,10 @@
 <h1>Preview</h1>
 <p>
-There are <%= @users.length%> <%= @role_name %>s who know <%= @skill_name %> in <%= @location_name%>
+<% if @users.length == 0 %>
+    Sorry, there are no <%= @role_name %>s in <%= @location_name%> who know <%= @skill_name %>.
+<% elsif @users.length == 1%>
+    There is 1 <%= @role_name %> in <%= @location_name %> who knows <%= @skill_name %>!
+<% elsif @users.length > 1%>
+    There are <%= @users.length %> <%= @role_name %>s in <%= @location_name%> who know <%= @skill_name %>!
+<% end %>
 </p>
