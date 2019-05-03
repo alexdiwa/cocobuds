@@ -7,4 +7,8 @@
 <% elsif @users.length > 1%>
     There are <%= @users.length %> <%= @role_name %>s in <%= @location_name%> who know <%= @skill_name %>!
 <% end %>
+
+<%= button_to("Signup", new_user_registration_path, {method: :get, class: "btn btn-primary btn-default btn-block"})%>
+Already signed up? <%= link_to "Login", new_user_session_path %>
+
 </p>
