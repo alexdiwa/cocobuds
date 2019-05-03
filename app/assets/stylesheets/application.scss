@@ -13,6 +13,12 @@
  */
 
  @import "bootstrap";
+ html {
+   scroll-behavior: smooth;
+ }
+ .spacer {
+  height: 100vh;
+ }
  .btn-default {
   border-radius: 40px;
 }

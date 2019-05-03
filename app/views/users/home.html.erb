@@ -1,0 +1,35 @@
+  
+    <div class="jumbotron">
+        <h1 class="display-4">Hi Cocobuds</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <%= button_to("Get started", "#search", {method: :get, class: "btn btn-primary btn-default btn-lg"})%>
+    </div>
+    
+<div class="spacer">
+</div>
+
+
+  <div class="mb-5 col-md-4 pt-5" id="search">
+    <h1 class="display-6">Find a Cocobud</h1>
+      <%= form_with url: preview_path, method: :get, local: true do |form| %>
+        <div class="form-group">
+            <%= form.label :location, class: "sr-only" %>
+            <%= form.select(:location, options_for_select( @locations, params[:location] ), {include_blank: 'Pick a Location'}, {required: true, class: "form-control form-control-sm"}) %>
+        </div>
+        <div class="form-group">
+            <%= form.label :role, "Developer or Designer?", class: "sr-only" %>
+            <%= form.select(:role, options_for_select( @roles, params[:role] ), {include_blank: 'Designer or Developer?'}, {required: true, class: "form-control form-control-sm"}) %>
+        </div>
+        <div class="form-group">
+            <%= form.label :skill, "Skills?", class: "sr-only" %>
+            <%= form.select(:skill, options_for_select( @skills.pluck(:name), params[:skill] ), {include_blank: 'Select a Skill'}, {required: true, class: "form-control form-control-sm"}) %>
+        </div>
+
+        <div class="mb-3 form-group text-center">
+        <%= form.submit 'Search', class: "mt-3 w-100 btn btn-primary btn-default btn-blocks" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="spacer">
+    </div>

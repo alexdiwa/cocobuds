@@ -1,0 +1,14 @@
+<h1>Preview</h1>
+<p>
+<% if @users.length == 0 %>
+    Sorry, there are no <%= @role_name %>s in <%= @location_name%> who know <%= @skill_name %>.
+<% elsif @users.length == 1%>
+    There is 1 <%= @role_name %> in <%= @location_name %> who knows <%= @skill_name %>!
+<% elsif @users.length > 1%>
+    There are <%= @users.length %> <%= @role_name %>s in <%= @location_name%> who know <%= @skill_name %>!
+<% end %>
+
+<%= button_to("Signup", new_user_registration_path, {method: :get, class: "btn btn-primary btn-default btn-block"})%>
+Already signed up? <%= link_to "Login", new_user_session_path %>
+
+</p>
