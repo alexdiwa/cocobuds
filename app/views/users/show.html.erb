@@ -1,59 +1,38 @@
-<%= link_to "Message", conversations_path(sender_id: current_user.id, receiver_id: @user.id), method: :post %>
+<div class="w-75 m-auto pt-5">
+  <div class="row">
+    <div class="mb-5 col-md-4">
+      <p>
+      <%= image_tag @user.picture if @user.picture.attached? %>
+      </p>
+      <p>
+        <%= @user.first_name %> <%= @user.last_name %>, <%= @user.age %><br>
+        <%= @user.role.capitalize %><br>
+        <%= @user.occupation %><br>
+        <%= @location.name %>
+      </p>
+      <p>
+        <%= link_to "Message", conversations_path(sender_id: current_user.id, receiver_id: @user.id), method: :post %><br>
+        <a href="<%= @user.portfolio_url %>" target="_blank">Website</a>
+      </p>
 
-<p>
-<%= image_tag @user.picture if @user.picture.attached? %>
-</p>
+    </div>
+    <div class="mb-5 col-md-8">
+      <p>
+        <strong>About Me:</strong><br>
+        <%= @user.bio %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.first_name %> <%= @user.last_name %>
-</p>
-
-<p>
-  I am a <%= @user.role %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @location.name %>
-</p>
-
-<p>
-  <a href="<%= @user.portfolio_url %>" target="_blank">Website</a>
-</p>
-
-<p>
-  <strong>Occupation:</strong>
-  <%= @user.occupation %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @user.company %>
-</p>
-
-<p>
-  <strong>About Me:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Skills:</strong>
-  <ul>
-  <% @user.skills.each do |skill| %>
-  <li>
-  <%= skill.name %>
-  </li>
-  <% end %>
-  </ul>
-</p>
-
-<% if @user.id == current_user.id %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-<% end %>
-<%= link_to 'Back', users_path %>
+      
+      <div class="card-columns row">
+        <% @user.skills.each do |skill| %>
+          <div class="card card-body w-auto text-center p-2 m-2">
+            <%= skill.name %>
+          </div>
+        <% end %>
+      </div>
+      <p class="mt-5 text-right">
+        <% if @user.id == current_user.id %>
+        <%= link_to 'Edit', edit_user_path(@user) %> /
+        <% end %>
+        <%= link_to 'Back', users_path %>
+      </p>
+    </div>
