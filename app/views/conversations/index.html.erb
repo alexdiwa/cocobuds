@@ -8,7 +8,7 @@
                         <div class="card-body row align-items-center <%= "bottom-bord" unless i == @conversations.length - 1 %>">
                             <div class="col-2 fixed-width-pic">
                                 <div class="circle msg filtered">
-                                    <%= image_tag conversation.recipient(current_user).picture %>
+                                    <%= image_tag conversation.recipient(current_user).picture if conversation.recipient(current_user).picture.attached? %>
                                 </div>
                             </div>
                             <div class="col-9">
