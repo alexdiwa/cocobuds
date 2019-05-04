@@ -5,6 +5,9 @@
     <% @conversations.each do |conversation| %>
         <li>
         <% unless conversation.messages.blank? %>
+            <div class="circle msg">
+                <%= image_tag conversation.recipient(current_user).picture %>
+            </div>
             <%= link_to conversation.recipient(current_user).first_name, conversation_messages_path(conversation) %>
             <% if !conversation.unread_message_count(current_user).zero? %>
                 (<%= conversation.unread_message_count(current_user) %>)
