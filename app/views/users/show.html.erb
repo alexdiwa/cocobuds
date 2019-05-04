@@ -5,7 +5,7 @@
       <%= image_tag @user.picture if @user.picture.attached? %>
       </p>
       <p>
-        <%= @user.first_name %> <%= @user.last_name %>, <%= @user.age %><br>
+        <%= @user.first_name %> <%= @user.last_name %> <%= "/ #{@user.age}" unless @user.age.blank? %><br>
         <%= @user.role.capitalize %><br>
         <%= @user.occupation %><br>
         <%= @location.name %>
