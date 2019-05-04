@@ -25,8 +25,14 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    location_id = @user.location_id 
-    @location = Location.find(location_id)
+    # fallback so that users can't access other users profiles if they aren't complete
+    # refactor suggestion: put location definitions elsewhere (before_action methods)
+    if @user.profile_complete != true
+      redirect_to users_path
+    else
+      location_id = @user.location_id 
+      @location = Location.find(location_id)
+    end
   end
 
   # GET /users/new
@@ -87,7 +93,7 @@ class UsersController < ApplicationController
   private
 
     def search 
-      @users = User.all.order(:last_name)
+      @users = User.all.order(:last_name).where(profile_complete: true)
 
       # Filter search by location
       @locations = Location.all.pluck(:name)
