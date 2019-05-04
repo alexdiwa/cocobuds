@@ -20,6 +20,10 @@
    scroll-behavior: smooth;
  }
 
+ a:hover {
+   text-decoration:none; 
+ }
+ 
  .spacer {
   height: 80vh;
  }
@@ -30,6 +34,12 @@
 
 .btn-default-sm {
   border-radius: 30px;
+}
+
+.notification {
+  background: #dddddd;
+  border-color: #dddddd;
+  color: #FFFFFF;
 }
 
 .jumbotron {
@@ -69,6 +79,7 @@ ul {
 .msg {
   width: 40px;
   height: 40px;
+  border: 0.5px solid #0011ff;
 }
 
 
@@ -83,11 +94,30 @@ ul {
 
 .filtered img {
   mix-blend-mode: screen;
-  -webkit-filter: grayscale(100%) contrast(110%);
-  filter: grayscale(100%) contrast(110%);
+  -webkit-filter: grayscale(100%) contrast(100%);
+  filter: grayscale(100%) contrast(100%);
   opacity: 1;
 }
 
 .bottom-bord {
   border-bottom: 1px solid #dddddd;
+}
+
+.btn-primary {
+  background: #0011ff;
+  border-color: #0011ff;
+
+  &:hover {
+    background: #3240ff;
+  }
+}
+
+.btn-outline-primary {
+  border: 1px solid #0011ff;
+  color: #0011ff;
+
+  &:hover {
+    background: #0011ff;
+    border: 1px solid #0011ff;
+  }
 }

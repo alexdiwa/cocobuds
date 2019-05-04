@@ -1,6 +1,6 @@
 <div class="w-100">
   <div class="row">
-        <div class="mb-5 col-md-8">
+        <div class="mb-5 col-md-8 pr-5">
             <h5 class="mb-4">Inbox</h5>
             <% @conversations.each_with_index do |conversation, i| %>
                 <%= link_to conversation_messages_path(conversation) do %>
@@ -15,9 +15,11 @@
                                 <span><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %></span><br>
                                 <span class="small"><%= conversation.updated_at.strftime("%l:%M %p on %A %d %b '%y") %></span>
                             </div>
-                            <div class="col-1">
+                            <div class="col-1 m-auto">
                                 <% if !conversation.unread_message_count(current_user).zero? %>
-                                    <%= conversation.unread_message_count(current_user) %>
+                                    <div class="card p-1 pl-3 pr-4 small btn-default-sm notification">
+                                        <%= conversation.unread_message_count(current_user) %>
+                                    </div>
                                 <% end %>
                             </div>
                         </div>
@@ -26,7 +28,7 @@
             <% end %>
         </div>
         <div class="mb-5 col-md-4">
-            TEST
+            <h5>Search</h5>
         </div>
   </div>
 </div>
