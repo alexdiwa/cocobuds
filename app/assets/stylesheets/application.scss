@@ -83,7 +83,11 @@ ul {
 
 .filtered img {
   mix-blend-mode: screen;
-  -webkit-filter: grayscale(100%) contrast(100%);
-  filter: grayscale(100%) contrast(100%);
+  -webkit-filter: grayscale(100%) contrast(110%);
+  filter: grayscale(100%) contrast(110%);
   opacity: 1;
+}
+
+.bottom-bord {
+  border-bottom: 1px solid #dddddd;
 }

@@ -1,20 +1,32 @@
-<div>
-    <h1>Inbox</h1>
-
-    <ul>
-    <% @conversations.each do |conversation| %>
-        <li>
-        <% unless conversation.messages.blank? %>
-            <div class="circle msg">
-                <%= image_tag conversation.recipient(current_user).picture %>
-            </div>
-            <%= link_to conversation.recipient(current_user).first_name, conversation_messages_path(conversation) %>
-            <% if !conversation.unread_message_count(current_user).zero? %>
-                (<%= conversation.unread_message_count(current_user) %>)
+<div class="w-100">
+  <div class="row">
+        <div class="mb-5 col-md-8">
+            <h5 class="mb-4">Inbox</h5>
+            <% @conversations.each_with_index do |conversation, i| %>
+                <%= link_to conversation_messages_path(conversation) do %>
+                    <div class="card mb-2 border-0">
+                        <div class="card-body row align-items-center <%= "bottom-bord" unless i == @conversations.length - 1 %>">
+                            <div class="col-2 fixed-width-pic">
+                                <div class="circle msg filtered">
+                                    <%= image_tag conversation.recipient(current_user).picture %>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <span><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %></span><br>
+                                <span class="small"><%= conversation.updated_at.strftime("%l:%M %p on %A %d %b '%y") %></span>
+                            </div>
+                            <div class="col-1">
+                                <% if !conversation.unread_message_count(current_user).zero? %>
+                                    <%= conversation.unread_message_count(current_user) %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
             <% end %>
-        <% end %>
-        </li>
-    <% end %>
-    </ul>
-
+        </div>
+        <div class="mb-5 col-md-4">
+            TEST
+        </div>
+  </div>
 </div>
