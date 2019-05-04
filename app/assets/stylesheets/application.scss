@@ -13,16 +13,40 @@
  */
 
  @import "bootstrap";
+ 
  html {
    scroll-behavior: smooth;
  }
+
  .spacer {
-  height: 100vh;
+  height: 80vh;
  }
+
  .btn-default {
   border-radius: 40px;
 }
 
+.jumbotron {
+  height: 70vh;
+}
+
 ul {
   list-style:none;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  display: inline-block;
+  overflow: hidden;
+  background: #f3f6f9;
+  border-radius: 50%;
+
+  img {
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }

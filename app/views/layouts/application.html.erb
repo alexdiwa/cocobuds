@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md bg-light navbar-light">
+    <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top">
       <%= link_to "Cocobuds", root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
         </ul>
       </div>
     </nav>
-    <div class="mt-5 container">
+    <div class="mt-5 pt-5 container">
       <% if notice %>
         <div class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
