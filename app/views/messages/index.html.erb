@@ -49,7 +49,8 @@
 
     <%= form_for [@conversation, @message] do |f| %>
         <div class="form-group">
-            <%= f.text_area :body, autofocus: true, placeholder: "Say something nice!", class: "form-control", rows: 5 %>
+            <%= f.label :bio, "Write a nice message", class: "sr-only" %>
+            <%= f.text_area :body, autofocus: true, placeholder: "Say something nice!", class: "form-control", rows: 5, resize: false %>
         </div>
         <div class="mb-3 form-group text-center">
             <%= f.submit "Send", class: "btn btn-primary btn-default btn-block" %>
