@@ -11,5 +11,11 @@ class PaymentsController < ApplicationController
     def success
         current_user.stripe_payment = true
         current_user.save
+
+        if current_user.profile_complete != true
+            @redirect = "2;url=/users/new"
+        else
+            @redirect = "2;url=/users"
+        end
     end
 end

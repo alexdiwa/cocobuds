@@ -10,8 +10,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md bg-light navbar-light">
-      <a class="navbar-brand" href="#">Cocobuds</a>
+    <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top">
+      <%= link_to "Cocobuds", root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
       </button>
@@ -19,16 +19,16 @@
         <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <a class="nav-link" href="#">Browse</a>
+                <%= link_to "Browse", users_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Favourites</a>
+                <%= link_to "Favourites", "#", class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Messages</a>
+                <%= link_to "Messages", conversations_path, class: "nav-link" %>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="#">Donate</a>
+                <%= link_to "Donate", "/pages/donate", class: "nav-link" %>
               </li>
               <li class="nav-item">
                 <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link" ) %>        
@@ -41,7 +41,7 @@
         </ul>
       </div>
     </nav>
-    <div class="mt-5 container">
+    <div class="mt-5 pt-5 container">
       <% if notice %>
         <div class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;</button>

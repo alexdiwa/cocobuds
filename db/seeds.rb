@@ -6,6 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+response = HTTParty.get("https://uifaces.co/api?limit=205&from_age=18&to_age=40&emotion[]=happiness", {
+  headers: {
+    "X-API-KEY" => "14198bec5b8c608a3d0c06b0b3915a"
+  }
+})
+
+parsed = JSON.parse(response.body)
+pics = []
+parsed.each do |ele|
+  pics << ele["photo"]
+  puts "added a random picture"
+end
+
 skills = [
   "After Effects",
   "Final Cut Pro",
@@ -50,7 +63,7 @@ locations.each do |location|
   puts "Created location: #{location}"
 end
 
-for i in 1..150
+for i in 1..200
   User.create(
     email: "ama+#{i}@test.com",
     password: "testpass",
@@ -70,11 +83,12 @@ for i in 1..150
 end
 
 users = User.all
-users.each do |user|
-    rand(10..12).times do
+users.each_with_index do |user, i|
+  rand(10..12).times do
     idx = rand(0..(Skill.all.length - 1))
     user.skills << Skill.all[idx] unless user.skills.include?(Skill.all[idx])
   end
+  puts "added skills to user #{i}"
+  user.picture.attach(io: open(pics[i]), filename: 'dummy.jpg', content_type: 'img/jpg')
+  puts "attached a picture to user #{i}"
 end
-
-

@@ -1,6 +1,10 @@
-<h1>Edit Profile</h1>
+<div class="w-75 text-center m-auto">
+    <h4 class="mb-5">Update your profile</h4>
+</div>
 
 <%= render 'form', user: @user, roles: @roles, locations: @locations, skills: @skills %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="text-center mb-5">
+  <%= link_to 'View my profile', @user %> |
+  <%= link_to 'Back to users', users_path %>
+</div>

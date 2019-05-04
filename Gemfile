@@ -72,3 +72,7 @@ gem "stripe", "~> 4.16"
 gem "bootstrap", "~> 4.3"
 
 gem "jquery-rails", "~> 4.3"
+
+gem "httparty", "~> 0.17.0"
+
+gem 'font-awesome-sass', '~> 5.8.1'

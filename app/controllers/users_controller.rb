@@ -25,8 +25,14 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    location_id = @user.location_id 
-    @location = Location.find(location_id)
+    # fallback so that users can't access other users profiles if they aren't complete
+    # refactor suggestion: put location definitions elsewhere (before_action methods)
+    if @user.profile_complete != true
+      redirect_to users_path
+    else
+      location_id = @user.location_id 
+      @location = Location.find(location_id)
+    end
   end
 
   # GET /users/new
@@ -41,17 +47,18 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = current_user
+    # omitted because Devise creates user, and User only ever updates user after Devise creation.
+    # @user = current_user
 
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @user.update(user_params)
+    #     format.html { redirect_to @user, notice: 'User was successfully created.' }
+    #     format.json { render :show, status: :created, location: @user }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /users/1
@@ -59,7 +66,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Profile saved!' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -86,7 +93,7 @@ class UsersController < ApplicationController
   private
 
     def search 
-      @users = User.all.order(:last_name)
+      @users = User.all.order(:last_name).where(profile_complete: true)
 
       # Filter search by location
       @locations = Location.all.pluck(:name)
@@ -99,8 +106,8 @@ class UsersController < ApplicationController
       # Filter search by designer/developer
       @roles = User.roles.keys.map { |key| key.capitalize }
       unless params[:role].blank?
-        @role_name = params[:role]
-        role_enum = User.roles[@role_name.downcase]
+        @role_name = params[:role].downcase
+        role_enum = User.roles[@role_name]
         @users = @users.where(role: role_enum)
       end
       

@@ -1,7 +1,36 @@
 <% @users.each do |user| %>
-  <%= link_to user_path(user.id), class: "card mb-3" do %>
+  <div class="card mb-3">
     <div class="card-body">
-      <%= user.first_name %>  <%= user.last_name %>
+      <div class="row">
+        <div class="col-3 fixed-width-pic">
+          <div class="circle search">
+            <%= link_to user_path(user.id) do %>
+              <%= image_tag user.picture if user.picture.attached? %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-3">
+          <%= link_to user_path(user.id) do %>
+            <span><%= user.first_name %> <%= user.last_name %></span><br>
+          <% end %>
+          <span><%= user.role.capitalize %></span><br>
+          <button type="button" class="btn btn-link p-0">
+            <%= icon("far", "star") %>
+          </button>
+          <button type="button" class="btn btn-link p-0">
+            <%= icon("far", "comment") %>
+          </button>
+        </div>
+        <div class="col-sm-6">
+          <div class="card-columns row pl-3">
+            <% user.skills.each do |skill| %>
+              <div class="card w-auto p-1 pl-2 pr-2 m-1 text-muted small btn-default-sm">
+                <%= skill.name %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
+  </div>
 <% end %>
