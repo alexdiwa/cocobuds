@@ -22,9 +22,9 @@
           <%= @user.bio %>
         </p>
       
-      <div class="card-columns row">
+      <div class="card-columns row p-2">
         <% @user.skills.each do |skill| %>
-          <div class="card card-body w-auto text-center p-2 m-2">
+          <div class="card w-auto p-2 pl-3 pr-3 m-1 small btn-default-sm">
             <%= skill.name %>
           </div>
         <% end %>
