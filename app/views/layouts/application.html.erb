@@ -25,7 +25,7 @@
                 <%= link_to "Favourites", "#", class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Messages", conversations_path, class: "nav-link" %>
+                <%= link_to conversations_path, class: "nav-link" do %>Messages<span class="ml-1 p-1 pl-2 pr-2 small btn-default-sm notification <%= "d-none" if @total_unread == 0 %>"><%= @total_unread %></span><% end %>
               </li> 
               <li class="nav-item">
                 <%= link_to "Donate", "/pages/donate", class: "nav-link" %>
