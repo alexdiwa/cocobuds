@@ -13,6 +13,8 @@
  */
 
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
  
  html {
    scroll-behavior: smooth;
@@ -34,6 +36,8 @@ ul {
   list-style:none;
 }
 
+
+
 .circle {
   width: 100px;
   height: 100px;
@@ -49,4 +53,9 @@ ul {
     object-fit: cover;
     object-position: center;
   }
+}
+
+.search {
+  width: 80px;
+  height: 80px;
 }
