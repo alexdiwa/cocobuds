@@ -1,6 +1,6 @@
 <div class="w-100">
   <div class="row">
-    <div class="mb-5 col-md-4">
+    <div class="mb-5 col-lg-4">
       <%= form_with url: users_path, method: :get, local: true do |form| %>
         <div class="form-group">
             <%= form.label :location, class: "sr-only" %>
@@ -31,7 +31,7 @@
         </div>
       <% end %>
     </div>
-    <div class="mb-5 col-md-8">
+    <div class="mb-5 col-lg-8">
       <%= render 'search_results' %>
     </div>
   </div>

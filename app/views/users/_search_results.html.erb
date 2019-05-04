@@ -2,14 +2,14 @@
   <div class="card mb-3">
     <div class="card-body">
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-3 fixed-width-pic">
           <div class="circle search">
             <%= link_to user_path(user.id) do %>
               <%= image_tag user.picture if user.picture.attached? %>
             <% end %>
           </div>
         </div>
-        <div class="col-sm">
+        <div class="col-3">
           <%= link_to user_path(user.id) do %>
             <span><%= user.first_name %> <%= user.last_name %></span><br>
           <% end %>
@@ -21,7 +21,14 @@
             <%= icon("far", "comment") %>
           </button>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-6">
+          <div class="card-columns row pl-3">
+            <% user.skills.each do |skill| %>
+              <div class="card w-auto p-1 m-1 text-muted small">
+                <%= skill.name %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

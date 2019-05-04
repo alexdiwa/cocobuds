@@ -5,7 +5,7 @@
         <%= image_tag @user.picture if @user.picture.attached? %>
       </div>
       <p>
-        <%= @user.first_name %> <%= @user.last_name %> <%= "/ #{@user.age}" unless @user.age.blank? %><br>
+        <span class="font-weight-bold"><%= @user.first_name %> <%= @user.last_name %></span> <%= "/ #{@user.age}" unless @user.age.blank? %><br>
         <%= @user.role.capitalize %><br>
         <%= @user.occupation %><br>
         <%= @location.name %>
@@ -17,10 +17,10 @@
 
     </div>
     <div class="mb-5 col-md-8">
-      <p>
-        <strong>About Me:</strong><br>
-        <%= @user.bio %>
-
+        <strong>About Me</strong>
+        <p>
+          <%= @user.bio %>
+        </p>
       
       <div class="card-columns row">
         <% @user.skills.each do |skill| %>
