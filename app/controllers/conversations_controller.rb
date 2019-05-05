@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
 
   def index
     @users = User.where.not(id: current_user.id)
-    @conversations = Conversation.order(:updated_at).where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id).reverse
+    @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id).joins(:messages).order("messages.updated_at DESC").uniq
     
     # fallback for conversations that are created if user clicks to message someone but doesn't write anything
     @conversations.each { |conversation| conversation.destroy if conversation.messages.blank? }
