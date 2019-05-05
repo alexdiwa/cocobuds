@@ -76,8 +76,7 @@ for i in 1..200
     profile_complete: true,
     stripe_payment: true,
     location_id: rand(1..locations.length),
-    company: Faker::Company.name,
-    occupation: Faker::Name.last_name
+    occupation: "Junior"
   )
   puts "Created #{i} users"
 end

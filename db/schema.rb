@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2019_05_03_054217) do
     t.boolean "stripe_payment"
     t.boolean "profile_complete"
     t.string "occupation"
-    t.string "company"
     t.bigint "location_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["location_id"], name: "index_users_on_location_id"

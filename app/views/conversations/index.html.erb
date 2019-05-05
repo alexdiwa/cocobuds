@@ -3,25 +3,25 @@
         <div class="mb-5 col-md-8 pr-5">
             <h5 class="mb-2 mt-2 ml-3">Inbox</h5>
             <% if @show_empty %>
-                <%= "You have no messages! Get connecting." %>
+                <%= "You have no messages. Get connecting!" %>
             <% else %>
                 <% @conversations.each_with_index do |conversation, i| %>
                     <% next if conversation.messages.blank? %>
                     <%= link_to conversation_messages_path(conversation) do %>
-                        <div class="card mb-2 border-0">
-                            <div class="card-body row align-items-center <%= "bottom-bord" unless i == @conversations.length - 1 %>">
-                                <div class="col-2 fixed-width-pic">
+                        <div class="card mb-1 border-0">
+                            <div class="card-body row align-items-center p-2 <%= "bottom-bord" unless i == @conversations.length - 1 %>">
+                                <div class="col-2 fixed-width-pic p-0">
                                     <div class="circle msg filtered">
                                         <%= image_tag conversation.recipient(current_user).picture if conversation.recipient(current_user).picture.attached? %>
                                     </div>
                                 </div>
-                                <div class="col-9">
+                                <div class="col-8">
                                     <span><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %></span><br>
                                     <span class="small"><%= conversation.messages.last.created_at.strftime("%l:%M %p on %A %d %b '%y") %></span>
                                 </div>
-                                <div class="col-1 m-auto">
+                                <div class="col-2 m-auto">
                                     <% if !conversation.unread_message_count(current_user).zero? %>
-                                        <div class="card p-1 pl-3 pr-4 small btn-default-sm notification">
+                                        <div class="p-1 text-center m-0 small btn-default-sm notification ml-auto">
                                             <%= conversation.unread_message_count(current_user) %>
                                         </div>
                                     <% end %>
