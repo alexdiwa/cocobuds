@@ -2,7 +2,7 @@
     <% @messages.each do |message| %>
         <% if message.body %>
             <% if current_user.id == message.user_id %>
-                <div class="card p-3 text-right mb-5 w-75 ml-auto">
+                <div class="card p-3 text-right mb-3 w-75 ml-auto">
                     <div class="card-body row align-items-center pt-1">
                         <div class="col-md-10 small text-muted p-0">
                             <span>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             <% else %>
-                <div class="card p-3 mb-5 w-75 mr-auto">
+                <div class="card p-3 mb-3 w-75 mr-auto">
                     <div class="card-body row align-items-center pt-1">
                         <div class="col-md-2 p-0">
                             <div class="circle msg filtered">

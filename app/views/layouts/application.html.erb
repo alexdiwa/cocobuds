@@ -16,7 +16,7 @@
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto align-items-center">
             <% if user_signed_in? %>
               <li class="nav-item">
                 <%= link_to "Browse", users_path, class: "nav-link" %>
@@ -33,6 +33,13 @@
               <li class="nav-item">
                 <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link" ) %>        
               </li>
+              <li class="nav-item">
+                  <%= link_to user_path(current_user.id), class: "nav-link" do %>
+                    <div class="circle nav filtered m-0 p-0">
+                      <%= image_tag current_user.picture if current_user.picture.attached? %>
+                    </div>
+                  <% end %>    
+              </li>              
             <% else %>
               <li class="nav-item">
                 <%= link_to('Login', new_user_session_path, class: "nav-link")  %>  
