@@ -4,8 +4,13 @@ class ConversationsController < ApplicationController
   def index
     @users = User.where.not(id: current_user.id)
     @conversations = Conversation.order(:updated_at).where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id).reverse
-    #fallback for conversations that are created if user clicks to message someone but doesn't write anything
+    
+    # fallback for conversations that are created if user clicks to message someone but doesn't write anything
     @conversations.each { |conversation| conversation.destroy if conversation.messages.blank? }
+   
+    # for rendering something different if a user has no messages
+    @show_empty = false
+    @show_empty = true if @conversations.all? { |conversation| conversation.messages.blank? }
   end
 
   def create
