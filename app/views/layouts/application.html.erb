@@ -18,21 +18,31 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <li class="nav-item">
+              <li class="nav-item my-auto">
                 <%= link_to "Browse", users_path, class: "nav-link" %>
               </li>
-              <li class="nav-item">
+              <li class="nav-item my-auto">
                 <%= link_to "Favourites", "#", class: "nav-link" %>
               </li>
-              <li class="nav-item">
-                <%= link_to "Messages", conversations_path, class: "nav-link" %>
+              <li class="nav-item my-auto">
+                <%= link_to conversations_path, class: "nav-link" do %>Messages<span class="ml-1 p-1 pl-2 pr-2 small btn-default-sm notification <%= "d-none" if @total_unread == 0 %>"><%= @total_unread %></span><% end %>
               </li> 
-              <li class="nav-item">
+              <li class="nav-item my-auto">
                 <%= link_to "Donate", "/pages/donate", class: "nav-link" %>
               </li>
-              <li class="nav-item">
-                <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link" ) %>        
-              </li>
+              <li class="nav-item dropdown my-auto">
+                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="circle nav filtered m-0 p-0 mt-1" aria-labelledby="navbarDropdown">
+                    <%= image_tag current_user.picture if current_user.picture.attached? %>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <%= link_to "View Profile", user_path(current_user.id), class: "dropdown-item small" %>
+                  <%= link_to "Edit Profile", edit_user_path(current_user.id), class: "dropdown-item small"%>
+                  <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item small"%>
+                  <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item small" ) %>    
+                </div>
+              </li>              
             <% else %>
               <li class="nav-item">
                 <%= link_to('Login', new_user_session_path, class: "nav-link")  %>  

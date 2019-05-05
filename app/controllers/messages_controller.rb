@@ -1,12 +1,10 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-
-  before_action do
-    @conversation = Conversation.find(params[:conversation_id])
-  end
+  before_action :set_conversation, only: [:index, :create]
+  before_action :same_user_check, only: [:index]
 
   def index
-    @messages = @conversation.messages
+    @messages = @conversation.messages.order(:created_at)
 
     @messages.where("user_id != ? AND read = ?", current_user.id, false).update_all(read: true)
 
@@ -23,7 +21,17 @@ class MessagesController < ApplicationController
   end
 
   private
+    def set_conversation
+      @conversation = Conversation.find(params[:conversation_id])
+    end
+
     def message_params
       params.require(:message).permit(:body, :user_id)
+    end
+
+    def same_user_check
+      if @conversation.receiver_id == @conversation.sender_id
+        redirect_to user_path(current_user.id), notice: 'You can\'t send a message to yourself!'
+      end
     end
 end

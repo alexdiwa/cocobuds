@@ -76,8 +76,7 @@ for i in 1..200
     profile_complete: true,
     stripe_payment: true,
     location_id: rand(1..locations.length),
-    company: Faker::Company.name,
-    occupation: Faker::Name.last_name
+    occupation: "Junior"
   )
   puts "Created #{i} users"
 end
@@ -91,4 +90,31 @@ users.each_with_index do |user, i|
   puts "added skills to user #{i}"
   user.picture.attach(io: open(pics[i]), filename: 'dummy.jpg', content_type: 'img/jpg')
   puts "attached a picture to user #{i}"
+end
+
+# Seeding conversations:
+# generate pairs of user ids:
+
+a = (1..10).to_a
+pairs = a.permutation(2).to_a
+pairs.map!{ |pair| pair.sort! }.uniq!
+# pairs now is an array with each element being a unique pair of user ids spanning users 1 to 10
+# 45 conversations in total! (pairs.length)
+
+pairs.each do |pair|
+  Conversation.create!(sender_id: pair[0], receiver_id: pair[1])
+end
+
+conversations = Conversation.all
+conversations.each do |conversation|
+  ids = [conversation.sender_id, conversation.receiver_id]
+  randnum = rand(3..5)
+  randnum.times do
+    message = conversation.messages.new(
+      user_id: ids.sample,
+      body: Faker::Hipster.paragraph(rand(2..4))
+    )
+    message.save
+  end
+  puts "created a message thread beteen users #{conversation.sender_id} and #{conversation.receiver_id} with #{randnum} messages"
 end
