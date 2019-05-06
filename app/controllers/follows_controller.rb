@@ -4,6 +4,11 @@ include ActionView::Helpers::UrlHelper
 
     def index
         @saved = current_user.followers
+        @followed_by = current_user.followees
+        @mutuals = []
+        @followed_by.each do |followee|
+            @mutuals << followee if @saved.include?(followee)
+        end
     end
 
     def create
