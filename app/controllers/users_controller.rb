@@ -119,7 +119,8 @@ class UsersController < ApplicationController
         @users.each do |user|
           skilled_users << user if user.skills.ids.include?(skill_id)
         end 
-        @users = skilled_users
+        # @users = skilled_users
+        @users = User.where(id: skilled_users.map(&:id))
       end 
       
     
@@ -134,9 +135,11 @@ class UsersController < ApplicationController
           # adding the user to the skilled users array if the user knows all of the skills passed through the checkbox form i.e. params
           skilled_users << user if skill_ids.all? { |skill| user.skills.ids.include?(skill) }
         end
-        @users = skilled_users
+        # @users = skilled_users
+        @users = User.where(id: skilled_users.map(&:id))
+
       end
-     
+     @users = @users.page(params[:page])
     end 
 
 
