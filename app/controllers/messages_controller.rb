@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_conversation, only: [:index, :create]
-  # before_action :authorise_user, only: [:index]
+  before_action :authorise_user, only: [:index]
   before_action :same_user_check, only: [:index]
 
   def index
