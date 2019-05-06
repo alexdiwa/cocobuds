@@ -16,7 +16,11 @@
           <span><%= user.role.capitalize %></span><br>
         <div class="row">
         <div class="col-2">
-          <%= link_to icon("far", "star"), "#" %>
+          <% if current_user.followers.where(id: user.id).exists? %>
+            <%= link_to icon("fas", "star"), follow_path(id: user.id), method: :delete %>
+          <%else%>
+            <%= link_to icon("far", "star"), follows_path(id: user.id), method: :post %>
+          <%end%>
         </div>
         <div class="col-2">
           <%= link_to icon("far", "comment"), conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %>
