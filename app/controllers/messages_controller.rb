@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_conversation, only: [:index, :create]
+  # before_action :authorise_user, only: [:index]
   before_action :same_user_check, only: [:index]
 
   def index
@@ -32,6 +33,12 @@ class MessagesController < ApplicationController
     def same_user_check
       if @conversation.receiver_id == @conversation.sender_id
         redirect_to user_path(current_user.id), notice: 'You can\'t send a message to yourself!'
+      end
+    end
+
+    def authorise_user
+      if @conversation.receiver_id != current_user.id and @conversation.sender_id != current_user.id
+        redirect_to conversations_index_path, alert: 'Not authorised to perform this action'        
       end
     end
 end
