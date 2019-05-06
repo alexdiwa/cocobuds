@@ -95,6 +95,12 @@ class UsersController < ApplicationController
     def search 
       @users = User.all.order(:last_name).where(profile_complete: true)
 
+      #filter by search string 
+      unless params[:string].blank?
+      @users = @users.where("lower(first_name || ' ' || last_name) LIKE ?", "%#{params[:string].downcase}%")
+      end 
+      
+
       # Filter search by location
       @locations = Location.all.pluck(:name)
       unless params[:location].blank?
