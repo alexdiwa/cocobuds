@@ -7,6 +7,8 @@ class ConversationsController < ApplicationController
     
     # fallback for conversations that are created if user clicks to message someone but doesn't write anything
     @conversations.each { |conversation| conversation.destroy if conversation.messages.blank? }
+    # deletes conversations if one of the users has deleted their profile
+    @conversations.each { |conversation| conversation.destroy if !User.exists?(conversation.sender_id) or !User.exists?(conversation.receiver_id) }
    
     # for rendering something different if a user has no messages
     @show_empty = false
