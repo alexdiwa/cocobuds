@@ -6,18 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Making the HTTP request
 response = HTTParty.get("https://uifaces.co/api?limit=205&from_age=18&to_age=40&emotion[]=happiness", {
   headers: {
     "X-API-KEY" => "14198bec5b8c608a3d0c06b0b3915a"
   }
 })
 
+# saving request results to variable -- this is an array
 parsed = JSON.parse(response.body)
+
+#create a new array that will store our picture urls
 pics = []
+# cycling through results (array) and adding each picture URL to our pics array.
 parsed.each do |ele|
   pics << ele["photo"]
   puts "added a random picture"
 end
+#pics now is an array with 205 picture urls.
 
 skills = [
   "After Effects",
@@ -82,12 +88,16 @@ for i in 1..200
 end
 
 users = User.all
+# iterating through users array with an each_with_index method that gives
+# us access both the element and the index of that element with each successive cycle
 users.each_with_index do |user, i|
   rand(10..12).times do
     idx = rand(0..(Skill.all.length - 1))
     user.skills << Skill.all[idx] unless user.skills.include?(Skill.all[idx])
   end
   puts "added skills to user #{i}"
+  
+  #user.picture.attach attaches a picture to that user. We attach the picture at index i in pics array user i in user array.
   user.picture.attach(io: open(pics[i]), filename: 'dummy.jpg', content_type: 'img/jpg')
   puts "attached a picture to user #{i}"
 end
