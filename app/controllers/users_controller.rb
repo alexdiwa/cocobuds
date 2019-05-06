@@ -186,4 +186,8 @@ class UsersController < ApplicationController
         redirect_to new_user_path, notice: 'You need to fill in your profile before you proceed!'
       end
     end
+    #passing through params which is going to contain user, user has been defined already by set_user
+    def follow_user
+      current_user.followers << @user
+    end
 end
