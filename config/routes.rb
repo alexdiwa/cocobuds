@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
+  get "/saved", to: "follows#index", as: "saved"
+  resources :follows, only: [:create, :destroy]
 end

@@ -22,7 +22,7 @@
                 <%= link_to "Browse", users_path, class: "nav-link" %>
               </li>
               <li class="nav-item my-auto">
-                <%= link_to "Favourites", "#", class: "nav-link" %>
+                <%= link_to "Favourites", saved_path, class: "nav-link" %>
               </li>
               <li class="nav-item my-auto">
                 <%= link_to conversations_path, class: "nav-link" do %>Messages<span class="ml-1 p-1 pl-2 pr-2 small btn-default-sm notification <%= "d-none" if @total_unread == 0 %>"><%= @total_unread %></span><% end %>

@@ -1,0 +1,39 @@
+<h5 class="mb-3">My Favorites</h5>
+<% @saved.each do |user| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3 fixed-width-pic">
+          <div class="circle search filtered">
+            <%= link_to user_path(user.id) do %>
+              <%= image_tag user.picture if user.picture.attached? %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-3">
+          <%= link_to user_path(user.id) do %>
+            <span><%= user.first_name %> <%= user.last_name %></span><br>
+          <% end %>
+          <span><%= user.role.capitalize %></span><br>
+        <div class="row">
+        <div class="col-2">
+          <%= link_to icon("far", "star"), "#" %>
+        </div>
+        <div class="col-2">
+          <%= link_to icon("far", "comment"), conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %>
+        </div>
+        </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card-columns row pl-3">
+            <% user.skills.each do |skill| %>
+              <div class="card w-auto p-1 pl-2 pr-2 m-1 text-muted small btn-default-sm">
+                <%= skill.name %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
