@@ -6,7 +6,11 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages.order(:created_at)
-
+    if @conversation.sender_id == current_user.id
+      @user = User.find(@conversation.receiver_id)
+    else
+      @user = User.find(@conversation.sender_id)
+    end
     @messages.where("user_id != ? AND read = ?", current_user.id, false).update_all(read: true)
 
     @message = @conversation.messages.new
