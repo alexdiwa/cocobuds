@@ -1,10 +1,12 @@
 <div class="w-100">
   <div class="row">
         <div class="mb-5 col-md-8 pr-5">
-            <h5 class="mb-2 mt-2 ml-3">Inbox</h5>
             <% if @show_empty %>
-                <h5>"You have no messages. Get connecting!"</h5>
+                <div class="container mt-5">
+                    <h3>You have no messages. Get connecting!</h3>
+                </div>
             <% else %>
+                <h5 class="mb-2 mt-2 ml-3">Inbox</h5>
                 <% @conversations.each_with_index do |conversation, i| %>
                     <% next if conversation.messages.blank? %>
                     <%= link_to conversation_messages_path(conversation) do %>
