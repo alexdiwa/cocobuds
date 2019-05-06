@@ -1,5 +1,9 @@
 class FollowsController < ApplicationController
 # before_action :set_user, only: [:create, :destroy]
+    def index
+        @saved = current_user.followers
+    end
+
     def create
         id = params[:id]
         @user = User.find(id)
