@@ -14,12 +14,14 @@
             <span><%= user.first_name %> <%= user.last_name %></span><br>
           <% end %>
           <span><%= user.role.capitalize %></span><br>
-          <button type="button" class="btn btn-link p-0">
-            <%= icon("far", "star") %>
-          </button>
-          <button type="button" class="btn btn-link p-0">
-            <%= icon("far", "comment") %>
-          </button>
+        <div class="row">
+        <div class="col-2">
+          <%= link_to icon("far", "star"), "#" %>
+        </div>
+        <div class="col-2">
+          <%= link_to icon("far", "comment"), conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %>
+        </div>
+        </div>
         </div>
         <div class="col-sm-6">
           <div class="card-columns row pl-3">
