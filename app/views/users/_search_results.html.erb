@@ -1,43 +1,48 @@
+<div class="card-columns">
 <% @users.each do |user| %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-3 fixed-width-pic">
-          <div class="circle search filtered">
-            <%= link_to user_path(user.id) do %>
-              <%= image_tag user.picture if user.picture.attached? %>
-            <% end %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-5 fixed-width-pic">
+              <div class="circle search filtered">
+                <%= link_to user_path(user.id) do %>
+                  <%= image_tag user.picture if user.picture.attached? %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-lg-7 my-auto">
+              <div class="row">
+                <%= link_to user_path(user.id) do %>
+                  <span><%= user.first_name %> <%= user.last_name %></span><br>
+                <% end %>
+                <span><%= user.role.capitalize %></span><br>
+              </div>
+              <div class="row">
+                <div class="col-1">
+                  <% if current_user.followers.where(id: user.id).exists? %>
+                    <%= link_to icon("fas", "star"), follow_path(id: user.id), method: :delete %>
+                  <%else%>
+                    <%= link_to icon("far", "star"), follows_path(id: user.id), method: :post %>
+                  <%end%>
+                </div>
+                <div class="col-1">
+                  <%= link_to icon("far", "comment"), conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-3">
-          <%= link_to user_path(user.id) do %>
-            <span><%= user.first_name %> <%= user.last_name %></span><br>
-          <% end %>
-          <span><%= user.role.capitalize %></span><br>
-        <div class="row">
-        <div class="col-2">
-          <% if current_user.followers.where(id: user.id).exists? %>
-            <%= link_to icon("fas", "star"), follow_path(id: user.id), method: :delete %>
-          <%else%>
-            <%= link_to icon("far", "star"), follows_path(id: user.id), method: :post %>
-          <%end%>
-        </div>
-        <div class="col-2">
-          <%= link_to icon("far", "comment"), conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %>
-        </div>
-        </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card-columns row pl-3">
+          <div class="row p-2">
             <% user.skills.each do |skill| %>
               <div class="card w-auto p-1 pl-2 pr-2 m-1 text-muted small btn-default-sm">
                 <%= skill.name %>
               </div>
             <% end %>
           </div>
+
         </div>
+
       </div>
-    </div>
-  </div>
+
 <% end %>
+</div>
 <%= paginate @users %>
