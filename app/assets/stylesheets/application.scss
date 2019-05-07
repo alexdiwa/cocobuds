@@ -162,8 +162,10 @@ textarea {
     column-count: 1;
   }
 }
+
 .custom-container {
   margin: auto;
+  min-height: 500px;
 
   @include media-breakpoint-only(xl) {
     width: 60%;
@@ -188,3 +190,7 @@ textarea {
   bottom: 0px;
 }
 
+.pagination {
+  justify-content: center;
+  padding-top: 30px;
+}
