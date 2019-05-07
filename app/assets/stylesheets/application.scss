@@ -15,9 +15,13 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
- 
+
+
  html {
    scroll-behavior: smooth;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
  }
 
  a:hover {
@@ -141,4 +145,10 @@ textarea {
 
 .small {
   font-size: 9pt;
+}
+
+.footer {
+  background: #EEEEEE;
+  width: 100%;
+  padding: 60px;
 }
