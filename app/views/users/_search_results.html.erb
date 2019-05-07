@@ -3,21 +3,19 @@
       <div class="card mb-3">
         <div class="card-body">
           <div class="row">
-            <div class="col-lg-5 fixed-width-pic">
-              <div class="circle search filtered">
+            <div class="col-lg-5 fixed-width-pic p-0 pl-3">
+              <div class="circle search filtered m-0">
                 <%= link_to user_path(user.id) do %>
                   <%= image_tag user.picture if user.picture.attached? %>
                 <% end %>
               </div>
             </div>
             <div class="col-lg-7 my-auto">
-              <div class="row">
-                <%= link_to user_path(user.id) do %>
-                  <span><%= user.first_name %> <%= user.last_name %></span><br>
-                <% end %>
+              <div class="row justify-content-end custom-card">
+                <%= link_to user_path(user.id) do %><%= user.first_name %> <%= user.last_name %><% end %>
                 <span><%= user.role.capitalize %></span><br>
               </div>
-              <div class="row">
+              <div class="row justify-content-end">
                 <div class="col-1">
                   <% if current_user.followers.where(id: user.id).exists? %>
                     <%= link_to icon("fas", "star"), follow_path(id: user.id), method: :delete %>
