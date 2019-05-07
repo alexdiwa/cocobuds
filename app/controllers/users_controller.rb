@@ -48,17 +48,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     # omitted because Devise creates user, and User only ever updates user after Devise creation.
-    # @user = current_user
-
-    # respond_to do |format|
-    #   if @user.update(user_params)
-    #     format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #     format.json { render :show, status: :created, location: @user }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /users/1
@@ -66,7 +55,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Profile saved!' }
+        format.html { redirect_to users_path, notice: 'Profile saved!' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -145,7 +134,7 @@ class UsersController < ApplicationController
         @users = User.where(id: skilled_users.map(&:id))
 
       end
-     @users = @users.page(params[:page])
+     @users = @users.page(params[:page]).includes(:skills)
     end 
 
 
