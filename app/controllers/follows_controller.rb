@@ -3,7 +3,7 @@ class FollowsController < ApplicationController
 include ActionView::Helpers::UrlHelper
 
     def index
-        @saved = current_user.followers
+        @saved = current_user.followers.includes(:skills)
         @followed_by = current_user.followees
         @mutuals = []
         @followed_by.each do |followee|
