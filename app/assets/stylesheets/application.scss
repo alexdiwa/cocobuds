@@ -15,6 +15,7 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ @import "footer";
 
 
  html {
@@ -29,7 +30,7 @@
  }
  
  .spacer {
-  height: 80vh;
+  height: 50vh;
  }
 
  .btn-default {
@@ -147,8 +148,83 @@ textarea {
   font-size: 9pt;
 }
 
+.card-columns {
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 1;
+  }
+}
+
+.custom-container {
+  margin: auto;
+  min-height: 500px;
+
+  @include media-breakpoint-only(xl) {
+    width: 60%;
+  }
+  @include media-breakpoint-only(lg) {
+    width: 75%;
+  }
+  @include media-breakpoint-only(md) {
+    width: 80%;
+  }
+  @include media-breakpoint-only(sm) {
+    width: 100%;
+  }
+}
+
+.form-sm {
+  margin: auto;
+
+  @include media-breakpoint-only(xl) {
+    width: 400px;
+  }
+  @include media-breakpoint-only(lg) {
+    width: 55%;
+  }
+  @include media-breakpoint-only(md) {
+    width: 75%;
+  }
+  @include media-breakpoint-only(sm) {
+    width: 100%;
+  }
+}
+
+.form-lg {
+  margin: auto;
+
+  @include media-breakpoint-only(xl) {
+    width: 700px;
+  }
+  @include media-breakpoint-only(lg) {
+    width: 700px;
+  }
+  @include media-breakpoint-only(md) {
+    width: 85%;
+  }
+  @include media-breakpoint-only(sm) {
+    width: 100%;
+  }
+}
+
+
 .footer {
   background: #EEEEEE;
   width: 100%;
   padding: 60px;
+  position: relative;
+  bottom: 0px;
+}
+
+.pagination {
+  justify-content: center;
+  padding-top: 30px;
 }

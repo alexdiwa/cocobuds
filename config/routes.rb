@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, path: "/", path_names: { sign_in: "login", sign_out: 'logout', sign_up: "signup" }, :controllers => { registrations: 'registrations' }
  
   root to: "users#home"
   get "/users/preview", to: "users#preview", as: "preview"
