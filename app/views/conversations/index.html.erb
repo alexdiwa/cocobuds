@@ -1,11 +1,11 @@
+<% if @show_empty %>
+    <div class="custom-container mt-5 text-center">
+        <h4 class="display-4 mt-5">You have no messages. Get connecting!</h4>
+    </div>
+<% else %>
 <div class="w-100">
-  <div class="row">
-        <div class="mb-5 col-md-8 pr-5">
-            <% if @show_empty %>
-                <div class="container mt-5">
-                    <h3>You have no messages. Get connecting!</h3>
-                </div>
-            <% else %>
+    <div class="row">
+        <div class="mb-5 col-md-8">
                 <h5 class="mb-2 mt-2 ml-3">Inbox</h5>
                 <% @conversations.each_with_index do |conversation, i| %>
                     <% next if conversation.messages.blank? %>
@@ -32,10 +32,10 @@
                         </div>
                     <% end %>
                 <% end %>
-            <% end %>
         </div>
         <div class="mb-5 col-md-4">
             <h5></h5>
         </div>
   </div>
 </div>
+<% end %>
