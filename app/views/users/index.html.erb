@@ -22,7 +22,7 @@
           <% @skills.each_with_index do |skill, i| %>
             <% if i == (@skills.length / 2) - 1 %>
           </div>
-          <div class="col">
+          <div class="col p-0">
             <% end %>
             <input class="checkbox mr-1" type="checkbox" name="skills[]" id="<%= skill.id %>" value="<%= skill.id %>"> <label for="<%= skill.id %>" class="small"><%= skill.name %></label><br>
           <% end %>

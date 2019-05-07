@@ -1,4 +1,4 @@
-<div class="container mb-5 w-75">
+<div class="custom-container mb-5">
   <% if @saved.blank? %>
     <h4 class="display-4 mt-5">You haven't saved any users to your favourites yet. Have a browse, and start adding!</h4>
   <% else %>
@@ -24,7 +24,7 @@
                   </div>
                 </div>
 
-                <div class="col-3">
+                <div class="col-4">
                   <%= link_to user_path(user.id) do %>
                     <span><%= user.first_name %> <%= user.last_name %></span><br>
                   <% end %>
@@ -45,7 +45,7 @@
                 </div>
 
 
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                   <div class="card-columns row pl-3">
                   <% user.skills.each do |skill| %>
                     <div class="card w-auto p-1 pl-2 pr-2 m-1 text-muted small btn-default-sm">

@@ -68,14 +68,48 @@
       <%= yield %>
     </div>
   </body>
-    <div class="footer">
-      <div class="row">
-        <div class="col-sm-6">
-          About Us
-        </div>
-        <div class="col-sm-6">
-          Contact Us
-        </div>
+
+  <footer id="myFooter">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3">
+                  <h5>Get started</h5>
+                  <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Sign up</a></li>
+                      <li><a href="#">Downloads</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>About us</h5>
+                  <ul>
+                      <li><a href="#">Company Information</a></li>
+                      <li><a href="#">Contact us</a></li>
+                      <li><a href="#">Reviews</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>Support</h5>
+                  <ul>
+                      <li><a href="#">FAQ</a></li>
+                      <li><a href="#">Help desk</a></li>
+                      <li><a href="#">Forums</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <div class="social-networks">
+                        <a href="#"><%= icon("fab", "twitter") %></a>
+                        <a href="#"><%= icon("fab", "facebook") %></a>
+                        <a href="#"><%= icon("fab", "google") %></a>
+                  </div>
+                  <button type="button" class="btn btn-outline-primary">Contact us</button>
+              </div>
+          </div>
       </div>
-    </div>
+      <div class="footer-copyright">
+          <p>&copy; AMA 2019</p>
+      </div>
+  </footer>
+
+
 </html>
