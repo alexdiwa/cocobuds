@@ -96,6 +96,13 @@ users.each_with_index do |user, i|
     user.skills << Skill.all[idx] unless user.skills.include?(Skill.all[idx])
   end
   puts "added skills to user #{i}"
+
+  rand(12..20).times do
+    random_user_id = rand(1..users.count)
+    random_user = User.find(random_user_id)
+    user.followers << random_user unless user.followers.include?(random_user)
+  end
+  puts "added favourites to user"
   
   #user.picture.attach attaches a picture to that user. We attach the picture at index i in pics array user i in user array.
   user.picture.attach(io: open(pics[i]), filename: 'dummy.jpg', content_type: 'img/jpg')
@@ -128,3 +135,4 @@ conversations.each do |conversation|
   end
   puts "created a message thread beteen users #{conversation.sender_id} and #{conversation.receiver_id} with #{randnum} messages"
 end
+
