@@ -134,7 +134,7 @@ class UsersController < ApplicationController
         @users = User.where(id: skilled_users.map(&:id))
 
       end
-     @users = @users.page(params[:page])
+     @users = @users.page(params[:page]).includes(:skills)
     end 
 
 
