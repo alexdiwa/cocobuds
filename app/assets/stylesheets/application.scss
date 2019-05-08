@@ -22,8 +22,13 @@
   font-family: futura-pt, sans-serif;
   letter-spacing: 0.5px;
   font-style: normal;
-  
  }
+
+ html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
 
  .alerts {
    position: absolute;
@@ -32,6 +37,7 @@
    width: auto;
    z-index: 2;
  }
+
  .yellow {
   background-color: #fddc1c;
  }
@@ -57,18 +63,8 @@ p {
   background-color: white;
  }
 
- html {
-   scroll-behavior: smooth;
-   margin: 0;
-   padding: 0;
- }
-
  a:hover {
    text-decoration:none; 
- }
- 
- .spacer {
-  height: 50vh;
  }
 
  .btn-default {
@@ -84,12 +80,6 @@ p {
   border-color: #dddddd;
   color: #FFFFFF;
   width: 30px;
-}
-
-.jumbotron {
-  height: 70vh;
-  background: none;
-  border: none;
 }
 
 ul {
@@ -123,13 +113,11 @@ ul {
 .msg {
   width: 40px;
   height: 40px;
-  // border: 0.5px solid #0011ff;
 }
 
 .nav {
   width: 30px;
   height: 30px;
-  // border: 0.5px solid #0011ff;
 }
 
 
