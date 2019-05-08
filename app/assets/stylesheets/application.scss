@@ -19,6 +19,9 @@
  @import url("https://use.typekit.net/udf3jvw.css");
  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700');
 
+ $blue: #0011ff;
+ $black: #000000;
+ $yellow: #fddc1c;
 
  * {
   font-family: 'IBM Plex Mono', monospace;
@@ -29,6 +32,10 @@
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: $blue;
 }
 
 .home {
@@ -46,7 +53,7 @@
  }
 
  .yellow {
-  background-color: #fddc1c;
+  background-color: $yellow;
  }
 
  .landing {
@@ -72,6 +79,14 @@ p {
  .navbar-light {
   background-color: white;
  }
+
+ .navbar-light .navbar-nav .nav-link {
+  color: $black;
+
+  &:hover {
+    color: $blue;
+  }
+}
 
  a:hover {
    text-decoration:none; 
@@ -137,34 +152,28 @@ ul {
 }
 
 
-
 img.filter {
   -webkit-filter: grayscale(100%) contrast(100%);
   filter: grayscale(100%) contrast(100%);
 }
-
 
 .bottom-bord {
   border-bottom: 1px solid #dddddd;
 }
 
 .btn-primary {
-  background: #0011ff;
-  border-color: #0011ff;
+  background: $blue;
+  border-color: $blue;
 
   &:hover {
     background: #3240ff;
   }
+
 }
 
 .btn-outline-primary {
-  border: 1px solid #0011ff;
-  color: #0011ff;
-
-  &:hover {
-    background: #0011ff;
-    border: 1px solid #0011ff;
-  }
+  border: 1px solid $blue;
+  color: $blue;
 }
 
 textarea {
@@ -248,7 +257,6 @@ textarea {
 
 
 .footer {
-  background-color: black;
   width: 100%;
   padding: 60px;
   position: relative;
