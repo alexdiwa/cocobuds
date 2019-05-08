@@ -25,6 +25,13 @@
   
  }
 
+ .alerts {
+   position: absolute;
+   bottom: 50px;
+   right: 50px;
+   width: auto;
+   z-index: 2;
+ }
  .yellow {
   background-color: #fddc1c;
  }
@@ -43,7 +50,7 @@ p {
   font-size: 24px;
 }
  .navbar-brand {
-  width: 140px;
+  width: 100px;
  }
 
  .navbar-light {

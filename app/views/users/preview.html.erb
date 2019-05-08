@@ -1,24 +1,26 @@
-<div class="pt-5 w-75 m-auto">
-    <h1 class="display-4 mb-5">
+<div class="custom-container landing p-5">
+    <div class="m-auto">
+        <h1 class="mb-5">
+            <% if @users.length == 0 %>
+                Sorry, there are no <%= @role_name %>s in <%= @location_name %> who know <%= @skill_name %>.
+            <% elsif @users.length == 1%>
+                There is 1 <%= @role_name %> in <%= @location_name %> who knows <%= @skill_name %>.
+            <% elsif @users.length > 1%>
+                There are <%= @users.length %> <%= @role_name %>s in <%= @location_name%> who know <%= @skill_name %>.
+            <% end %>
+        </h3>
+    </div>
+    <div class="text-center">
         <% if @users.length == 0 %>
-            Sorry, there are no <%= @role_name %>s in <%= @location_name %> who know <%= @skill_name %>.
-        <% elsif @users.length == 1%>
-            There is 1 <%= @role_name %> in <%= @location_name %> who knows <%= @skill_name %>.
-        <% elsif @users.length > 1%>
-            There are <%= @users.length %> <%= @role_name %>s in <%= @location_name%> who know <%= @skill_name %>.
+            <%= button_to("Try again?", "/#search", {method: :get, class: "mb-3 btn btn-primary btn-default btn-lg"})%>
+            <div class="text-center mb-5">
+                <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %>
+            </div>
+        <% else %>
+            <%= button_to("Sign up to meet them!", new_user_registration_path, {method: :get, class: "mb-3 btn btn-primary btn-default btn-lg"})%>
+            <div class="text-center mb-5">
+                Already signed up? <%= link_to "Login", new_user_session_path %>
+            </div>
         <% end %>
-    </h3>
-</div>
-<div class="pt-2 w-50 m-auto">
-    <% if @users.length == 0 %>
-        <%= button_to("Try again?", "/#search", {method: :get, class: "mb-3 btn btn-primary btn-default btn-block btn-lg"})%>
-        <div class="text-center mb-5">
-            <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %>
-        </div>
-    <% else %>
-        <%= button_to("Sign up to meet them!", new_user_registration_path, {method: :get, class: "mb-3 btn btn-primary btn-default btn-block btn-lg"})%>
-        <div class="text-center mb-5">
-            Already signed up? <%= link_to "Login", new_user_session_path %>
-        </div>
-    <% end %>
+    </div>
 </div>

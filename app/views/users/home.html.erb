@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row landing mt-5">
+    <div class="row landing mt-md-5">
         <div class="col-md-8 p-3">
             <h1>Discover designers and devs.<br />
             Learn and share skills.</h1>
@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="row landing mt-5">
+    <div class="row landing mt-md-5">
         <div class="col-md-6 p-3">
             <%= image_tag "img1.jpg", class:"img-fluid filter" %>
         </div>
@@ -22,7 +22,7 @@
     </div>
 
   <div class="row landing justify-content-between pt-5" id="search">
-    <div class="col-md-4 p-3 pt-5 mt-5">
+    <div class="col-md-5 p-3 pt-5 mt-md-5">
       <h4 class="mb-4">Find a Cocobud</h2>
       <%= form_with url: preview_path, method: :get, local: true do |form| %>
         <div class="form-group">
@@ -42,7 +42,7 @@
         </div>
       <% end %>
     </div>
-    <div class="col-md-6 p-3 pt-5 mt-5">
+    <div class="col-md-6 p-3 pt-5 mt-md-5">
         <%= image_tag "img2.jpg", class:"img-fluid filter" %>
     </div>
 </div>
