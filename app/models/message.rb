@@ -1,7 +1,9 @@
 class Message < ApplicationRecord
+  # Associations
   belongs_to :conversation
   belongs_to :user
 
+  # Validation
   validates_presence_of :body, :conversation_id, :user_id
 
   private
