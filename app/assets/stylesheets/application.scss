@@ -131,20 +131,17 @@ ul {
   flex: 0 0 100px;
 }
 
-.donatetext {
-
-  text-align: left;
-}
-.filtered {
-  // background: #0011ff;
+.filter {
+  background: #0011ff;
 }
 
-.filtered img {
-  // mix-blend-mode: screen;
-  // -webkit-filter: grayscale(100%) contrast(100%);
-  // filter: grayscale(100%) contrast(100%);
-  // opacity: 1;
+img.filter {
+  mix-blend-mode: screen;
+  -webkit-filter: grayscale(100%) contrast(100%);
+  filter: grayscale(100%) contrast(100%);
+  opacity: 1;
 }
+
 
 .bottom-bord {
   border-bottom: 1px solid #dddddd;
