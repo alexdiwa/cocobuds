@@ -1,14 +1,28 @@
-<div class="custom-container mt-5 text-center">
-  <% if current_user.stripe_payment == true%>
-    <h3 class="display-6 mb-5">
-      Help keep us running by donating a gold coin.
-    </h3>    
-  <% else %>
-    <h3 class="display-6">
-      As we are entirely volunteer-run, we rely on donations from our users to keep our service running. All we ask is for a gold-coin donation, no further payment required. Thanks for understanding!
-    </h3>
-  <% end %>
-  <button id="stripePayment" class="btn btn-primary btn-default btn-lg mt-3">Donate $1</button>
+<div class="mt-4 pt-5 yellow">
+  <div class="custom-container mt-5 text-center">
+    <% if current_user.stripe_payment == true%>
+      <div class="donatetext">
+      <h1 class="mb-4">
+        Donations Supports Cocobuds
+      </h1>  
+      <p>Cocobuds is run independently. We don't look for any investment capital to fund our growth, but instead we rely on our friends and community. Your dollar donation allows us to continually support Cocobuds. We started Cocobuds as an assignment in our coding bootcamp. We invest our personal time outside of our primary jobs in building Cocobuds because we are in love with this project. Your support makes this possible.
+        <p class="mb-3">Thank you so much,
+          <br>Alex, Antonella & Michael
+          <br>CB
+          </p>
+          </p>  
+          </div>
+    <% else %>
+      <h3 class="display-6">
+        As we are entirely volunteer-run, we rely on donations from our users to keep our service running. All we ask is for a gold-coin donation, no further payment required. Thanks for understanding!
+      </h3>
+    <% end %>
+    <button id="stripePayment" class="btn btn-primary btn-default btn-lg mt-3">Donate $1</button>
+   <div class="mb-5 col-md p-5" style="width: 600px; height: 1000px;" >
+     <%= image_tag "img3.jpg", class:"img-fluid" %>
+   </div>
+  </div>
+  
 </div>
 <script>
   document.getElementById("stripePayment").addEventListener("click", function() {
