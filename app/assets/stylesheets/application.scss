@@ -28,6 +28,10 @@
  .yellow {
   background-color: #fddc1c;
  }
+
+ .landing {
+   min-height: 100vh;
+ }
  
 h1 {
   font-weight: 600;
@@ -50,7 +54,6 @@ p {
    scroll-behavior: smooth;
    margin: 0;
    padding: 0;
-   box-sizing: border-box;
  }
 
  a:hover {
