@@ -16,7 +16,35 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import "footer";
+ @import url("https://use.typekit.net/udf3jvw.css");
 
+ * {
+  font-family: futura-pt, sans-serif;
+  letter-spacing: 0.5px;
+  font-style: normal;
+  
+ }
+
+ .yellow {
+  background-color: #fddc1c;
+ }
+ 
+h1 {
+  font-weight: 600;
+  font-style: normal;
+}
+
+p {
+  font-weight: 400;
+  font-size: 24px;
+}
+ .navbar-brand {
+  width: 140px;
+ }
+
+ .navbar-light {
+  background-color: white;
+ }
 
  html {
    scroll-behavior: smooth;
@@ -102,6 +130,10 @@ ul {
   flex: 0 0 100px;
 }
 
+.donatetext {
+
+  text-align: left;
+}
 .filtered {
   // background: #0011ff;
 }
@@ -217,7 +249,7 @@ textarea {
 
 
 .footer {
-  background: #EEEEEE;
+  background-color: black;
   width: 100%;
   padding: 60px;
   position: relative;
