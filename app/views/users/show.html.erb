@@ -6,7 +6,7 @@
       </div>
       <p>
         <span class="font-weight-bold"><%= @user.first_name %> <%= @user.last_name %></span> <%= "/ #{@user.age}" unless @user.age.blank? %><br>
-        <%= @user.role.capitalize %><br>
+        <%= @user.role %><br>
         <%= @user.occupation %><br>
         <%= @location.name %>
       </p>

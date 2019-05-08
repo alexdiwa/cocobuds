@@ -6,6 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
+  # Redirecting after user has signed up with devise
   def after_sign_up_path_for(resource)
     "/pages/donate"
   end
