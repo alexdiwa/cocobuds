@@ -17,17 +17,24 @@
  @import "font-awesome";
  @import "footer";
  @import url("https://use.typekit.net/udf3jvw.css");
+ @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700');
+
 
  * {
-  font-family: futura-pt, sans-serif;
-  letter-spacing: 0.5px;
-  font-style: normal;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
  }
 
  html {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
+}
+
+.home {
+  background: url('beans2.svg') no-repeat right;
+  background-size: 100%;
+  background-position-y: 100px;
 }
 
  .alerts {
@@ -46,14 +53,17 @@
    min-height: 100vh;
  }
  
-h1 {
+h1, h2 {
+  font-family: futura-pt, sans-serif;
+  letter-spacing: 0.5px;
+  font-style: normal;
   font-weight: 600;
   font-style: normal;
 }
 
 p {
-  font-weight: 400;
-  font-size: 24px;
+  font-weight: 700;
+  font-size: 18px;
 }
  .navbar-brand {
   width: 100px;
@@ -126,15 +136,11 @@ ul {
   flex: 0 0 100px;
 }
 
-.filter {
-  background: #0011ff;
-}
+
 
 img.filter {
-  mix-blend-mode: screen;
   -webkit-filter: grayscale(100%) contrast(100%);
   filter: grayscale(100%) contrast(100%);
-  opacity: 1;
 }
 
 
