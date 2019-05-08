@@ -1,6 +1,7 @@
+<div class="bg-prev">
 <div class="custom-container landing p-5">
     <div class="m-auto">
-        <h1 class="mb-5">
+        <h1 class="mb-5 mt-md-5">
             <% if @users.length == 0 %>
                 Sorry, there are no <%= @role_name %>s in <%= @location_name %> who know <%= @skill_name %>.
             <% elsif @users.length == 1%>
@@ -23,4 +24,5 @@
             </div>
         <% end %>
     </div>
+</div>
 </div>

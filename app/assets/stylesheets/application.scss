@@ -19,7 +19,7 @@
  @import url("https://use.typekit.net/udf3jvw.css");
  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700');
 
- $blue: #0011ff;
+ $blue: #233EF8;
  $black: #000000;
  $yellow: #fddc1c;
 
@@ -36,6 +36,10 @@
 
 a {
   color: $blue;
+
+  &:hover {
+    color:#0000FF;
+  }
 }
 
 .home {
@@ -54,6 +58,19 @@ a {
 
  .yellow {
   background-color: $yellow;
+ }
+
+ .bg-y {
+  background: url('beans3.svg') no-repeat top;
+  background-color: $yellow;
+  background-size: cover;
+ }
+
+
+ .bg-prev {
+  background: url('prev-bg.svg') no-repeat top;
+  background-color: $yellow;
+  background-size: cover;
  }
 
  .landing {
@@ -166,14 +183,19 @@ img.filter {
   border-color: $blue;
 
   &:hover {
-    background: #3240ff;
+    background: #0000FF;
   }
 
 }
 
 .btn-outline-primary {
-  border: 1px solid $blue;
+  border: 2px solid $blue;
   color: $blue;
+
+  &:hover {
+    background: $blue;
+    border: 2px solid $blue;
+  }
 }
 
 textarea {
