@@ -1,12 +1,15 @@
 <div class="custom-container mt-5 text-center">
-  <% if current_user.stripe_payment == true%>
+  <% if current_user.stripe_payment == true %>
     <h3 class="display-6 mb-5">
       Help keep us running by donating a gold coin.
     </h3>    
   <% else %>
     <h3 class="display-6">
-      As we are entirely volunteer-run, we rely on donations from our users to keep our service running. All we ask is for a gold-coin donation, no further payment required. Thanks for understanding!
+      Cocobuds is run independently. We don't look for any investment capital to fund our growth, but instead we rely on our friends and community. Your gold coin donation allows us to continually support Cocobuds.
     </h3>
+    <h4 class="display-6 mt-5 mb-5">
+      We started Cocobuds as an assignment for our coding bootcamp. We invest our personal time outside of our primary jobs in building Cocobuds because we are in love with this project. Your support makes this possible.
+    </h4>
   <% end %>
   <button id="stripePayment" class="btn btn-primary btn-default btn-lg mt-3">Donate $1</button>
 </div>
