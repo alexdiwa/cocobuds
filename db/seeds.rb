@@ -6,24 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Making the HTTP request
+# Making the HTTP request to UI faces
 response = HTTParty.get("https://uifaces.co/api?limit=205&from_age=18&to_age=40&emotion[]=happiness", {
   headers: {
     "X-API-KEY" => "14198bec5b8c608a3d0c06b0b3915a"
   }
 })
 
-# saving request results to variable -- this is an array
 parsed = JSON.parse(response.body)
 
-#create a new array that will store our picture urls
+# Picture array that will store URLs of pictures
 pics = []
-# cycling through results (array) and adding each picture URL to our pics array.
 parsed.each do |ele|
   pics << ele["photo"]
   puts "added a random picture"
 end
-#pics now is an array with 205 picture urls.
 
 skills = [
   "After Effects",
@@ -45,6 +42,7 @@ skills = [
   "SQL"
 ]
 
+# Creating skills
 skills.each do |skill|
   Skill.create(name: skill)
   puts "Created the skill: #{skill}"
@@ -64,11 +62,13 @@ locations = [
   "South West"
 ]
 
+# Creating locations
 locations.each do |location|
   Location.create(name: location)
   puts "Created location: #{location}"
 end
 
+# Seeding users
 for i in 1..200
   User.create(
     email: "ama+#{i}@test.com",
@@ -87,16 +87,17 @@ for i in 1..200
   puts "Created #{i} users"
 end
 
+# Seeding users with skills, followers and pictures
 users = User.all
-# iterating through users array with an each_with_index method that gives
-# us access both the element and the index of that element with each successive cycle
 users.each_with_index do |user, i|
+  # Adding skills
   rand(10..12).times do
     idx = rand(0..(Skill.all.length - 1))
     user.skills << Skill.all[idx] unless user.skills.include?(Skill.all[idx])
   end
   puts "added skills to user #{i}"
 
+  # Adding followers / favourites
   rand(12..20).times do
     random_user_id = rand(1..users.count)
     random_user = User.find(random_user_id)
@@ -104,24 +105,23 @@ users.each_with_index do |user, i|
   end
   puts "added favourites to user"
   
-  #user.picture.attach attaches a picture to that user. We attach the picture at index i in pics array user i in user array.
+  # Attaching pictures
   user.picture.attach(io: open(pics[i]), filename: 'dummy.jpg', content_type: 'img/jpg')
   puts "attached a picture to user #{i}"
 end
 
-# Seeding conversations:
-# generate pairs of user ids:
 
+# Generating pairs of users IDs (for first 10 users only)
 a = (1..10).to_a
 pairs = a.permutation(2).to_a
 pairs.map!{ |pair| pair.sort! }.uniq!
-# pairs now is an array with each element being a unique pair of user ids spanning users 1 to 10
-# 45 conversations in total! (pairs.length)
 
+# Creating conversations
 pairs.each do |pair|
   Conversation.create!(sender_id: pair[0], receiver_id: pair[1])
 end
 
+# Seeding messages for each conversation
 conversations = Conversation.all
 conversations.each do |conversation|
   ids = [conversation.sender_id, conversation.receiver_id]
