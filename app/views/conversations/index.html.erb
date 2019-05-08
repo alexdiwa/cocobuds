@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="col-8">
                                     <span><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %></span><br>
-                                    <span class="small"><%= conversation.messages.last.created_at.strftime("%l:%M %p on %A %d %b '%y") %></span>
+                                    <span class="small"><%= conversation.messages.last.inbox_time %></span>
                                 </div>
                                 <div class="col-2 m-auto">
                                     <% if !conversation.unread_message_count(current_user).zero? %>

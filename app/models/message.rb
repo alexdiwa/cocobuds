@@ -6,8 +6,12 @@ class Message < ApplicationRecord
   # Validation
   validates_presence_of :body, :conversation_id, :user_id
 
-  private
-  def message_time
-    created_at.strftime("%d/%m/%y at %l:%M %p")
+  # Sanitising time for display on inbox and on message threads
+  def inbox_time
+    created_at.strftime("%l:%M %p on %A %d %b '%y")
+  end
+
+  def msg_time
+    created_at.strftime("%l:%M %p on %a %d %b '%y")
   end
 end
