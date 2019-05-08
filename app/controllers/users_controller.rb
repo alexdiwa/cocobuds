@@ -83,9 +83,9 @@ class UsersController < ApplicationController
       end
       
       # Filter search by designer/developer
-      @roles = User.roles.keys.map { |key| key.capitalize }
+      @roles = User.roles.keys
       unless params[:role].blank?
-        @role_name = params[:role].downcase
+        @role_name = params[:role]
         role_enum = User.roles[@role_name]
         @users = @users.where(role: role_enum)
       end

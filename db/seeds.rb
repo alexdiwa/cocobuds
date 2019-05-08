@@ -69,7 +69,7 @@ locations.each do |location|
 end
 
 # Seeding users
-for i in 1..200
+for i in 1..100
   User.create(
     email: "ama+#{i}@test.com",
     password: "testpass",

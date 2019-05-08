@@ -32,7 +32,7 @@
               <%= link_to user_path(user.id) do %><%= user.first_name %> <%= user.last_name %><% end %>
           </div>
           <div class="row m-auto">
-              <%= user.role.capitalize %>
+              <%= user.role %>
           </div>
           <div class="row p-2">
             <% user.skills.each do |skill| %>

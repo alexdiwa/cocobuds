@@ -28,7 +28,7 @@
                   <%= link_to user_path(user.id) do %>
                     <span><%= user.first_name %> <%= user.last_name %></span><br>
                   <% end %>
-                  <span><%= user.role.capitalize %></span><br>
+                  <span><%= user.role %></span><br>
                   <div class="row">
                     <div class="col-1">
                       <% if current_user.followers.where(id: user.id).exists? %>
@@ -76,7 +76,7 @@
                   <%= link_to user_path(user.id) do %>
                     <span><%= user.first_name %> <%= user.last_name %></span><br>
                   <% end %>
-                  <span><%= user.role.capitalize %></span><br>
+                  <span><%= user.role %></span><br>
                   <div class="row">
                     <div class="col-1">
                       <% if current_user.followers.where(id: user.id).exists? %>
