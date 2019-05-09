@@ -53,7 +53,7 @@ a {
 .home {
   background: url('yellow_circle.svg') no-repeat left;
   background-color: #FFFFFF;
-  background-size: contain;
+  background-size: 105%;
 }
 
  .alerts {
@@ -68,9 +68,6 @@ a {
   background-color: $yellow;
  }
 
- .yellow-circle {
-
- }
 
  .bg-y {
   // background: url('beans3.svg') no-repeat top;
@@ -100,6 +97,10 @@ a {
 //   background-color: $yellow;
 // }
 
+.donate-text {
+  font-size: 1em;
+}
+
  .landing {
    min-height: 100vh;
  }
@@ -112,6 +113,7 @@ h1, h2 {
 
 h4 {
   font-family: 'hellovetica', futura-pt, sans-serif;
+  line-height: 50px;
 }
 
  .navbar-brand {
@@ -214,12 +216,12 @@ img.filter {
 }
 
 .btn-outline-primary {
-  border: 2px solid $blue;
+  border: 1px solid $blue;
   color: $blue;
 
   &:hover {
     background: $blue;
-    border: 2px solid $blue;
+    border: 1px solid $blue;
   }
 }
 

@@ -1,6 +1,6 @@
-<div class="form-sm p-2 text-center">
+<div class="form-sm p-4 mt-5 text-center">
 <%= render "devise/shared/error_messages", resource: resource %>
-  <h4 class="display-5 mb-3">Account Settings</h4>
+  <h4 class="mb-3">Account Settings</h4>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
