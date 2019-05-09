@@ -1,23 +1,33 @@
 <div class="container home">
-    <div class="row landing mt-md-5">
+    <div class="row mt-md-5">
         <div class="col-md-8 p-3">
             <h1>Discover designers and devs.<br />
             Learn and share skills.</h1>
-            <p class="pt-3">There is a need for designers to learn programming and for programmers to learn design. While websites like Skillshare and Udemy allow users to study virtually, we want to create a more intentional place to learn and share from one another. (write about breaking the ice, creating opportunity to establish friendship, co teaching)</p>
-            <%= button_to("Get started", "#search", {method: :get, class: "btn btn-primary btn-default btn-lg mt-5"})%>
+            <p class="pt-3">Cocobuds lets you discover designers and developers in your area. It's a great way to learn and share skills while expanding your network.</p>
+            <%= button_to("Get started", "#search", {method: :get, class: "btn btn-primary mt-3"})%>
         </div>
         <div class="col-md-4">
         </div>
     </div>
 
-    <div class="row landing mt-md-5">
-        <div class="col-md-6 p-3">
-            <%= image_tag "img1.jpg", class:"img-fluid filter" %>
-        </div>
+    <div class="row">
         <div class="col-md-6 p-3 text-right">
-            <h2>It's not just what it looks<br/>like and feels like.</h2>
-            <h2>Design is how it works.</h2>
+        </div>
+        <div class="col-md-6 p-3">
+            <%= image_tag "cocobuds_landing_page_friends.jpg", class:"img-fluid" %>
+        </div>
+    </div>
+
+    <div class="row mt-md-5">
+        <div class="col-md-3 p-3 text-right">
+            <h2>It's not</h2>
+        </div>
+        <div class="col-md-7 p-3 mt-4 text-right">
+            <h2>just what it looks like<br /> and feels like.</h2>
+            <h2 class="mt-md-4">Design is how it works.</h2>
             <p>Steve Jobs</p>
+        </div>
+        <div class="col-md-2 p-3">
         </div>
     </div>
 
@@ -38,12 +48,12 @@
             <%= form.select(:skill, options_for_select( @skills.pluck(:name), params[:skill] ), {include_blank: 'Select a Skill'}, {required: true, class: "form-control form-control-md"}) %>
         </div>
         <div class="mb-3 form-group text-center">
-        <%= form.submit 'Search', class: "mt-3 w-100 btn btn-primary btn-default btn-blocks" %>
+        <%= form.submit 'Search', class: "mt-3 w-100 btn btn-primary btn-blocks" %>
         </div>
       <% end %>
     </div>
-    <div class="col-md-6 p-3 pt-5 mt-md-5">
-        <%= image_tag "img2.jpg", class:"img-fluid filter" %>
+    <div class="col-md-6 p-3 pt-5 mt-md-5 mr-n5">
+        <%= image_tag "cocobuds_landing_page_birds_eye.jpg", class:"img-fluid" %>
     </div>
 </div>
 
