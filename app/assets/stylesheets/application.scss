@@ -17,15 +17,18 @@
  @import "font-awesome";
  @import "footer";
  @import url("https://use.typekit.net/udf3jvw.css");
- @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700');
+ @font-face {
+  font-family: 'hellovetica';
+  src: url('hellovetica.ttf')  format('truetype'), 
+}
 
  $blue: #233EF8;
  $black: #000000;
  $yellow: #fddc1c;
 
  * {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 500;
+  // font-family: 'IBM Plex Mono', monospace;
+  font-size: 12pt;
  }
 
  html {
@@ -43,7 +46,7 @@ a {
 }
 
 .home {
-  background: url('beans2.svg') no-repeat right;
+  // background: url('beans2.svg') no-repeat right;
   background-size: 100%;
   background-position-y: 100px;
 }
@@ -78,17 +81,11 @@ a {
  }
  
 h1, h2 {
-  font-family: futura-pt, sans-serif;
-  letter-spacing: 0.5px;
-  font-style: normal;
-  font-weight: 600;
-  font-style: normal;
+  font-family: 'hellovetica', futura-pt, sans-serif;
+  font-size: 1.6em;
+  line-height: 50px;
 }
 
-p {
-  font-weight: 700;
-  font-size: 18px;
-}
  .navbar-brand {
   width: 100px;
  }

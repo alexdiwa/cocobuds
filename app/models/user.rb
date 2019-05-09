@@ -18,8 +18,7 @@ class User < ApplicationRecord
   has_many :followers, through: :following_users
   has_one_attached :picture
 
-  # validates :first_name, :last_name, :role, :location_id, presence: true, :on => :update, :if => :signed_up_and_paid?
-
+  # validates :first_name, :last_name, :role, :location_id, presence: true, :on => :update, :if => :run_form_validation
 
   private
     # Clean up strings before they are saved to database
