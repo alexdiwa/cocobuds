@@ -17,48 +17,123 @@
  @import "font-awesome";
  @import "footer";
  @import url("https://use.typekit.net/udf3jvw.css");
+ @font-face {
+  font-family: 'hellovetica';
+  src: url('hellovetica.ttf')  format('truetype'), 
+}
+
+ $blue: #233EF8;
+ $black: #000000;
+ $yellow: #fddc1c;
 
  * {
-  font-family: futura-pt, sans-serif;
-  letter-spacing: 0.5px;
-  font-style: normal;
-  
+  // font-family: 'IBM Plex Mono', monospace;
+  font-size: 12pt;
  }
 
- .yellow {
-  background-color: #fddc1c;
- }
- 
-h1 {
-  font-weight: 600;
-  font-style: normal;
+ html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 p {
-  font-weight: 400;
-  font-size: 24px;
+  letter-spacing: 0.5px;
+  font-size: 1.2em;
 }
+
+a {
+  color: $blue;
+
+  &:hover {
+    color:#0000FF;
+  }
+}
+
+.home {
+  background: url('yellow_circle.svg') no-repeat left;
+  background-color: #FFFFFF;
+  background-size: 105%;
+}
+
+ .alerts {
+   position: absolute;
+   bottom: 50px;
+   right: 50px;
+   width: auto;
+   z-index: 2;
+ }
+
+ .yellow {
+  background-color: $yellow;
+ }
+
+
+ .bg-y {
+  // background: url('beans3.svg') no-repeat top;
+  background-color: $yellow;
+  background-size: cover;
+ }
+
+
+ .bg-prev {
+  background: url('prev-bg.svg') no-repeat top;
+  background-color: $yellow;
+  background-size: cover;
+ }
+
+ .label {
+   text-transform: uppercase;
+   font-size: 0.75em;
+   font-weight: bold;
+   letter-spacing: 0.5px;
+ }
+//  .font-white {
+//    color: #FFFFFF;
+//  }
+
+// .msg-border {
+//   border: 1px solid $yellow;
+//   background-color: $yellow;
+// }
+
+.donate-text {
+  font-size: 1em;
+}
+
+ .landing {
+   min-height: 100vh;
+ }
+ 
+h1, h2 {
+  font-family: 'hellovetica', futura-pt, sans-serif;
+  font-size: 1.6em;
+  line-height: 50px;
+}
+
+h4 {
+  font-family: 'hellovetica', futura-pt, sans-serif;
+  line-height: 50px;
+}
+
  .navbar-brand {
-  width: 140px;
+  width: 100px;
  }
 
  .navbar-light {
   background-color: white;
  }
 
- html {
-   scroll-behavior: smooth;
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
- }
+ .navbar-light .navbar-nav .nav-link {
+  color: $black;
+
+  &:hover {
+    color: $blue;
+  }
+}
 
  a:hover {
    text-decoration:none; 
- }
- 
- .spacer {
-  height: 50vh;
  }
 
  .btn-default {
@@ -74,12 +149,6 @@ p {
   border-color: #dddddd;
   color: #FFFFFF;
   width: 30px;
-}
-
-.jumbotron {
-  height: 70vh;
-  background: none;
-  border: none;
 }
 
 ul {
@@ -113,34 +182,23 @@ ul {
 .msg {
   width: 40px;
   height: 40px;
-  // border: 0.5px solid #0011ff;
 }
 
 .nav {
   width: 30px;
   height: 30px;
-  // border: 0.5px solid #0011ff;
 }
 
 
 
 .fixed-width-pic {
-  flex: 0 0 100px;
+  flex: 0 0 150px;
 }
 
-.donatetext {
 
-  text-align: left;
-}
-.filtered {
-  // background: #0011ff;
-}
-
-.filtered img {
-  // mix-blend-mode: screen;
-  // -webkit-filter: grayscale(100%) contrast(100%);
-  // filter: grayscale(100%) contrast(100%);
-  // opacity: 1;
+img.filter {
+  -webkit-filter: grayscale(100%) contrast(100%);
+  filter: grayscale(100%) contrast(100%);
 }
 
 .bottom-bord {
@@ -148,21 +206,22 @@ ul {
 }
 
 .btn-primary {
-  background: #0011ff;
-  border-color: #0011ff;
+  background: $blue;
+  border-color: $blue;
 
   &:hover {
-    background: #3240ff;
+    background: #0000FF;
   }
+
 }
 
 .btn-outline-primary {
-  border: 1px solid #0011ff;
-  color: #0011ff;
+  border: 1px solid $blue;
+  color: $blue;
 
   &:hover {
-    background: #0011ff;
-    border: 1px solid #0011ff;
+    background: $blue;
+    border: 1px solid $blue;
   }
 }
 
@@ -247,7 +306,6 @@ textarea {
 
 
 .footer {
-  background-color: black;
   width: 100%;
   padding: 60px;
   position: relative;
