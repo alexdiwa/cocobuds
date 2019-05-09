@@ -51,9 +51,9 @@ a {
 }
 
 .home {
-  // background: url('beans2.svg') no-repeat right;
-  background-size: 100%;
-  background-position-y: 100px;
+  background: url('yellow_circle.svg') no-repeat left;
+  background-color: #FFFFFF;
+  background-size: contain;
 }
 
  .alerts {
@@ -68,8 +68,12 @@ a {
   background-color: $yellow;
  }
 
+ .yellow-circle {
+
+ }
+
  .bg-y {
-  background: url('beans3.svg') no-repeat top;
+  // background: url('beans3.svg') no-repeat top;
   background-color: $yellow;
   background-size: cover;
  }
@@ -81,6 +85,21 @@ a {
   background-size: cover;
  }
 
+ .label {
+   text-transform: uppercase;
+   font-size: 0.75em;
+   font-weight: bold;
+   letter-spacing: 0.5px;
+ }
+//  .font-white {
+//    color: #FFFFFF;
+//  }
+
+// .msg-border {
+//   border: 1px solid $yellow;
+//   background-color: $yellow;
+// }
+
  .landing {
    min-height: 100vh;
  }
@@ -89,6 +108,10 @@ h1, h2 {
   font-family: 'hellovetica', futura-pt, sans-serif;
   font-size: 1.6em;
   line-height: 50px;
+}
+
+h4 {
+  font-family: 'hellovetica', futura-pt, sans-serif;
 }
 
  .navbar-brand {
@@ -167,7 +190,7 @@ ul {
 
 
 .fixed-width-pic {
-  flex: 0 0 100px;
+  flex: 0 0 150px;
 }
 
 

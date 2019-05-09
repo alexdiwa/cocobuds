@@ -60,6 +60,9 @@
         <% end %>
       </div>
       <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <% if @mutuals.blank? %>
+          <h4>Mutual faves lets you see the people who have favourited you back</h4>
+        <% else %>
         <% @mutuals.each do |user| %>
           <div class="card mb-3">
             <div class="card-body">
@@ -106,6 +109,7 @@
             </div>
           </div>
         <% end %>   
+        <% end %>
       </div>
     </div>
   <% end %>
