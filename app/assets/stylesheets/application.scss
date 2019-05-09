@@ -44,10 +44,25 @@ p {
 
 a {
   color: $blue;
+  font-size: inherit;
 
   &:hover {
     color:#0000FF;
   }
+}
+
+.card .card-body span {
+  font-size: 0.9em;
+  line-height: 0.9em;
+}
+
+// ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+//   text-transform: uppercase;
+//   font-size: 1em;
+// }
+
+.profile {
+  font-size: 9.5pt;
 }
 
 .home {
@@ -172,8 +187,24 @@ ul {
   }
 }
 
+#myFooter .btn-outline-primary {
+  border-radius: 3px;
+  font-size: 0.8em;
+  padding: 2;
+}
 
+#myFooter .container .row .col-md-3 h5 {
+  font-size: 10pt;
+}
 
+#myFooter .container .row .col-md-3 ul li {
+  font-size: 10pt;
+}
+
+.custom-container .card .card-body .col-md-10 span {
+  font-weight: 6px;
+}
+ 
 .search {
   width: 80px;
   height: 80px;

@@ -33,7 +33,11 @@
               <li class="nav-item dropdown my-auto">
                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="circle nav m-0 p-0 mt-1" aria-labelledby="navbarDropdown">
-                    <%= image_tag current_user.picture if current_user.picture.attached? %>
+                    <% if current_user.picture.attached? %>
+                      <%= image_tag current_user.picture %>
+                    <% else %>
+                      <%= image_tag "default.png" %>
+                    <% end %>
                   </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -102,7 +106,6 @@
                   <div class="social-networks">
                         <a href="#"><%= icon("fab", "twitter") %></a>
                         <a href="#"><%= icon("fab", "facebook") %></a>
-                        <a href="#"><%= icon("fab", "google") %></a>
                   </div>
                   <button type="button" class="btn btn-outline-primary">Contact us</button>
               </div>

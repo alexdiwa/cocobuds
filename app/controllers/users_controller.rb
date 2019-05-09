@@ -154,7 +154,9 @@ class UsersController < ApplicationController
 
     # Redirecting users back to donate page, preventing them from entering unless payment successful
     def redirect_to_donate
-      redirect_to "/pages/donate" if current_user.stripe_payment != true
+       if current_user.stripe_payment != true
+        redirect_to "/pages/donate", notice: 'Please donate before continuing.'
+       end
     end
 
     # Preventing users from searching/viewing other users unless their profile is complete
