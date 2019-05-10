@@ -7,7 +7,7 @@
 
 ### Project Description: ###
 
-**CHANGE THIS/ ELABORATE ON THIS - or alternatively work on Q2 in short answer**
+**CHANGE THIS/ ELABORATE ON THIS - or alternatively work on Q2 in short answer. Probably need to reference the fact that it is a 2 sided marketplace**
 
 <br /><br />
 Design’s role in this world never sits still. In technology it continues to be etched into the product development process. We always hear about how more designers should learn how to code. This demand for designers who can develop is just as relevant for developers who can design.
@@ -20,7 +20,15 @@ Cocobuds are life-long learners who wants to share their knowledge and pick up n
 
 ### Functionality and Features ###
 
-Functionality / features
+Our app facilitates connection between designers and developers. This is accomplished through the following features:
+
+* Users (designers/developers) sign up for an password-protected account that gives them access to the app's functionality.
+* Once logged in, users can establish their online presence through a profile that showcases their skills and personality.
+* Users can edit and delete their profile, and upload a profile picture.
+* Users can find other users quickly based on several search criteria: first name and/or last name, location, by category (designer/developer) or by skill(s). 
+* Users can add and remove other users to/from their favourites, and know when someone has favourited them back. This acts as an 'ice breaker' of sorts that reduces the awkwardness associated with contacting others for the first time. 
+* Users can message other users one-on-one in a chatbox, and access all their conversations on an inbox page.
+* Users can make a secure payment/donation that helps keep the service running.
 
 ### Screenshots ###
 Screenshots
