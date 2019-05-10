@@ -104,18 +104,28 @@ rails db:setup
 
 ## Design Documentation ##
 
-Design documentation including,
-Design process
-User stories
-A workflow diagram of the user journey/s.
-Wireframes
-Database Entity Relationship Diagrams
+### Design process ###
+
+### User Stories ###
+
+### Flow Diagram ###
+
+### Wireframes ###
+
+#### Mobile ####
+
+#### Desktop ####
+
+### Database Entity Relationship Diagram ###
+
 
 ## Planning Documentation ##
 
-Details of planning process including,
-Project plan & timeline
-Screenshots of Trello board(s)
+Planning process:
+
+### Project Plan & Timeline ###
+
+### Screenshots of Trello boards ###
 
 ## Short Answer Questions ##
 
