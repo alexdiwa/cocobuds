@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
     # Preventing users from accessing other people's conversations
     def authorise_user
       if @conversation.receiver_id != current_user.id and @conversation.sender_id != current_user.id
-        redirect_to conversations_index_path, alert: 'Not authorised to perform this action'        
+        redirect_to conversations_path, alert: 'Not authorised to perform this action'        
       end
     end
 end
