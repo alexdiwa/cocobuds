@@ -39,6 +39,10 @@ Below are some screenshots from our app as of 10th May 2019.
 <img width="1152" alt="2a_landing" src="https://user-images.githubusercontent.com/47341093/57515633-74795080-7356-11e9-95f9-eaac719cf33f.png">
 <img width="1435" alt="3_landing" src="https://user-images.githubusercontent.com/47341093/57514960-ef416c00-7354-11e9-95bd-1281bd69595c.png">
 
+**Preview Search Results Page**
+
+<img width="1325" alt="3_preview" src="https://user-images.githubusercontent.com/47341093/57519221-1e101000-735e-11e9-9c73-16b695d7c332.png">
+
 **Sign Up Page**
 <img width="1149" alt="3a_signup" src="https://user-images.githubusercontent.com/47341093/57515388-dc7b6700-7355-11e9-9227-35d6c1ebfe19.png">
 
