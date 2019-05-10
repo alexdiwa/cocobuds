@@ -16,5 +16,5 @@
 //= require global
 //= require activestorage
 //= require turbolinks
-//= require bootstrap-filestyle
 //= require bootstrap-sprockets
+//= require bootstrap-filestyle
