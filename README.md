@@ -11,7 +11,7 @@ This project is a two sided marketplace where designers/developers can provide e
 
 ### What's a Cocobud? ###
 
-Cocobuds are life-long learners who wants to share their knowledge and pick up new skills in the process. Cocobuds can be designers or developers who want to meet, upskill and learn from each other. 
+Cocobuds are life-long learners who want to share their knowledge and pick up new skills in the process. Cocobuds can be designers or developers who want to meet, upskill and learn from each other. 
 
 ### Functionality and Features ###
 
@@ -109,9 +109,9 @@ Our design process comprised of several steps:
 
 1. Brainstorming ideas for our app and defining the problem we wanted to solve. We started by thinking about apps that we'd like to use ourselves. 
 2. Brainstorming solutions: what kind of app could address the needs we're looking for? What would it look like? What other apps are there that are similar? What do they lack?
-3. Translate these thoughts into a user flow diagram and wireframes for desktop and mobile. 
-4. Translate the wireframes into an Entity Relationship Diagram that captures all the necessary tables we'll need to store our data in.
-5. While the we begin agile development of our app, concurrently work on moodboarding and thinking about style details of the front end.
+3. Translating these thoughts into a user flow diagram and wireframes for desktop and mobile. 
+4. Translating the wireframes into an Entity Relationship Diagram that captures all the necessary tables we would store our data in.
+5. Using agile development for our app while moodboarding and thinking about styling for the front-end.
 
 ### User Stories ###
 
@@ -158,7 +158,7 @@ Our design process comprised of several steps:
 
 After drafting our plans in the form of wireframes and an ERD, we started planning how we would accomplish our goal of producing a working MVP by the end of the two weeks. We came up with an initial plan and timeline as a starting point, while working iteratively using the Agile method.
 
-We used Trello and Google Docs for project management. Our work was accomplished over 5 sprints, which each had their own Trello board of 3 main columns: To Do, In Progress and Done. To keep track of what we were doing, we used Google Docs/Sheets/Keep extensively for the planning, documentation and testing process.
+We used Trello and Google Docs for project management. Our work was accomplished over 5 sprints. Each sprint included their own Trello board with 3 main columns—To Do, In Progress and Done. To keep track of what we were doing, we used Google Docs/Sheets/Keep extensively for the planning, documentation and testing process.
 
 ### Project Plan & Timeline ###
 
@@ -211,11 +211,11 @@ Our app is deployed on Heroku, a cloud hosting platform that provides a URL thro
 
 ### 5. Identify and describe the software to be used in your App. ###
 
-Cocobuds is built on Rails using the Ruby programming language. We deployed our app on Heroku, and used a number of gems that have assisted in adding functionality to our app. 
+Cocobuds is built on Rails using the Ruby programming language. We deployed our app on Heroku, and used a number of gems and software that have assisted in adding functionality to our app. 
 
 * [Devise 4.6](https://github.com/plataformatec/devise): User authentication
 * [Faker 1.9](https://github.com/stympy/faker): Generating fake data to seed our database
-* Amazon Web Services - S3: Cloud hosting service for any uploaded images
+* [Amazon Web Services - S3](https://aws.amazon.com/s3): Cloud hosting service for any uploaded images
 * [Stripe 4.16](https://stripe.com/au): Processing secure paymnts
 * [Bootstrap 4.3](https://getbootstrap.com/): Front-end styling
 * [jQuery rails 4.3](https://github.com/rails/jquery-rails): Integrated with bootstrap for some animations
@@ -226,16 +226,15 @@ Cocobuds is built on Rails using the Ruby programming language. We deployed our 
 
 ### 6. IN PROGRESS Identify the database to be used in your App and provide a justification for your choice. ###
 
-Pros:
-- Postgres is scalable and can handle terabytes of data. Designed for high volume environments.
-- Highly reliable and stable
-- Can easily merge with cloud hosting on heroku as Heroku also uses Postgres.
-- ACID compliant - fulfils the following properties: (Atomicity, Consistency, Isolation, Durability), which means that it is quite robust and not prone to errors or failures. It also ensures consistency and integrity of data.
-- It can handle multiple complex processes, such as simultaneous/concurrent writing to tables.
+We used PostgreSQL as our database for a number of reasons. 
+* It is scalable and can handle terabytes of data.
+* It is designed for high volume environments.
+* It is highly reliable and stable.
+* It can easily merge with cloud hosting on Heroku as Heroku also uses Postgres.
+* It is ACID compliant and fulfils the following properties: Atomicity, Consistency, Isolation, Durability, which means that it is quite robust and not prone to errors or failures. This also ensures consistency and integrity of data.
+* It can handle multiple complex processes, such as simultaneous/concurrent writing to database tables.
 
-Cons:
-- can be considerably slower than databases like MySQL and SQLite
--
+One downside of PostgreSQL is that it can be considerably slower than databases like MySQL and SQLite, the latter being the default database for Rails.
 
 ### 7. IN PROGRESS Identify and describe the production database setup (i.e. postgres instance). ###
 
