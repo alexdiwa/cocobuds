@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require global
-//= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery3
-//= require popper
 //= require bootstrap-sprockets
+//= require jquery3
+//= require rails-ujs
+//= require popper
 //= require bootstrap-filestyle
