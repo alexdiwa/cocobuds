@@ -7,12 +7,7 @@
 
 ### Project Description: ###
 
-**CHANGE THIS/ ELABORATE ON THIS - or alternatively work on Q2 in short answer. Probably need to reference the fact that it is a 2 sided marketplace**
-
-<br /><br />
-Design’s role in this world never sits still. In technology it continues to be etched into the product development process. We always hear about how more designers should learn how to code. This demand for designers who can develop is just as relevant for developers who can design.
-
-Users don’t interact directly with the developers work—they interact with what the designer creates. Developers who are involved early on in the design process will lead to a better understanding of the user. To build better products, collaboration and communication needs to take place for designers and developers.
+This project is a two sided marketplace where designers/developers can provide each other with learning and teaching benefits. There is a growing demand for designers who can develop and developers who can design. This platform allows users to network with users whom they might be interested in learning from. Through this platform, we aim to create a community and culture of skill sharing.
 
 ### What's a Cocobud? ###
 
@@ -163,13 +158,34 @@ Our design process comprised of several steps:
 
 After drafting our plans in the form of wireframes and an ERD, we started planning how we would accomplish our goal of producing a working MVP by the end of the two weeks. We came up with an initial plan and timeline as a starting point, while working iteratively using the Agile method.
 
-We used Trello and Google Docs for project management. Our work was accomplished over 4 sprints, which each had their own Trello board of 3 main columns: To Do, In Progress and Done. To keep track of what we were doing, we used Google Docs/Sheets/Keep extensively for the planning, documentation and testing process.
+We used Trello and Google Docs for project management. Our work was accomplished over 5 sprints, which each had their own Trello board of 3 main columns: To Do, In Progress and Done. To keep track of what we were doing, we used Google Docs/Sheets/Keep extensively for the planning, documentation and testing process.
 
 ### Project Plan & Timeline ###
 
 ### Screenshots of Trello boards ###
 
+**Brainstorming**
+<img width="1123" alt="24_trello_brainstorming" src="https://user-images.githubusercontent.com/47341093/57520947-4a2d9000-7362-11e9-9124-936f1c9b5c55.png">
+
+**Sprint 1**
+<img width="838" alt="25_sprint1" src="https://user-images.githubusercontent.com/47341093/57520884-2702e080-7362-11e9-957e-8350f4b9000b.png">
+
+**Sprint 2**
+<img width="839" alt="26_sprint2" src="https://user-images.githubusercontent.com/47341093/57520886-2702e080-7362-11e9-8ff3-abf336a599e9.png">
+
+**Sprint 3**
+<img width="843" alt="27_sprint3" src="https://user-images.githubusercontent.com/47341093/57520888-2702e080-7362-11e9-8bd2-6f90f95b35e0.png">
+
+**Sprint 4**
+<img width="844" alt="28_sprint4" src="https://user-images.githubusercontent.com/47341093/57520889-279b7700-7362-11e9-9f34-de556e39ecab.png">
+
+**Sprint 5**
+<img width="852" alt="29_sprint5" src="https://user-images.githubusercontent.com/47341093/57520890-279b7700-7362-11e9-8451-479c3bee3df3.png">
+
 ### Additional Screenshots & Documentation ###
+
+**Google Keep Notes for each Sprint and sprint action**
+<img width="1411" alt="30_googlekeep" src="https://user-images.githubusercontent.com/47341093/57520891-279b7700-7362-11e9-873b-e04230a5994a.png">
 
 ## Short Answer Questions ##
 
