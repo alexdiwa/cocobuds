@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Making the HTTP request to UI faces
-response = HTTParty.get("https://uifaces.co/api?limit=205&from_age=18&to_age=40&emotion[]=happiness", {
+response = HTTParty.get("https://uifaces.co/api?limit=155&from_age=18&to_age=40&emotion[]=happiness", {
   headers: {
     "X-API-KEY" => "14198bec5b8c608a3d0c06b0b3915a"
   }
@@ -69,7 +69,7 @@ locations.each do |location|
 end
 
 # Seeding users
-for i in 1..200
+for i in 1..150
   User.create(
     email: "ama+#{i}@test.com",
     password: "testpass",
