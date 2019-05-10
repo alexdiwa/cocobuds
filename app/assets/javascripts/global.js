@@ -4,4 +4,4 @@ window.setTimeout(function() {
   });
 }, 2000);
 
-$(":file").filestyle({text: "Find file"});
+// $(":file").filestyle({text: "Find file"});
