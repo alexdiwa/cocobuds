@@ -73,8 +73,34 @@ Below are some screenshots from our app as of 10th May 2019.
 
 ## Instructions for use ##
 
-Instructions on how to setup, configure and use your App.
+For local use of the app, perform the following operations in the CLI:
 
+1. Clone the git repository locally:
+```
+git clone https://github.com/alxdwa/rails-assessment.git
+```
+2. Move into the directory:
+```
+cd rails-assessment
+```
+3. Install gems:
+```
+bundle install
+```
+4. Ensure PostgreSQL is running and initialize the database:
+```
+rails db:create
+```
+5. Run migrations
+```
+rails db:migrate
+```
+6. Seed the database with dummy data (optional)
+```
+rails db:setup
+```
+7. Open up a browser and go to http://localhost:3000
+8. Enjoy!
 
 ## Design Documentation ##
 
@@ -129,6 +155,17 @@ Cocobuds is built on Rails using the Ruby programming language. We deployed our 
 * [Bootstrap Filestyle](https://rails-assets.org/#/components/bootstrap-filestyle): Cleans up appearance of file upload buttons using bootstrap/jQuery
 
 ### 6. IN PROGRESS Identify the database to be used in your App and provide a justification for your choice. ###
+
+Pros:
+- Postgres is scalable and can handle terabytes of data. Designed for high volume environments.
+- Highly reliable and stable
+- Can easily merge with cloud hosting on heroku as Heroku also uses Postgres.
+- ACID compliant - fulfils the following properties: (Atomicity, Consistency, Isolation, Durability), which means that it is quite robust and not prone to errors or failures. It also ensures consistency and integrity of data.
+- It can handle multiple complex processes, such as simultaneous/concurrent writing to tables.
+
+Cons:
+- can be considerably slower than databases like MySQL and SQLite
+-
 
 ### 7. IN PROGRESS Identify and describe the production database setup (i.e. postgres instance). ###
 
