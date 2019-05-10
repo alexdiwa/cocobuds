@@ -31,7 +31,41 @@ Our app facilitates connection between designers and developers. This is accompl
 * Users can make a secure payment/donation that helps keep the service running.
 
 ### Screenshots ###
-Screenshots
+
+Below are some screenshots from our app as of 10th May 2019. For brevity, we have omitted some screenshots of the sign in, sign up, forgot password and edit profile pages. 
+
+**Landing Page**
+<img width="1440" alt="2_landing" src="https://user-images.githubusercontent.com/47341093/57514959-eea8d580-7354-11e9-9127-6faf12283dd8.png">
+<img width="1435" alt="3_landing" src="https://user-images.githubusercontent.com/47341093/57514960-ef416c00-7354-11e9-95bd-1281bd69595c.png">
+
+**Sign Up Page**
+<img width="1149" alt="3a_signup" src="https://user-images.githubusercontent.com/47341093/57515388-dc7b6700-7355-11e9-9227-35d6c1ebfe19.png">
+
+**Sign In Page**
+<img width="1154" alt="3b_signin" src="https://user-images.githubusercontent.com/47341093/57515390-dc7b6700-7355-11e9-8f83-79d5cf274f66.png">
+
+**Donation Page**
+<img width="1436" alt="4_donate" src="https://user-images.githubusercontent.com/47341093/57514961-ef416c00-7354-11e9-8b1e-3f13873d8ae2.png">
+
+**User Profile Page**
+<img width="1440" alt="5_profile" src="https://user-images.githubusercontent.com/47341093/57514965-ef416c00-7354-11e9-8b68-b127d3d21e8c.png">
+
+**Edit Profile Page**
+
+<img width="1153" alt="5a_editprofile" src="https://user-images.githubusercontent.com/47341093/57515457-09c81500-7356-11e9-9edd-130b6b505a5a.png">
+
+**Search Page for User Profiles**
+<img width="1149" alt="6b_fullsearch" src="https://user-images.githubusercontent.com/47341093/57515494-23695c80-7356-11e9-811e-545a44ebbbad.png">
+
+**Favourites Page**
+<img width="1440" alt="7_favourites" src="https://user-images.githubusercontent.com/47341093/57514967-efda0280-7354-11e9-9ffa-db59620b374b.png">
+
+**Inbox**
+<img width="1440" alt="8_inbox" src="https://user-images.githubusercontent.com/47341093/57514968-efda0280-7354-11e9-8ee3-b2aec5a5f597.png">
+
+**Message/Chat Thread**
+<img width="1440" alt="9_messages" src="https://user-images.githubusercontent.com/47341093/57514969-f0729900-7354-11e9-9b4b-f28e2dfc4b49.png">
+
 
 ### Tech Stack ###
 
