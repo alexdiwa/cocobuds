@@ -274,17 +274,17 @@ The models associated with these tables interact through associations: one-to-on
 In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. As the User model is the primary model of our app, we will discuss our active record associations from the 'perspective' of the User.
 
 * User attributes: Location and Skill
-..* Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
-..* Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
+  * Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
+  * Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
 
 * User interaction: Message, Conversation and Follow
 - Message:
-..* User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each messages which corresponds to the id of the user who sends the message.
-..* Message to conversation (one-to-many): Each message belongs to a conversation, and each conversation has many messages. The conversation acts as a container for messages, but is defined only between two unique users.
-..* User to conversations (one-to-many): Each conversation belongs to two individual users (defined as a sender and receiver), and each user can be engaged in multiple conversations.
+  * User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each messages which corresponds to the id of the user who sends the message.
+  * Message to conversation (one-to-many): Each message belongs to a conversation, and each conversation has many messages. The conversation acts as a container for messages, but is defined only between two unique users.
+  * User to conversations (one-to-many): Each conversation belongs to two individual users (defined as a sender and receiver), and each user can be engaged in multiple conversations.
 
 * Follow (which we later renamed to display as Favourites in our views):
-..* As we have a self-referential association, the model Follow acts as a join table through which we can define many-to-many follower/followee relationships. Each user has many followers (people they follow) through the join table, and each user has many followees (people who follow them) also through this join table.
+  * As we have a self-referential association, the model Follow acts as a join table through which we can define many-to-many follower/followee relationships. Each user has many followers (people they follow) through the join table, and each user has many followees (people who follow them) also through this join table.
 
 ### 15. Provide User stories for your App. ###
 
