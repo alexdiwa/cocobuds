@@ -36,6 +36,7 @@ Below are some screenshots from our app as of 10th May 2019. For brevity, we hav
 
 **Landing Page**
 <img width="1440" alt="2_landing" src="https://user-images.githubusercontent.com/47341093/57514959-eea8d580-7354-11e9-9127-6faf12283dd8.png">
+<img width="1152" alt="2a_landing" src="https://user-images.githubusercontent.com/47341093/57515633-74795080-7356-11e9-95f9-eaac719cf33f.png">
 <img width="1435" alt="3_landing" src="https://user-images.githubusercontent.com/47341093/57514960-ef416c00-7354-11e9-95bd-1281bd69595c.png">
 
 **Sign Up Page**
@@ -51,7 +52,6 @@ Below are some screenshots from our app as of 10th May 2019. For brevity, we hav
 <img width="1440" alt="5_profile" src="https://user-images.githubusercontent.com/47341093/57514965-ef416c00-7354-11e9-8b68-b127d3d21e8c.png">
 
 **Edit Profile Page**
-
 <img width="1153" alt="5a_editprofile" src="https://user-images.githubusercontent.com/47341093/57515457-09c81500-7356-11e9-9edd-130b6b505a5a.png">
 
 **Search Page for User Profiles**
