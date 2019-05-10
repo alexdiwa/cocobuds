@@ -203,7 +203,7 @@ Users don’t interact directly with the developers work—they interact with wh
 
 ### 3. Describe the project you will be conducting and how your App will address the needs. ###
 
-We are addressing this need by creating an online platform through which users can meet and exchange skills. We built an app that is easy to use and simple in its function and purpose. Users are able to search for others in their area with the skills they want to learn in a matter of minutes, and contact and favourite them in a few seconds. We built in a favourite and mutual favourite system that helps ease the mental and social barriers associated with contacting someone new for the first time, and a simple, informal chatbox that allows users to engage with each other in a straightforward way.
+We are addressing this need by creating an online platform through which users can meet and exchange skills. Our functional app is easy to use and simple in its purpose. Users are able to search for others in their local area with the skills they want to learn in a matter of minutes. Contacting and favouriting users can be done in seconds. The built-in mutual favouriting system helps to ease the mental and social barriers associated with meeting someone new for the first time. A chatbox messaging system allows users to engage and communicate with each other in an informal way.
 
 ### 4. Describe the network infrastructure the App may be based on. ###
 
@@ -224,7 +224,7 @@ Cocobuds is built on Rails using the Ruby programming language. We deployed our 
 * [Kaminari 1.1](https://github.com/kaminari/kaminari): Handles pagination for our search results
 * [Bootstrap Filestyle](https://rails-assets.org/#/components/bootstrap-filestyle): Cleans up appearance of file upload buttons using bootstrap/jQuery
 
-### 6. IN PROGRESS Identify the database to be used in your App and provide a justification for your choice. ###
+### 6. Identify the database to be used in your App and provide a justification for your choice. ###
 
 We used PostgreSQL as our database for a number of reasons. 
 * It is scalable and can handle terabytes of data.
@@ -233,26 +233,25 @@ We used PostgreSQL as our database for a number of reasons.
 * It can easily merge with cloud hosting on Heroku as Heroku also uses Postgres.
 * It is ACID compliant and fulfils the following properties: Atomicity, Consistency, Isolation, Durability, which means that it is quite robust and not prone to errors or failures. This also ensures consistency and integrity of data.
 * It can handle multiple complex processes, such as simultaneous/concurrent writing to database tables.
+* It is open source.
 
 One downside of PostgreSQL is that it can be considerably slower than databases like MySQL and SQLite, the latter being the default database for Rails.
 
-### 7. IN PROGRESS Identify and describe the production database setup (i.e. postgres instance). ###
+### 7. Identify and describe the production database setup (i.e. postgres instance). ###
 
-We are using PostgreSQL for development/testing and Heroku Postgres for production.
+We are using PostgreSQL for development/testing and Heroku Postgres for production. We configured our Rails development environment prior to building our app to use PostgreSQL over SQLite. 
 
 ### 8. Describe the architecture of your App. ###
 
 Rails is an opinionated framework that uses convention over configuration. As such, in building this app, we followed the Model, View and Controller (or MVC) architectural pattern. This MVC paradigm allows us to separate the concerns and functionality of our app into individual, non-overlapping (but interacting) components, which facilitates a clean and efficient development, testing and maintenance process. The Model is responsible for directly interacting with the data stored in the database. As we have different types/categories of data stored in separate tables, we employed several models that have associations to each other. The View handles the user interface, and everything that is rendered to the browser. Connecting the Model and View is the Controller which handles the logic and transfer of data/user input. It is 'brains' of the app that holds more complex functionality e.g. methods that perform sequential searches on database entries managed by the model to be passed onto the view as search results.
 
-### 9. IN PROGRESS Explain the different high-level components (abstractions) in your App. ###
+### 9. Explain the different high-level components (abstractions) in your App. ###
 
-The goal of our app is to connect designers and developers. At the higher level, all we did was create a system through which users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). This system is designed and structured according to the MVC architectural pattern.
+The goal of our app is to connect designers and developers with each other. At a higher level we created a system where users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). These actions are accomplished through HTTP requests that the web server (Puma) manages and routes to controller methods that perform the action. This system is designed and structured according to the MVC architectural pattern.
 
-The first series of actions describe how users can add/edit information about themselves a User table (accessed by the model), the presentation of that data. This is so that each can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller and passed to the view from the model. Users can update and delete their profile and account.
+The first series of actions describe how users can add/edit information about themselves in a User table (accessed by the model in the database), and the presentation of that data. This is so that each can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller, passed to the view and rendered to the browser. Users can update and delete their profile and account.
 
-The second series of actions describe the ways in which users can interact with each other. This is facilitated through associations between the User model and those related to messaging (Message and Conversation) and favouriting/following (Follow).
-
-EXPAND ON APIs AND ROUTES
+The second series of actions describe the ways in which users can interact with each other. This is facilitated through associations between the User model and those related to messaging (Message and Conversation) and favouriting/following (Follow). 
 
 ### 10. Detail any third party services that your App will use. ###
 
@@ -275,17 +274,17 @@ The models associated with these tables interact through associations: one-to-on
 In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. As the User model is the primary model of our app, we will discuss our active record associations from the 'perspective' of the User.
 
 * User attributes: Location and Skill
-- Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
-- Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
+..* Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
+..* Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
 
 * User interaction: Message, Conversation and Follow
 - Message:
-1. User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each messages which corresponds to the id of the user who sends the message.
-2. Message to conversation (one-to-many): Each message belongs to a conversation, and each conversation has many messages. The conversation acts as a container for messages, but is defined only between two unique users.
-3. User to conversations (one-to-many): Each conversation belongs to two individual users (defined as a sender and receiver), and each user can be engaged in multiple conversations.
+..* User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each messages which corresponds to the id of the user who sends the message.
+..* Message to conversation (one-to-many): Each message belongs to a conversation, and each conversation has many messages. The conversation acts as a container for messages, but is defined only between two unique users.
+..* User to conversations (one-to-many): Each conversation belongs to two individual users (defined as a sender and receiver), and each user can be engaged in multiple conversations.
 
-- Follow (which we later renamed to display as Favourites in our views):
-As we have a self-referential association, the model Follow acts as a join table through which we can define many-to-many follower/followee relationships. Each user has many followers (people they follow) through the join table, and each user has many followees (people who follow them) also through this join table.
+* Follow (which we later renamed to display as Favourites in our views):
+..* As we have a self-referential association, the model Follow acts as a join table through which we can define many-to-many follower/followee relationships. Each user has many followers (people they follow) through the join table, and each user has many followees (people who follow them) also through this join table.
 
 ### 15. Provide User stories for your App. ###
 
@@ -326,10 +325,12 @@ We currently are only using Devise's inbuilt encryption for passwords, and are r
 
 ### 23. Research what your legal obligations are in relation to handling user data. ###
 
-In accordance with the Australian Privacy Act, our legal obligations in relation to handling user data include
-- disclosing how the user's personal information is being collected, how it will be used and who it will be disclosed to.
-- giving the user have the option of not identifying him/herself, or allowing them to use a pseudonym in certain circumstances.
-- giving the user access to their personal information
-- giving the user the option of not receiving unwanted direct marketing
-- correcting a user's personal information if it is incorrect.
-- allowing the user to make a complaint about an entity covered by the Privacy Act, if they consider that we have mishandled their personal information.
+In accordance with the Australian Privacy Act, our legal obligations in relation to handling user data include:
+
+
+- Disclosing how the user's personal information is being collected, how it will be used and who it will be disclosed to.
+- Giving the user have the option of not identifying him/herself, or allowing them to use a pseudonym in certain circumstances.
+- Giving the user access to their personal information
+- Giving the user the option of not receiving unwanted direct marketing
+- Correcting a user's personal information if it is incorrect.
+- Allowing the user to make a complaint about an entity covered by the Privacy Act, if they consider that we have mishandled their personal information.
