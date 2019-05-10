@@ -288,12 +288,11 @@ In the previous short answer question, we provided a description of the models w
 
 ### 15. Provide User stories for your App. ###
 
-* As a developer/designer, I want to be able to learn from someone face to face.
-* As a developer/designer, I want to give back to the community by sharing my skills.
-* As a developer/designer, I want to be able to find others easily so I can learn from them. 
-* As a developer/designer, I want to be able to contact someone with skills I want to learn in a way that isn't awkward or intimidating.
+User stories are provided above under 'Design Documentation'. 
 
 ### 16. Provide Wireframes for your App. ###
+
+Wireframes for desktop and mobile are provided above under 'Design Documentation'. 
 
 ### 17. Describe the way tasks are allocated and tracked in your project. ###
 
@@ -313,7 +312,13 @@ Our group used Git and GitHub for source control. We used branches frequently wh
 
 Manual testing was conducted on each feature and page of the website. On every page we wanted to test all buttons, links and notifications. Each test was assigned a scenario, an expected result, actual result, status and comments. 
 
-We attempted automated testing in Cypress, but encountered difficulties in trying to perform specific actions and this posed as a significant setback in terms of time. We decided to proceed with manual testing and attempt automated testing should time allow. Manual testing also allowed us to test for edge cases for our forms, authentication and authorisation.
+We attempted automated testing in Cypress, but encountered difficulties in trying to perform specific actions and this posed as a significant setback in terms of time. We decided to proceed with manual testing and attempt automated testing should time allow. Manual testing still allowed us to test for edge cases for our forms, authentication and authorisation.
+
+**Screenshot of Testing Spreadhseet**
+
+<img width="1371" alt="31_testing" src="https://user-images.githubusercontent.com/47341093/57523763-35a0c600-7369-11e9-8a30-f60199c2f3f0.png">
+
+[Link to Spreadsheet](https://docs.google.com/spreadsheets/d/17HpoiCsOfrWcrLol-89Mhoy2oUFTklDDT22CqKCZNjo/edit?usp=sharing)
 
 ### 21. Discuss and analyse requirements related to information system security. ###
 
