@@ -32,7 +32,7 @@ Our app facilitates connection between designers and developers. This is accompl
 
 ### Screenshots ###
 
-Below are some screenshots from our app as of 10th May 2019. For brevity, we have omitted some screenshots of the sign in, sign up, forgot password and edit profile pages. 
+Below are some screenshots from our app as of 10th May 2019.
 
 **Landing Page**
 <img width="1440" alt="2_landing" src="https://user-images.githubusercontent.com/47341093/57514959-eea8d580-7354-11e9-9127-6faf12283dd8.png">
@@ -69,7 +69,7 @@ Below are some screenshots from our app as of 10th May 2019. For brevity, we hav
 
 ### Tech Stack ###
 
-Tech stack (e.g. html, css, deployment platform, etc)
+<img width="455" alt="10_techstack" src="https://user-images.githubusercontent.com/47341093/57516336-de462a00-7357-11e9-8d85-1cd26728f7ea.png">
 
 ## Instructions for use ##
 
