@@ -12,8 +12,9 @@
 //
 //= require global
 //= require activestorage
+//= require turbolinks
+//= require bootstrap-filestyle
+//= require bootstrap-sprockets
 //= require jquery3
 //= require rails-ujs
 //= require popper
-//= require bootstrap-filestyle
-//= require bootstrap-sprockets
