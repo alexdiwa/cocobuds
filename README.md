@@ -104,20 +104,56 @@ rails db:setup
 
 ## Design Documentation ##
 
-### Design process ###
+### IN PROGRESS: Design process ###
+
+Our design process comprised of several steps:
+
+**EXPAND ON AND ACTUALLY ANSWER THE QNs**
+
+1. Brainstorming ideas for our app and defining the problem we wanted to solve. We started by thinking about apps that we'd like to use ourselves.
+2. Brainstorming solutions: what kind of app could address the needs we're looking for? What would it look like? What other apps are there that are similar?
+3. Translate these thoughts into a user flow diagram and wireframes for desktop and mobile. 
+4. Translate the wireframes into an Entity Relationship Diagram that captures all the necessary tables we'll need to store our data in.
+5. While the we begin agile development of our app, concurrently work on moodboarding and thinking about style details of the front end.
 
 ### User Stories ###
 
+* As a developer/designer, I want to be able to learn from someone face to face.
+* As a developer/designer, I want to give back to the community by sharing my skills.
+* As a developer/designer, I want to be able to find others easily so I can learn from them. 
+* As a developer/designer, I want to be able to contact someone with skills I want to learn in a way that isn't awkward or intimidating.
+
 ### Flow Diagram ###
+
+![11_flowchart](https://user-images.githubusercontent.com/47341093/57518401-4434b080-735c-11e9-998d-e0f2514e66dc.png)
 
 ### Wireframes ###
 
 #### Mobile ####
 
+![17_mobile_1](https://user-images.githubusercontent.com/47341093/57518622-c8873380-735c-11e9-8308-743c040f8b6d.png)
+![18_mobile_2](https://user-images.githubusercontent.com/47341093/57518623-c8873380-735c-11e9-999f-bfd4ef70428a.png)
+![19_mobile_3](https://user-images.githubusercontent.com/47341093/57518624-c8873380-735c-11e9-8eaa-8286e331c777.png)
+![20_mobile_4](https://user-images.githubusercontent.com/47341093/57518625-c91fca00-735c-11e9-93e4-b8e65f1d5ab0.png)
+
 #### Desktop ####
+
+<img width="496" alt="12_desktop_1" src="https://user-images.githubusercontent.com/47341093/57518614-c7560680-735c-11e9-8a5b-bd41908f7164.png">
+<img width="693" alt="13_desktop_2" src="https://user-images.githubusercontent.com/47341093/57518617-c7560680-735c-11e9-9a3e-3d31d6d25036.png">
+<img width="752" alt="14_desktop_3" src="https://user-images.githubusercontent.com/47341093/57518618-c7ee9d00-735c-11e9-8234-1611b124e0a8.png">
+<img width="898" alt="15_desktop_4" src="https://user-images.githubusercontent.com/47341093/57518619-c7ee9d00-735c-11e9-9101-abfe3d07febc.png">
+<img width="966" alt="16_desktop_5" src="https://user-images.githubusercontent.com/47341093/57518620-c7ee9d00-735c-11e9-91b5-64efb2ddef39.png">
+
+#### Design Elements ####
+
+**Experimenting with design elements, colour and typography**
+
+![21_illustrator_1](https://user-images.githubusercontent.com/47341093/57518626-c91fca00-735c-11e9-9867-af4541ba45d6.png)
+![22_illustrator_2](https://user-images.githubusercontent.com/47341093/57518628-c91fca00-735c-11e9-9c4a-50270d5efb62.png)
 
 ### Database Entity Relationship Diagram ###
 
+<img width="963" alt="23_ERD" src="https://user-images.githubusercontent.com/47341093/57518781-33d10580-735d-11e9-86e5-1cf320e3fee5.png">
 
 ## Planning Documentation ##
 
