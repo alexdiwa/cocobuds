@@ -1,15 +1,22 @@
-# Cocobuds #
+![Cocobuds](https://user-images.githubusercontent.com/47341093/57512885-41cc5980-7350-11e9-95ad-3f218b49af66.png)
 
-Cocobuds Live: https://cocobuds.herokuapp.com
-GitHub Repo: https://github.com/alxdwa/rails-assessment
+#### Cocobuds: An app built on Rails by [Antonella Markahe](https://github.com/Antoonella), [Michael Bahari](https://github.com/ugkid) and [Alex Diwa](https://github.com/alxdwa). ####
 
-## What is Cocobuds? ##
+**Cocobuds Live**: https://cocobuds.herokuapp.com<br />
+**GitHub Repo**: https://github.com/alxdwa/rails-assessment<br />
 
 ### Project Description: ###
 
+**CHANGE THIS/ ELABORATE ON THIS - or alternatively work on Q2 in short answer**
+
+<br /><br />
 Design’s role in this world never sits still. In technology it continues to be etched into the product development process. We always hear about how more designers should learn how to code. This demand for designers who can develop is just as relevant for developers who can design.
 
 Users don’t interact directly with the developers work—they interact with what the designer creates. Developers who are involved early on in the design process will lead to a better understanding of the user. To build better products, collaboration and communication needs to take place for designers and developers.
+
+### What's a Cocobud? ###
+
+Cocobuds are life-long learners who wants to share their knowledge and pick up new skills in the process. Cocobuds can be designers or developers who want to meet, upskill and learn from each other. 
 
 ### Functionality and Features ###
 
