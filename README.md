@@ -7,8 +7,9 @@ GitHub Repo: https://github.com/alxdwa/rails-assessment
 
 ### Project Description: ###
 
-Description of your project, including,
-Problem definition / purpose
+Design’s role in this world never sits still. In technology it continues to be etched into the product development process. We always hear about how more designers should learn how to code. This demand for designers who can develop is just as relevant for developers who can design.
+
+Users don’t interact directly with the developers work—they interact with what the designer creates. Developers who are involved early on in the design process will lead to a better understanding of the user. To build better products, collaboration and communication needs to take place for designers and developers.
 
 ### Functionality and Features ###
 
@@ -43,4 +44,137 @@ Screenshots of Trello board(s)
 
 ## Short Answer Questions ##
 
-Answers to the Short Answer questions (Section 2.2)
+### 1. What is the need (i.e. challenge) that you will be addressing in your project? ###
+
+There is a need for designers to learn programming and for programmers to learn design. Websites like Skillshare and Udemy allow users to study virtually but never face to face in real life. We are aiming to create a more intentional place to establish a live relationship in order to learn and share from one another.
+
+### 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving? ###
+
+Steve Jobs once said: “It’s not just what it looks like and feels like. Design is how it works.”
+
+Design’s role in this world never sits still. In technology it continues to be etched into the product development process. We always hear about how more designers should learn how to code. This demand for designers who can develop is just as relevant for developers who can design.
+
+Users don’t interact directly with the developers work—they interact with what the designer creates. Developers who are involved early on in the design process will lead to a better understanding of the user. To build better products, collaboration and communication needs to take place for designers and developers.
+
+### 3. Describe the project you will be conducting and how your App will address the needs. ###
+
+We are addressing this need by creating an online platform through which users can meet and exchange skills. We built an app that is easy to use and simple in its function and purpose. Users are able to search for others in their area with the skills they want to learn in a matter of minutes, and contact and favourite them in a few seconds. We built in a favourite and mutual favourite system that helps ease the mental and social barriers associated with contacting someone new for the first time, and a simple, informal chatbox that allows users to engage with each other in a straightforward way.
+
+### 4. Describe the network infrastructure the App may be based on. ###
+
+Our app is deployed on Heroku, a cloud hosting platform that provides a URL through which users can access a live version of the app. Heroku uses and is compatible with the same web server we used in development and testing - Puma - which connects (routes) the HTTP requests to our controllers, through Action Controller, and relays responses to the web browser.
+
+### 5. Identify and describe the software to be used in your App. ###
+
+Cocobuds is built on Rails using the Ruby programming language. We deployed our app on Heroku, and used a number of gems that have assisted in adding functionality to our app. 
+
+* [Devise 4.6](https://github.com/plataformatec/devise): User authentication
+* [Faker 1.9](https://github.com/stympy/faker): Generating fake data to seed our database
+* Amazon Web Services - S3: Cloud hosting service for any uploaded images
+* [Stripe 4.16](https://stripe.com/au): Processing secure paymnts
+* [Bootstrap 4.3](https://getbootstrap.com/): Front-end styling
+* [jQuery rails 4.3](https://github.com/rails/jquery-rails): Integrated with bootstrap for some animations
+* [HTTParty 0.17.0](https://github.com/jnunemaker/httparty): Used to interact with UI Faces API for seeding profile pictures for users
+* [Font Awesome SASS 5.8.1](https://github.com/FortAwesome/font-awesome-sass): Font Awesome icons that can be rendered using ruby methods in views
+* [Kaminari 1.1](https://github.com/kaminari/kaminari): Handles pagination for our search results
+* [Bootstrap Filestyle](https://rails-assets.org/#/components/bootstrap-filestyle): Cleans up appearance of file upload buttons using bootstrap/jQuery
+
+### 6. IN PROGRESS Identify the database to be used in your App and provide a justification for your choice. ###
+
+### 7. IN PROGRESS Identify and describe the production database setup (i.e. postgres instance). ###
+
+We are using PostgreSQL for development/testing and Heroku Postgres for production.
+
+### 8. Describe the architecture of your App. ###
+
+Rails is an opinionated framework that uses convention over configuration. As such, in building this app, we followed the Model, View and Controller (or MVC) architectural pattern. This MVC paradigm allows us to separate the concerns and functionality of our app into individual, non-overlapping (but interacting) components, which facilitates a clean and efficient development, testing and maintenance process. The Model is responsible for directly interacting with the data stored in the database. As we have different types/categories of data stored in separate tables, we employed several models that have associations to each other. The View handles the user interface, and everything that is rendered to the browser. Connecting the Model and View is the Controller which handles the logic and transfer of data/user input. It is 'brains' of the app that holds more complex functionality e.g. methods that perform sequential searches on database entries managed by the model to be passed onto the view as search results.
+
+### 9. IN PROGRESS Explain the different high-level components (abstractions) in your App. ###
+
+The goal of our app is to connect designers and developers. At the higher level, all we did was create a system through which users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). This system is designed and structured according to the MVC architectural pattern.
+
+The first series of actions describe how users can add/edit information about themselves a User table (accessed by the model), the presentation of that data. This is so that each can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller and passed to the view from the model. Users can update and delete their profile and account.
+
+The second series of actions describe the ways in which users can interact with each other. This is facilitated through associations between the User model and those related to messaging (Message and Conversation) and favouriting/following (Follow).
+
+EXPAND ON APIs AND ROUTES
+
+### 10. Detail any third party services that your App will use. ###
+
+We use a number of third-party services to streamline our app development, management and deployment process. AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. We deployed our app on Heroku, a cloud platform with its own in-built server and Postgres database. To generate our user pictures in our seeded database, we used UI Faces API.
+
+### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb). ###
+
+While our app is a two-sided marketplace for developers and designers, the features we have implemented and hence our data structure resembles a social network such as Facebook, LinkedIn, Twitter and even Tinder. Similar to our app, each of these implement ways for users to view other people's profiles/pages, add another user to some sort of collection (whether it be a collection of friends, a follower or a swipe right), and a way of communicating through messages.
+
+### 12. Discuss the database relations to be implemented. ###
+
+The core model of our app is the User model, as the main function of our app is to connect users to each other. As seen in our ERD, the user table in our database holds all information related to user registration (email/password) and their attributes. Minor attributes (e.g. occupation, website URL) are defined as columns in our User table, whereas the feature user attributes (Locations and Skills) are held in separate tables, associated with each user through foreign keys. We implemented a join table users_skills through which the User and Skill tables are associated.
+
+We used separate database tables to store information related to user to user interaction (users following and talking to each other). A Conversation table defines the pair of users interacting (through foreign keys sender_id and receiver_id), and effectively acts a container for individual messages stored in the Message table. The Message table references the conversation and users via foreign keys, and holds information specific to the individual message (who sent it i.e. user_id, and whether it has been read). The last component of our ERD is the Follow table, which is effectively a self-referential/self-join table for the User model. Here, we reference foreign keys that are user ids - who someone is following (follower_id) and who is doing the following (followee_id).
+
+The models associated with these tables interact through associations: one-to-one, one-to-many and many-to-many. These will be discussed in the next question.
+
+### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other. ###
+
+In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. As the User model is the primary model of our app, we will discuss our active record associations from the 'perspective' of the User.
+
+* User attributes: Location and Skill
+- Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
+- Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
+
+* User interaction: Message, Conversation and Follow
+- Message:
+1. User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each messages which corresponds to the id of the user who sends the message.
+2. Message to conversation (one-to-many): Each message belongs to a conversation, and each conversation has many messages. The conversation acts as a container for messages, but is defined only between two unique users.
+3. User to conversations (one-to-many): Each conversation belongs to two individual users (defined as a sender and receiver), and each user can be engaged in multiple conversations.
+
+- Follow (which we later renamed to display as Favourites in our views):
+As we have a self-referential association, the model Follow acts as a join table through which we can define many-to-many follower/followee relationships. Each user has many followers (people they follow) through the join table, and each user has many followees (people who follow them) also through this join table.
+
+### 15. Provide User stories for your App. ###
+
+* As a developer/designer, I want to be able to learn from someone face to face.
+* As a developer/designer, I want to give back to the community by sharing my skills.
+* As a developer/designer, I want to be able to find others easily so I can learn from them. 
+* As a developer/designer, I want to be able to contact someone with skills I want to learn in a way that isn't awkward or intimidating.
+
+### 16. Provide Wireframes for your App. ###
+
+### 17. Describe the way tasks are allocated and tracked in your project. ###
+
+In our project management, tasks were allocated and tracked using Trello. Each day represented a sprint and each sprint consisted of tasks which had been discussed and chosen during our morning standups. Our sprint boards consisted of 'Todo', 'In Progress' and 'Done' lists. Each task was assigned a card where we could collaborate by commenting and attaching files. We would drag and drop each card into the list that represented its status, until all of them were inside the 'Done' list.
+
+### 18. Discuss how Agile methodology is being implemented in your project. ###
+
+We have implemented Agile in our project management and product development. Our product was built in sprints which allowed us to deliver work in small and manageable increments.
+
+Most of the back-end development was done together in our group. One person would code, the other notated each step that was coded and the last person researched and followed our lecturers' notes. Each of us exchanged roles. This method helped us evaluate requirements and results for each step quickly.
+
+### 19. Provide an overview and description of your Source control process. ###
+
+Our group used Git and GitHub for source control. We used branches frequently when working on individual components of our app, or when working on a new feature. These features/branches included: 'user', with branches off user to work on stripe payments, forms, implementing AWS and search functionality, 'messages', and 'favourites'. Later in the process, we worked on branches that were dedicated to styling/front-end work and cleaning up code. Constant communication in person and over Slack allowed us to branch and merge at appropriate times, and that we were all kept up to date with changes as they happened. This kept merge conflicts to a minimum and, and made for clean and efficient development of our app.
+
+### 20. Provide an overview and description of your Testing process. ###
+
+Manual testing was conducted on each feature and page of the website. On every page we wanted to test all buttons, links and notifications. Each test was assigned a scenario, an expected result, actual result, status and comments. 
+
+We attempted automated testing in Cypress, but encountered difficulties in trying to perform specific actions and this posed as a significant setback in terms of time. We decided to proceed with manual testing and attempt automated testing should time allow. Manual testing also allowed us to test for edge cases for our forms, authentication and authorisation.
+
+### 21. Discuss and analyse requirements related to information system security. ###
+
+
+
+### 22. Discuss methods you will use to protect information and data. ###
+
+We currently are only using Devise's inbuilt encryption for passwords, and are relying on inbuilt payment security by using Stripe to secure our user's payment information. We wrote a method to ensure that user's are authorised to view their conversations and messages with other uses, and not the conversations/messages of other users (authorise_user in messages controller). We also wrote authorisation methods to prevent users from updating or deleting other user's profiles. Encryption and decryption of all user data was not possible within the scope of this project.
+
+### 23. Research what your legal obligations are in relation to handling user data. ###
+
+In accordance with the Australian Privacy Act, our legal obligations in relation to handling user data include
+- disclosing how the user's personal information is being collected, how it will be used and who it will be disclosed to.
+- giving the user have the option of not identifying him/herself, or allowing them to use a pseudonym in certain circumstances.
+- giving the user access to their personal information
+- giving the user the option of not receiving unwanted direct marketing
+- correcting a user's personal information if it is incorrect.
+- allowing the user to make a complaint about an entity covered by the Privacy Act, if they consider that we have mishandled their personal information.
