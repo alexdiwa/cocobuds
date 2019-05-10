@@ -108,14 +108,12 @@ rails db:setup
 
 ## Design Documentation ##
 
-### IN PROGRESS: Design process ###
+### Design process ###
 
 Our design process comprised of several steps:
 
-**EXPAND ON AND ACTUALLY ANSWER THE QNs**
-
-1. Brainstorming ideas for our app and defining the problem we wanted to solve. We started by thinking about apps that we'd like to use ourselves.
-2. Brainstorming solutions: what kind of app could address the needs we're looking for? What would it look like? What other apps are there that are similar?
+1. Brainstorming ideas for our app and defining the problem we wanted to solve. We started by thinking about apps that we'd like to use ourselves. 
+2. Brainstorming solutions: what kind of app could address the needs we're looking for? What would it look like? What other apps are there that are similar? What do they lack?
 3. Translate these thoughts into a user flow diagram and wireframes for desktop and mobile. 
 4. Translate the wireframes into an Entity Relationship Diagram that captures all the necessary tables we'll need to store our data in.
 5. While the we begin agile development of our app, concurrently work on moodboarding and thinking about style details of the front end.
@@ -161,11 +159,17 @@ Our design process comprised of several steps:
 
 ## Planning Documentation ##
 
-Planning process:
+### Planning process ###
+
+After drafting our plans in the form of wireframes and an ERD, we started planning how we would accomplish our goal of producing a working MVP by the end of the two weeks. We came up with an initial plan and timeline as a starting point, while working iteratively using the Agile method.
+
+We used Trello and Google Docs for project management. Our work was accomplished over 4 sprints, which each had their own Trello board of 3 main columns: To Do, In Progress and Done. To keep track of what we were doing, we used Google Docs/Sheets/Keep extensively for the planning, documentation and testing process.
 
 ### Project Plan & Timeline ###
 
 ### Screenshots of Trello boards ###
+
+### Additional Screenshots & Documentation ###
 
 ## Short Answer Questions ##
 
