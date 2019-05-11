@@ -162,6 +162,63 @@ We used Trello and Google Docs for project management. Our work was accomplished
 
 ### Project Plan & Timeline ###
 
+* Mon 29th Apr:
+  * Brainstorm
+  * Mock up wireframes
+  * Produce ERD
+* Tues 30th Apr:
+  * Have ERD approved
+  * Begin setting up tables in database and migrations: User model, Location model, Skill model and users_skills join table, seeding location and user data, configuring routes
+  * Set up Devise for user authentication.
+* Weds 1st May:
+  * Expand to create full CRUD resource for User: new/edit user forms, form partials
+  * Devise redirects
+  * Set up AWS and ActiveStorage
+  * Set up checkbox and associated controller methods for user skills
+* Thurs 2nd May:
+  * Set up Stripe payments for donations
+  * Started attempting to implement search methods for filtering users based on criteria (location, developer/designer, skills)
+* Fri 3rd May:
+  * Continued with Stripe payments
+  * Continued implementing search methods
+  * Set up landing page and preview search page/form for new users
+  * Began setting up messaging/conversation system
+* Sat 4th May:
+  * Seeded profiles with pictures using HTTParty and UI Faces API
+  * Began some styling using Bootstrap
+* Sun 5th May:
+  * Continued with inbox and messages back- and front-end, seeded messages
+* Mon 6th May:
+  * Pagination of search results
+  * Debugging messaging system and links to facilitate clean and easy interaction between users
+  * Adding name search bar to search results filter
+* Tues 7th May:
+  * Implement favouriting/following system, seed favourites for users
+  * Tidying up user flow throughout the site and redirects
+  * Begin moodboarding and experimenting with front-end /design/UI elements
+  * Start planning testing
+* Weds 8th May
+  * Tidying up code, particularly back end and database calls, sanitising input
+  * Writing code comments
+  * Attempt automated testing, but fall back on manual testing using a spreadsheet
+  * Beginning short answer questions
+  * Work on form validation
+* Thurs 9th May
+  * Finishing touches for views and working on bootstrap styling
+  * Deploy to Heroku
+  * Continue working on form validation but with little success
+* Fri 10th May
+  * Fixing bugs
+  * Compiling README.md
+  * Continue documentation and short answer questions
+  * Tidying up views and front-end
+  * Apply any updates to live version on Heroku
+  * Write presentation
+* Sat 11th May
+  * Finish short answer questions
+  * Finish README.md
+  * Prepare to submit
+
 ### Screenshots of Trello boards ###
 
 **Brainstorming**
@@ -249,15 +306,15 @@ Rails is an opinionated framework that uses convention over configuration. As su
 
 The goal of our app is to connect designers and developers with each other. At a higher level we created a system where users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). These actions are accomplished through HTTP requests that the web server (Puma) manages and routes to controller methods that perform the action. As discussed above, this system is designed and structured according to the MVC architectural pattern.
 
-The first series of actions describe how users can add/edit information about themselves in a User table (accessed by the model in the database), and the presentation of that data. This is so that each can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller, passed to the view and rendered to the browser. Users can update and delete their profile and account.
+The first series of actions describe how users can add/edit information about themselves in a User table (accessed by the model in the database), and the presentation of that data. This is so that each user can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller, passed to the view and rendered to the browser. Users can update and delete their profile and account.
 
 The second series of actions describe the ways in which users can interact with each other. This is facilitated through associations between the User model and those related to messaging (Message and Conversation) and favouriting/following (Follow). 
 
 ### 10. Detail any third party services that your App will use. ###
 
-We use a number of third-party services to streamline our app development, management and deployment process. AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. We deployed our app on Heroku, a cloud platform with its own in-built server and Postgres database. To generate our user pictures in our seeded database, we used UI Faces API.
+We use a number of third-party services to streamline our app development, management and deployment process. AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. We deployed our app on Heroku, a cloud platform with its own in-built Puma server and Postgres database. To generate our user pictures in our seeded database, we used UI Faces API.
 
-A list of all the gems/software used in building this app are detailed above. Click here to view.
+A list of all the gems/software used in building this app are detailed above. [Click here](#5-identify-and-describe-the-software-to-be-used-in-your-app) to view.
 
 ### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb). ###
 
@@ -273,15 +330,15 @@ The models associated with these tables interact through associations: one-to-on
 
 ### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other. ###
 
-In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. As the User model is the primary model of our app, we will discuss our active record associations from the 'perspective' of the User.
+In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. 
 
-* User attributes: Location and Skill
-  * Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
-  * Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
+1. User attributes: Location and Skill
+  - Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
+  - Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
 
-* User interaction: Message, Conversation and Follow
+2. User interaction: Message, Conversation and Follow
 - Message:
-  * User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each messages which corresponds to the id of the user who sends the message.
+  * User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each message which corresponds to the id of the user who sends the message.
   * Message to conversation (one-to-many): Each message belongs to a conversation, and each conversation has many messages. The conversation acts as a container for messages, but is defined only between two unique users.
   * User to conversations (one-to-many): Each conversation belongs to two individual users (defined as a sender and receiver), and each user can be engaged in multiple conversations.
 
@@ -290,15 +347,15 @@ In the previous short answer question, we provided a description of the models w
 
 ### 15. Provide User stories for your App. ###
 
-User stories are provided above under 'Design Documentation'. Click here to view.
+User stories are provided above under 'Design Documentation'. [Click here](#user-stories) to view.
 
 ### 16. Provide Wireframes for your App. ###
 
-Wireframes for desktop and mobile are provided above under 'Design Documentation'. Click here to view.
+Wireframes for desktop and mobile are provided above under 'Design Documentation'. [Click here](#wireframes) to view.
 
 ### 17. Describe the way tasks are allocated and tracked in your project. ###
 
-In our project management, tasks were allocated and tracked using Trello. Each day represented a sprint and each sprint consisted of tasks which had been discussed and chosen during our morning standups. Our sprint boards consisted of 'Todo', 'In Progress' and 'Done' lists. Each task was assigned a card where we could collaborate by commenting and attaching files. We would drag and drop each card into the list that represented its status, until all of them were inside the 'Done' list.
+In our project management, tasks were allocated and tracked using Trello. Each sprint consisted of tasks which had been discussed and chosen during our morning standups. Our sprint boards consisted of 'Todo', 'In Progress' and 'Done' lists. Each task was assigned a card where we could collaborate by commenting and attaching files. We would drag and drop each card into the list that represented its status, until all of them were inside the 'Done' list.
 
 ### 18. Discuss how Agile methodology is being implemented in your project. ###
 
@@ -326,7 +383,7 @@ We attempted automated testing in Cypress, but encountered difficulties in tryin
 
 We have built an app that involves information transfer between the user and a database. As such, we needed to consider security vulunerabilities at several points in this pipeline: the access/retrieval of data, the transfer of data and the storage of that data.
 
-* Unauthenticated/unauthorised access: The identity of users should be authenticated so that their identity is known. This limits what the information the user is authorised to access, and what actions they can perform. In our case, users should only be able to view listings of users and search for users if they are signed up and logged in. Users should not be authorised to view other people's conversations and messages, or be authorised to edit or delete other people's profiles. 
+* Unauthenticated/unauthorised access: The identity of users should be authenticated so that their identity is known. This limits what the information the user is authorised to access, and what actions they can perform. In our case, users should only be able to view others users and search for users if they are signed up and logged in. Users should not be authorised to view other people's conversations and messages, or be authorised to edit or delete other people's profiles. 
 
 * Storage and access of sensitive information: Users' passwords should be encrypted. Users should only be able to retrieve forgotten passwords using an email associated with that password. Users' payment details should be encrypted and ideally stored offsite. 
 
@@ -355,13 +412,16 @@ The ways in which we implemented (or attempted to implement) these security requ
   * We used the Rails form_for helper method for our forms which automatically generates and returns a CSRF token as a hidden field. The token is stored in the session as a random string.
   * Rails also has an in-built method `csrf_meta_tag` which is called in the head of the global application view file `application.html.erb`. This verifies that requests coming into the server are from users that are logged in.
 
+We also deployed to Heroku which enforces SSL encryption for customer connections to postgres databases. We ensured that https is used for all requests by using `config.force_ssl = true` in the production file `config/environments/production.rb`. 
+
 ### 23. Research what your legal obligations are in relation to handling user data. ###
 
 In accordance with the Australian Privacy Act, our legal obligations in relation to handling user data include:
 
 - Disclosing how the user's personal information is being collected, how it will be used and who it will be disclosed to.
-- Giving the user have the option of not identifying him/herself, or allowing them to use a pseudonym in certain circumstances.
+- Giving the user have the option of not identifying themselves, or allowing them to use a pseudonym in certain circumstances.
 - Giving the user access to their personal information
 - Giving the user the option of not receiving unwanted direct marketing
 - Correcting a user's personal information if it is incorrect.
 - Allowing the user to make a complaint about an entity covered by the Privacy Act, if they consider that we have mishandled their personal information.
+- Notifying users of data breaches where users' personal information is lost or stolen, and/or if the database storing the users' information is hacked.
