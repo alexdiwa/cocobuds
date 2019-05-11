@@ -63,21 +63,21 @@
     </div>
 
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-4">
         <%= form.label :age, class: "label" %>
         <%= form.number_field :age, class: "form-control mb-2", min: 18 %>
       </div>
-      <div class="col-md-5">
-        <%= form.label :occupation, class: "label" %>
-        <%= form.text_field :occupation, class: "form-control mb-2"  %>
-      </div>
-      <div class="col-md-5 form-group">
+      <div class="col-md-8 form-group">
         <%= form.label :location_id, class: "label" %>
         <%= form.select(:location_id, locations.map{ |location| [location.name, location.id] }, {include_blank: 'Pick a Location'}, {required: true, class: "form-control form-control-md"}) %>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-6">
+        <%= form.label :occupation, class: "label" %>
+        <%= form.text_field :occupation, class: "form-control mb-2"  %>
+      </div>
+      <div class="col-md-6">
         <%= form.label :portfolio_url, class: "label" %>
         <%= form.url_field :portfolio_url, class: "form-control mb-2" %>
       </div>
