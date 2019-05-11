@@ -162,6 +162,63 @@ We used Trello and Google Docs for project management. Our work was accomplished
 
 ### Project Plan & Timeline ###
 
+* Mon 29th Apr:
+  * Brainstorm
+  * Mock up wireframes
+  * Produce ERD
+* Tues 30th Apr:
+  * Have ERD approved
+  * Begin setting up tables in database and migrations: User model, Location model, Skill model and users_skills join table, seeding location and user data, configuring routes
+  * Set up Devise for user authentication.
+* Weds 1st May:
+  * Expand to create full CRUD resource for User: new/edit user forms, form partials
+  * Devise redirects
+  * Set up AWS and ActiveStorage
+  * Set up checkbox and associated controller methods for user skills
+* Thurs 2nd May:
+  * Set up Stripe payments for donations
+  * Started attempting to implement search methods for filtering users based on criteria (location, developer/designer, skills)
+* Fri 3rd May:
+  * Continued with Stripe payments
+  * Continued implementing search methods
+  * Set up landing page and preview search page/form for new users
+  * Began setting up messaging/conversation system
+* Sat 4th May:
+  * Seeded profiles with pictures using HTTParty and UI Faces API
+  * Began some styling using Bootstrap
+* Sun 5th May:
+  * Continued with inbox and messages back- and front-end
+* Mon 6th May:
+  * Pagination of search results
+  * Debugging messaging system and links to facilitate clean and easy interaction between users
+  * Adding name search bar to search results filter
+* Tues 7th May:
+  * Implement favouriting/following system
+  * Tidying up user flow throughout the site and redirects
+  * Begin moodboarding and experimenting with front-end /design/UI elements
+  * Start planning testing
+* Weds 8th May
+  * Tidying up code, particularly back end and database calls
+  * Writing code comments
+  * Attempt automated testing, but fall back on manual testing using a spreadsheet
+  * Beginning short answer questions
+  * Work on form validation
+* Thurs 9th May
+  * Finishing touches for views and working on bootstrap styling
+  * Deploy to Heroku
+  * Continue working on form validation but with little success
+* Fri 10th May
+  * Fixing bugs
+  * Compiling README.md
+  * Continue documentation and short answer questions
+  * Tidying up views and front-end
+  * Apply any updates to live version on Heroku
+  * Write presentation
+* Sat 11th May
+  * Finish short answer questions
+  * Finish README.md
+  * Prepare to submit
+
 ### Screenshots of Trello boards ###
 
 **Brainstorming**
@@ -257,7 +314,7 @@ The second series of actions describe the ways in which users can interact with 
 
 We use a number of third-party services to streamline our app development, management and deployment process. AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. We deployed our app on Heroku, a cloud platform with its own in-built server and Postgres database. To generate our user pictures in our seeded database, we used UI Faces API.
 
-A list of all the gems/software used in building this app are detailed above. Click here to view.
+A list of all the gems/software used in building this app are detailed above. [Click here](#5-identify-and-describe-the-software-to-be-used-in-your-app) to view.
 
 ### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb). ###
 
@@ -290,11 +347,11 @@ In the previous short answer question, we provided a description of the models w
 
 ### 15. Provide User stories for your App. ###
 
-User stories are provided above under 'Design Documentation'. Click here to view.
+User stories are provided above under 'Design Documentation'. [Click here](#user-stories) to view.
 
 ### 16. Provide Wireframes for your App. ###
 
-Wireframes for desktop and mobile are provided above under 'Design Documentation'. Click here to view.
+Wireframes for desktop and mobile are provided above under 'Design Documentation'. [Click here](#wireframes) to view.
 
 ### 17. Describe the way tasks are allocated and tracked in your project. ###
 
@@ -355,6 +412,8 @@ The ways in which we implemented (or attempted to implement) these security requ
   * We used the Rails form_for helper method for our forms which automatically generates and returns a CSRF token as a hidden field. The token is stored in the session as a random string.
   * Rails also has an in-built method `csrf_meta_tag` which is called in the head of the global application view file `application.html.erb`. This verifies that requests coming into the server are from users that are logged in.
 
+We also deployed to Heroku which enforces SSL encryption for customer connections to postgres databases. We ensured that https is used for all requests by using `config.force_ssl = true` in the production file `config/environments/production.rb`. 
+
 ### 23. Research what your legal obligations are in relation to handling user data. ###
 
 In accordance with the Australian Privacy Act, our legal obligations in relation to handling user data include:
@@ -365,3 +424,4 @@ In accordance with the Australian Privacy Act, our legal obligations in relation
 - Giving the user the option of not receiving unwanted direct marketing
 - Correcting a user's personal information if it is incorrect.
 - Allowing the user to make a complaint about an entity covered by the Privacy Act, if they consider that we have mishandled their personal information.
+- Notifying users of data breaches where users' personal information is lost or stolen, and/or if the database storing the users' information is hacked.
