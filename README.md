@@ -243,11 +243,11 @@ We are using PostgreSQL for development/testing and Heroku Postgres for producti
 
 ### 8. Describe the architecture of your App. ###
 
-Rails is an opinionated framework that uses convention over configuration. As such, in building this app, we followed the Model, View and Controller (or MVC) architectural pattern. This MVC paradigm allows us to separate the concerns and functionality of our app into individual, non-overlapping (but interacting) components, which facilitates a clean and efficient development, testing and maintenance process. The Model is responsible for directly interacting with the data stored in the database. As we have different types/categories of data stored in separate tables, we employed several models that have associations to each other. The View handles the user interface, and everything that is rendered to the browser. Connecting the Model and View is the Controller which handles the logic and transfer of data/user input. It is 'brains' of the app that holds more complex functionality e.g. methods that perform sequential searches on database entries managed by the model to be passed onto the view as search results.
+Rails is an opinionated framework that uses convention over configuration. As such, in building this app, we followed the Model, View and Controller (or MVC) architectural pattern. This MVC paradigm allows us to separate the concerns and functionality of our app into individual, non-overlapping (but interacting) components, which facilitates a clean and efficient development, testing and maintenance process. The Model is responsible for directly interacting with the data stored in the database via Rails' Active Record. As we have different types/categories of data stored in separate tables, we employed several models that have associations to each other. The View handles the user interface, and everything that is rendered to the browser. Connecting the Model and View is the Controller which handles the logic and transfer of data/user input. It is 'brains' of the app that holds more complex functionality e.g. methods that perform sequential searches on database entries managed by the model to be passed onto the view as search results.
 
 ### 9. Explain the different high-level components (abstractions) in your App. ###
 
-The goal of our app is to connect designers and developers with each other. At a higher level we created a system where users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). These actions are accomplished through HTTP requests that the web server (Puma) manages and routes to controller methods that perform the action. This system is designed and structured according to the MVC architectural pattern.
+The goal of our app is to connect designers and developers with each other. At a higher level we created a system where users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). These actions are accomplished through HTTP requests that the web server (Puma) manages and routes to controller methods that perform the action. As discussed above, this system is designed and structured according to the MVC architectural pattern.
 
 The first series of actions describe how users can add/edit information about themselves in a User table (accessed by the model in the database), and the presentation of that data. This is so that each can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller, passed to the view and rendered to the browser. Users can update and delete their profile and account.
 
@@ -256,6 +256,8 @@ The second series of actions describe the ways in which users can interact with 
 ### 10. Detail any third party services that your App will use. ###
 
 We use a number of third-party services to streamline our app development, management and deployment process. AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. We deployed our app on Heroku, a cloud platform with its own in-built server and Postgres database. To generate our user pictures in our seeded database, we used UI Faces API.
+
+A list of all the gems/software used in building this app are detailed above. Click here to view.
 
 ### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb). ###
 
@@ -288,11 +290,11 @@ In the previous short answer question, we provided a description of the models w
 
 ### 15. Provide User stories for your App. ###
 
-User stories are provided above under 'Design Documentation'. 
+User stories are provided above under 'Design Documentation'. Click here to view.
 
 ### 16. Provide Wireframes for your App. ###
 
-Wireframes for desktop and mobile are provided above under 'Design Documentation'. 
+Wireframes for desktop and mobile are provided above under 'Design Documentation'. Click here to view.
 
 ### 17. Describe the way tasks are allocated and tracked in your project. ###
 
@@ -306,7 +308,7 @@ Most of the back-end development was done together in our group. One person woul
 
 ### 19. Provide an overview and description of your Source control process. ###
 
-Our group used Git and GitHub for source control. We used branches frequently when working on individual components of our app, or when working on a new feature. These features/branches included: 'user', with branches off user to work on stripe payments, forms, implementing AWS and search functionality, 'messages', and 'favourites'. Later in the process, we worked on branches that were dedicated to styling/front-end work and cleaning up code. Constant communication in person and over Slack allowed us to branch and merge at appropriate times, and that we were all kept up to date with changes as they happened. This kept merge conflicts to a minimum and, and made for clean and efficient development of our app.
+Our group used Git and GitHub for source control. We used branches frequently when working on individual components of our app, or when working on a new feature. These features/branches included: 'user', with branches off user to work on stripe payments, forms, implementing AWS and search functionality, 'messages', and 'favourites'. Later in the process, we worked on branches that were dedicated to styling/front-end work and cleaning up code. Constant communication in person and over Slack allowed us to branch and merge at appropriate times, and that we were all kept up to date with changes as they happened. This kept merge conflicts to a minimum and made for clean and efficient development of our app.
 
 ### 20. Provide an overview and description of your Testing process. ###
 
@@ -322,16 +324,40 @@ We attempted automated testing in Cypress, but encountered difficulties in tryin
 
 ### 21. Discuss and analyse requirements related to information system security. ###
 
+We have built an app that involves information transfer between the user and a database. As such, we needed to consider security vulunerabilities at several points in this pipeline: the access/retrieval of data, the transfer of data and the storage of that data.
 
+* Unauthenticated/unauthorised access: The identity of users should be authenticated so that their identity is known. This limits what the information the user is authorised to access, and what actions they can perform. In our case, users should only be able to view listings of users and search for users if they are signed up and logged in. Users should not be authorised to view other people's conversations and messages, or be authorised to edit or delete other people's profiles. 
+
+* Storage and access of sensitive information: Users' passwords should be encrypted. Users should only be able to retrieve forgotten passwords using an email associated with that password. Users' payment details should be encrypted and ideally stored offsite. 
+
+* SQL injection: User inputs should be sanitised and validated to prevent malicious insertion of code that can be used to retrieve or tamper with data. 
+
+* Cross Site Request Forgery (CSRF): HTTP requests made on the app should be defensible against users triggering unintended and potentially malicious actions.
+
+The ways in which we implemented (or attempted to implement) these security requirements is detailed in the next question.
 
 ### 22. Discuss methods you will use to protect information and data. ###
 
-We currently are only using Devise's inbuilt encryption for passwords, and are relying on inbuilt payment security by using Stripe to secure our user's payment information. We wrote a method to ensure that user's are authorised to view their conversations and messages with other uses, and not the conversations/messages of other users (authorise_user in messages controller). We also wrote authorisation methods to prevent users from updating or deleting other user's profiles. Encryption and decryption of all user data was not possible within the scope of this project.
+* Unauthenticated/unauthorised access:
+  * We used Devise for user authentication and secure access to the site's main features.
+  * Using Devise's helper `current_user`, we wrote our own custom authorisation methods (authorize_user) in our users and messages controllers to prevent unauthorised access to sensitive message data, and unauthorised editing/deleting of user profiles.
+
+* Storage and access of sensitive information:
+  * For user passwords, we relied on Devise's inbuilt encryption (BCrypt). As such, no unencrypted passwords are stored in our database.
+  * All our payments are handled by Stripe so that no sensitive payment information is kept in our database. Stripe encrypts all the card numbers and holds its decryption keys on separate machines. Stripe also forces HTTPS for secure connections.
+  * Ideally, we would have liked to add additional protection to message data stored in our database, however encryption and decryption of these data was not possible within the scope of this project.
+
+* SQL injection:
+  * We only performed basic sanitisation of our user input data. We were unable to implement user validation within the allowed time despite multiple attempts at using callbacks and conditionals in validation statements or helper methods. Difficulty arose because we created a 3-step form for writing to a single entry/row in a User table (step 1: sign up, step 2: payment check, step 3: profile information). We researched ways of performing this for future work, e.g. using the gem [Wicked](https://github.com/schneems/wicked).
+  * As we are using Rails' Object Relational Mapper (ORM) ActiveRecord, there is some in built protection against SQL injection as we don't write SQL queries explicitly. However, care is needed even when making database calls. For example, we used calls of the form `User.where(name: name)` and `User.where(["name = ?", "#{params[:name]}"])` rather than `User.where("name = '#{params[:name]'")` which is vulnerable to SQL injection. 
+
+* Cross Site Request Forgery (CSRF):
+  * We used the Rails form_for helper method for our forms which automatically generates and returns a CSRF token as a hidden field. The token is stored in the session as a random string.
+  * Rails also has an in-built method `csrf_meta_tag` which is called in the head of the global application view file `application.html.erb`. This verifies that requests coming into the server are from users that are logged in.
 
 ### 23. Research what your legal obligations are in relation to handling user data. ###
 
 In accordance with the Australian Privacy Act, our legal obligations in relation to handling user data include:
-
 
 - Disclosing how the user's personal information is being collected, how it will be used and who it will be disclosed to.
 - Giving the user have the option of not identifying him/herself, or allowing them to use a pseudonym in certain circumstances.
