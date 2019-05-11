@@ -3,7 +3,7 @@
 #### Cocobuds: An app built on Rails by [Antonella Markahe](https://github.com/Antoonella), [Michael Bahari](https://github.com/ugkid) and [Alex Diwa](https://github.com/alxdwa). ####
 
 **Cocobuds Live**: https://cocobuds.herokuapp.com<br />
-**GitHub Repo**: https://github.com/alxdwa/rails-assessment<br />
+**GitHub Repo**: https://github.com/alxdwa/cocobuds.git<br />
 
 ### Project Description: ###
 
@@ -76,11 +76,11 @@ For local use of the app, perform the following operations in the CLI:
 
 1. Clone the git repository locally:
 ```
-git clone https://github.com/alxdwa/rails-assessment.git
+git clone https://github.com/alxdwa/cocobuds.git
 ```
 2. Move into the directory:
 ```
-cd rails-assessment
+cd cocobuds
 ```
 3. Install gems:
 ```
