@@ -17,7 +17,7 @@ Cocobuds are life-long learners who want to share their knowledge and pick up ne
 
 Our app facilitates connection between designers and developers. This is accomplished through the following features:
 
-* Users (designers/developers) sign up for an password-protected account that gives them access to the app's functionality.
+* Users (designers/developers) sign up for a password-protected account that gives them access to the app's functionality.
 * Once logged in, users can establish their online presence through a profile that showcases their skills and personality.
 * Users can edit and delete their profile, and upload a profile picture.
 * Users can find other users quickly based on several search criteria: first name and/or last name, location, by category (designer/developer) or by skill(s). 
@@ -115,10 +115,16 @@ Our design process comprised of several steps:
 
 ### User Stories ###
 
-* As a developer/designer, I want to be able to learn from someone face to face.
-* As a developer/designer, I want to give back to the community by sharing my skills.
-* As a developer/designer, I want to be able to find others easily so I can learn from them. 
-* As a developer/designer, I want to be able to contact someone with skills I want to learn in a way that isn't awkward or intimidating.
+* As Chris, I want to have a profile that showcases my skills, so that others know what I can offer to teach and exchange.
+* As Chloe, I want to find other users close to me, so that I can meet up with them in person easily.
+* As Cate, I want to find other users who have specific skills, so that I can choose who to learn with.
+* As Connor, I want to keep track of users I like, so that I can find them again later with ease.
+* As Candice, I want to see who has followed or favourited me back, so that it's easier to 'break the ice'.
+* As Carmen, I want to be able to initiate a conversation online in a way that's not intimidating, so that it's easier to arrange to meet in person.
+* As Carlos, I want to offer to teach skills in exchange for other peoples', so that I can give back to my community.
+* As Calum, I want to learn from someone face-to-face, so that I can develop a well-rounded skill set.
+* As Christine, I want to meet new people interested in similar things to me, so that I can expand my personal and professional network.
+
 
 ### Flow Diagram ###
 
@@ -256,7 +262,7 @@ Steve Jobs once said: “It’s not just what it looks like and feels like. Desi
 
 Design’s role in this world never sits still. In technology it continues to be etched into the product development process. We always hear about how more designers should learn how to code. This demand for designers who can develop is just as relevant for developers who can design.
 
-Users don’t interact directly with the developers work—they interact with what the designer creates. Developers who are involved early on in the design process will lead to a better understanding of the user. To build better products, collaboration and communication needs to take place for designers and developers.
+Users don’t interact directly with the developers work--they interact with what the designer creates. Developers who are involved early on in the design process will lead to a better understanding of the user. To build better products, collaboration and communication needs to take place for designers and developers.
 
 ### 3. Describe the project you will be conducting and how your App will address the needs. ###
 
@@ -264,7 +270,7 @@ We are addressing this need by creating an online platform through which users c
 
 ### 4. Describe the network infrastructure the App may be based on. ###
 
-Our app is deployed on Heroku, a cloud hosting platform that provides a URL through which users can access a live version of the app. Heroku uses and is compatible with the same web server we used in development and testing - Puma - which connects (routes) the HTTP requests to our controllers, through Action Controller, and relays responses to the web browser.
+Our app is deployed on Heroku, a cloud hosting platform that provides a URL through which users can access a live version of the app. Heroku uses and is compatible with the same web server we used in development and testing - Puma - which routes the HTTP requests to our controllers, through Action Controller, and relays responses to the web browser.
 
 ### 5. Identify and describe the software to be used in your App. ###
 
@@ -281,48 +287,73 @@ Cocobuds is built on Rails using the Ruby programming language. We deployed our 
 * [Kaminari 1.1](https://github.com/kaminari/kaminari): Handles pagination for our search results
 * [Bootstrap Filestyle](https://rails-assets.org/#/components/bootstrap-filestyle): Cleans up appearance of file upload buttons using bootstrap/jQuery
 
+We used a collection of other software for planning and project management. These include:
+
+* Trello for brainstorming and managing our Agile sprints
+* Google Drive, Docs, Sheets and Keep for sharing resources within our group and for keeping track of our development process
+* Slack for remote collaboration and for sharing code snippets and ideas
+
 ### 6. Identify the database to be used in your App and provide a justification for your choice. ###
 
-We used PostgreSQL as our database for a number of reasons. 
+We used PostgreSQL as our database for a number of reasons:
 * It is scalable and can handle terabytes of data.
 * It is designed for high volume environments.
 * It is highly reliable and stable.
 * It can easily merge with cloud hosting on Heroku as Heroku also uses Postgres.
 * It is ACID compliant and fulfils the following properties: Atomicity, Consistency, Isolation, Durability, which means that it is quite robust and not prone to errors or failures. This also ensures consistency and integrity of data.
 * It can handle multiple complex processes, such as simultaneous/concurrent writing to database tables.
-* It is open source.
+* It is open source and has good commercial and community support.
+* There are good GUI tools available.
 
-One downside of PostgreSQL is that it can be considerably slower than databases like MySQL and SQLite, the latter being the default database for Rails.
+Some disadvantages of using PostgreSQL:
+* It can be considerably slower than databases like MySQL and SQLite, the latter being the default database for Rails.
+* Not as universal and widely supported as MySQL
 
 ### 7. Identify and describe the production database setup (i.e. postgres instance). ###
 
-We are using PostgreSQL for development/testing and Heroku Postgres for production. We configured our Rails development environment prior to building our app to use PostgreSQL over SQLite. 
+We are using PostgreSQL for development/testing and Heroku Postgres for production. We configured our Rails development environment prior to building our app to use PostgreSQL over SQLite.
+
+Heroku postgres has a number of features implemented to keep users' data safe. These include:
+
+* Continuous protection: every change is tracked and provides a fallback in case there is unrecoverable hardware failure.
+* Automated health checks: Databases are automatically restored should any check fail.
+* Security and compliance: Heroku performs regular audits to maintain PCI, HIPAA, ISO and SOC compliance. 
 
 ### 8. Describe the architecture of your App. ###
 
-Rails is an opinionated framework that uses convention over configuration. As such, in building this app, we followed the Model, View and Controller (or MVC) architectural pattern. This MVC paradigm allows us to separate the concerns and functionality of our app into individual, non-overlapping (but interacting) components, which facilitates a clean and efficient development, testing and maintenance process. The Model is responsible for directly interacting with the data stored in the database via Rails' Active Record. As we have different types/categories of data stored in separate tables, we employed several models that have associations to each other. The View handles the user interface, and everything that is rendered to the browser. Connecting the Model and View is the Controller which handles the logic and transfer of data/user input. It is 'brains' of the app that holds more complex functionality e.g. methods that perform sequential searches on database entries managed by the model to be passed onto the view as search results.
+Rails is an opinionated framework that uses convention over configuration. As such, in building this app, we followed the Model, View and Controller (or MVC) architectural pattern. This MVC paradigm allows us to separate the concerns and functionality of our app into individual, non-overlapping (but interacting) components or layers, which facilitates a clean and efficient development, testing and maintenance process.
+
+The Model is responsible for directly interacting with the data stored in the database via Rails' Active Record. As we have different types/categories of data stored in separate tables, we employed several models that have associations to each other. The View handles everything that is rendered to the browser and presented to the user. Connecting the Model and View is the Controller which handles the logic and transfer and/or transformation of data and user input. It is 'brains' of the app that performs more complex functionality. For instance, methods in our User controller perform sequential searches on database entries managed by the model to be passed onto the view and rendered as search results.
 
 ### 9. Explain the different high-level components (abstractions) in your App. ###
 
-The goal of our app is to connect designers and developers with each other. At a higher level we created a system where users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). These actions are accomplished through HTTP requests that the web server (Puma) manages and routes to controller methods that perform the action. As discussed above, this system is designed and structured according to the MVC architectural pattern.
+The goal of our app is to connect designers and developers with each other. At a higher level, we simply created a system where users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). These actions are accomplished through HTTP requests that the web server (Puma) routes to controller methods that perform the required action. As discussed above, this system is designed and structured according to the MVC architectural pattern.
 
-The first series of actions describe how users can add/edit information about themselves in a User table (accessed by the model in the database), and the presentation of that data. This is so that each user can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller, passed to the view and rendered to the browser. Users can update and delete their profile and account.
+The first series of actions describe how users can add/edit information about themselves in a User table (in the database by the model), and the presentation of that data. This is so that each user can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller, passed to the view and rendered to the browser. Users can perform other actions such as updating and deleting their profile and account.
 
 The second series of actions describe the ways in which users can interact with each other. This is facilitated through associations between the User model and those related to messaging (Message and Conversation) and favouriting/following (Follow). 
 
 ### 10. Detail any third party services that your App will use. ###
 
-We use a number of third-party services to streamline our app development, management and deployment process. AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. We deployed our app on Heroku, a cloud platform with its own in-built Puma server and Postgres database. To generate our user pictures in our seeded database, we used UI Faces API.
+We use a number of third-party services to streamline our app development, management and deployment process.
+
+AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. To generate our user pictures in our seeded database, we used the HTTParty gem to interface with the UI Faces API.
+
+We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. 
+
+We deployed our app on Heroku, a cloud platform with its own in-built Puma server and Postgres database instance.
 
 A list of all the gems/software used in building this app are detailed above. [Click here](#5-identify-and-describe-the-software-to-be-used-in-your-app) to view.
 
 ### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb). ###
 
-While our app is a two-sided marketplace for developers and designers, the features we have implemented and hence our data structure resembles a social network such as Facebook, LinkedIn, Twitter and even Tinder. Similar to our app, each of these implement ways for users to view other people's profiles/pages, add another user to some sort of collection (whether it be a collection of friends, a follower or a swipe right), and a way of communicating through messages.
+While our app is a two-sided marketplace for developers and designers, the features we have implemented and hence our data structure resembles a social network such as Facebook, LinkedIn, Twitter and even Tinder.
+
+Similar to our app, each of these implement ways for users to view other people's profiles/pages, add another user to some sort of collection (whether it be a collection of friends, a follower or a swipe right), and a way of communicating through messages.
 
 ### 12. Discuss the database relations to be implemented. ###
 
-The core model of our app is the User model, as the main function of our app is to connect users to each other. As seen in our ERD, the user table in our database holds all information related to user registration (email/password) and their attributes. Minor attributes (e.g. occupation, website URL) are defined as columns in our User table, whereas the feature user attributes (Locations and Skills) are held in separate tables, associated with each user through foreign keys. We implemented a join table users_skills through which the User and Skill tables are associated.
+The core model of our app is the User model, as the main function of our app is to connect users to each other. As seen in our ERD ([Click to view](#database-entity-relationship-diagram)), the User table in our database holds all information related to user registration (email/password) and their attributes. Minor attributes (e.g. occupation, website URL) are defined as columns in our User table, whereas the feature user attributes (Locations and Skills) are held in separate tables, associated with each user through foreign keys. We implemented a join table users_skills through which the User and Skill tables are associated.
 
 We used separate database tables to store information related to user to user interaction (users following and talking to each other). A Conversation table defines the pair of users interacting (through foreign keys sender_id and receiver_id), and effectively acts a container for individual messages stored in the Message table. The Message table references the conversation and users via foreign keys, and holds information specific to the individual message (who sent it i.e. user_id, and whether it has been read). The last component of our ERD is the Follow table, which is effectively a self-referential/self-join table for the User model. Here, we reference foreign keys that are user ids - who someone is following (follower_id) and who is doing the following (followee_id).
 
@@ -330,7 +361,7 @@ The models associated with these tables interact through associations: one-to-on
 
 ### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other. ###
 
-In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. 
+In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple Active Record associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. 
 
 1. User attributes: Location and Skill
   - Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
@@ -355,23 +386,27 @@ Wireframes for desktop and mobile are provided above under 'Design Documentation
 
 ### 17. Describe the way tasks are allocated and tracked in your project. ###
 
-In our project management, tasks were allocated and tracked using Trello. Each sprint consisted of tasks which had been discussed and chosen during our morning standups. Our sprint boards consisted of 'Todo', 'In Progress' and 'Done' lists. Each task was assigned a card where we could collaborate by commenting and attaching files. We would drag and drop each card into the list that represented its status, until all of them were inside the 'Done' list.
+We used Trello for project management, and created separate boards for each Agile sprint to keep track of our development work and tasks to be completed. 
+
+Tasks to be placed on each board were discussed and chosen during our morning standups, as well as in the evening prior to leaving. Our sprint boards consisted of 'Todo', 'In Progress' and 'Done' lists. Each task was assigned a card where we could collaborate by commenting and attaching files. We would drag and drop each card into the list that represented its status, so that we could keep track of our progress while building our app.
+
+We allocated tasks to individuals on our team on a rotating basis. This is because we often coded as a group of three, with one person writing the code, one writing detailed documentation in shared Google Keep notes, with the other providing guidance on the process while using their computer to Google/research ideas. This method helped us evaluate requirements and results for each task quickly.
 
 ### 18. Discuss how Agile methodology is being implemented in your project. ###
 
-We have implemented Agile in our project management and product development. Our product was built in sprints which allowed us to deliver work in small and manageable increments.
+We used the Agile process throughout the development of Cocobuds. The app was built in sprints which allowed us to deliver work in small and manageable increments. The advantage of this process was that we were able to constantly review and adjust our development plans according to the results and outcome from each sprint. In other words, we found the iterative nature of Agile methodology a huge advantage, and meant that we could accomplish a lot in a short amount of time.
 
-Most of the back-end development was done together in our group. One person would code, the other notated each step that was coded and the last person researched and followed our lecturers' notes. Each of us exchanged roles. This method helped us evaluate requirements and results for each step quickly.
+In total, we built our app in 5 sprints. Screenshots of our Trello boards can be found [here](#screenshots-of-trello-boards). Each sprint corresponded to a group of related tasks or feature(s) that we wanted to implement. In general, the higher-priority tasks featured in earlier sprints so we could build our MVP as soon as possible. Later sprints involved adding in extra features, while also iteratively revising earlier features developing/testing them further. 
 
 ### 19. Provide an overview and description of your Source control process. ###
 
-Our group used Git and GitHub for source control. We used branches frequently when working on individual components of our app, or when working on a new feature. These features/branches included: 'user', with branches off user to work on stripe payments, forms, implementing AWS and search functionality, 'messages', and 'favourites'. Later in the process, we worked on branches that were dedicated to styling/front-end work and cleaning up code. Constant communication in person and over Slack allowed us to branch and merge at appropriate times, and that we were all kept up to date with changes as they happened. This kept merge conflicts to a minimum and made for clean and efficient development of our app.
+Our group used Git and GitHub for source control. We used [branches](https://github.com/alxdwa/cocobuds/branches/all) frequently when working on individual components of our app, or when working on a new feature. These features/branches included: 'user', with branches off user to work on stripe payments, forms, implementing AWS and search functionality, 'messages', and 'favourites'. Later in the process, we worked on branches that were dedicated to styling/front-end work and cleaning up code. Constant communication in person and over Slack allowed us to branch and merge at appropriate times, and that we were all kept up to date with changes as they happened. This kept merge conflicts to a minimum and made for clean and efficient development of our app. 
 
 ### 20. Provide an overview and description of your Testing process. ###
 
-Manual testing was conducted on each feature and page of the website. On every page we wanted to test all buttons, links and notifications. Each test was assigned a scenario, an expected result, actual result, status and comments. 
+Manual testing was conducted on each feature and page of the website. On every page we wanted to test all buttons, links and any redirects. Each test was assigned a scenario, an expected result, actual result, status and comments.
 
-We attempted automated testing in Cypress, but encountered difficulties in trying to perform specific actions and this posed as a significant setback in terms of time. We decided to proceed with manual testing and attempt automated testing should time allow. Manual testing still allowed us to test for edge cases for our forms, authentication and authorisation.
+We attempted automated testing in Cypress, but encountered difficulties in trying to perform specific actions and this posed as a significant setback in terms of time when we had higher priority tasks in development. We decided to proceed with manual testing and attempt automated testing should time allow. Manual testing still allowed us to test for edge cases for our forms, authentication and authorisation.
 
 **Screenshot of Testing Spreadhseet**
 
@@ -381,7 +416,7 @@ We attempted automated testing in Cypress, but encountered difficulties in tryin
 
 ### 21. Discuss and analyse requirements related to information system security. ###
 
-We have built an app that involves information transfer between the user and a database. As such, we needed to consider security vulunerabilities at several points in this pipeline: the access/retrieval of data, the transfer of data and the storage of that data.
+We have built an app that involves information transfer between the user and a database. As such, we needed to consider security vulnerabilities at several points in this pipeline: the access/retrieval of data, the transfer of data and the storage of that data.
 
 * Unauthenticated/unauthorised access: The identity of users should be authenticated so that their identity is known. This limits what the information the user is authorised to access, and what actions they can perform. In our case, users should only be able to view others users and search for users if they are signed up and logged in. Users should not be authorised to view other people's conversations and messages, or be authorised to edit or delete other people's profiles. 
 
