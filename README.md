@@ -306,13 +306,13 @@ Rails is an opinionated framework that uses convention over configuration. As su
 
 The goal of our app is to connect designers and developers with each other. At a higher level we created a system where users can perform a series of actions based around CRUD (Creating, Reading, Updating and Deleting). These actions are accomplished through HTTP requests that the web server (Puma) manages and routes to controller methods that perform the action. As discussed above, this system is designed and structured according to the MVC architectural pattern.
 
-The first series of actions describe how users can add/edit information about themselves in a User table (accessed by the model in the database), and the presentation of that data. This is so that each can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller, passed to the view and rendered to the browser. Users can update and delete their profile and account.
+The first series of actions describe how users can add/edit information about themselves in a User table (accessed by the model in the database), and the presentation of that data. This is so that each user can find others who are based in a convenient location and who have skills they are interested in learning. What the users see is modified, transformed or processed by the controller, passed to the view and rendered to the browser. Users can update and delete their profile and account.
 
 The second series of actions describe the ways in which users can interact with each other. This is facilitated through associations between the User model and those related to messaging (Message and Conversation) and favouriting/following (Follow). 
 
 ### 10. Detail any third party services that your App will use. ###
 
-We use a number of third-party services to streamline our app development, management and deployment process. AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. We deployed our app on Heroku, a cloud platform with its own in-built server and Postgres database. To generate our user pictures in our seeded database, we used UI Faces API.
+We use a number of third-party services to streamline our app development, management and deployment process. AWS S3 allows us to host images (profile pictures) instead of storing files locally, which improves our potential for scalability. We used Stripe to handle our payments so that these are processed safely and securely, which means that we don't have to store sensitive user payment data in our database. We deployed our app on Heroku, a cloud platform with its own in-built Puma server and Postgres database. To generate our user pictures in our seeded database, we used UI Faces API.
 
 A list of all the gems/software used in building this app are detailed above. [Click here](#5-identify-and-describe-the-software-to-be-used-in-your-app) to view.
 
@@ -330,15 +330,15 @@ The models associated with these tables interact through associations: one-to-on
 
 ### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other. ###
 
-In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. As the User model is the primary model of our app, we will discuss our active record associations from the 'perspective' of the User.
+In the previous short answer question, we provided a description of the models we employed in our app and a higher-level description of the way they interact according to our designed ERD. Within this, however, are multiple associations (one-to-one, one-to-many and many-to-many) through which we gain the key functionality of our app. 
 
-* User attributes: Location and Skill
-  * Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
-  * Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
+1. User attributes: Location and Skill
+  - Location (one-to-many): Each user has one location, but each location has many users. Locations are pre-defined and users can select one and only one.
+  - Skill (many-to-many): Each user has many skills, and each skill has many users. This association is defined through a join table called users_skills. As such, both our User and Skill models have a has-many association to users_skills. Users can select multiple skills and have these stored in the join table.
 
-* User interaction: Message, Conversation and Follow
+2. User interaction: Message, Conversation and Follow
 - Message:
-  * User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each messages which corresponds to the id of the user who sends the message.
+  * User to message (one-to-many): Each user has many messages, and each message belongs to a user. We define a user id for each message which corresponds to the id of the user who sends the message.
   * Message to conversation (one-to-many): Each message belongs to a conversation, and each conversation has many messages. The conversation acts as a container for messages, but is defined only between two unique users.
   * User to conversations (one-to-many): Each conversation belongs to two individual users (defined as a sender and receiver), and each user can be engaged in multiple conversations.
 
@@ -355,7 +355,7 @@ Wireframes for desktop and mobile are provided above under 'Design Documentation
 
 ### 17. Describe the way tasks are allocated and tracked in your project. ###
 
-In our project management, tasks were allocated and tracked using Trello. Each day represented a sprint and each sprint consisted of tasks which had been discussed and chosen during our morning standups. Our sprint boards consisted of 'Todo', 'In Progress' and 'Done' lists. Each task was assigned a card where we could collaborate by commenting and attaching files. We would drag and drop each card into the list that represented its status, until all of them were inside the 'Done' list.
+In our project management, tasks were allocated and tracked using Trello. Each sprint consisted of tasks which had been discussed and chosen during our morning standups. Our sprint boards consisted of 'Todo', 'In Progress' and 'Done' lists. Each task was assigned a card where we could collaborate by commenting and attaching files. We would drag and drop each card into the list that represented its status, until all of them were inside the 'Done' list.
 
 ### 18. Discuss how Agile methodology is being implemented in your project. ###
 
@@ -383,7 +383,7 @@ We attempted automated testing in Cypress, but encountered difficulties in tryin
 
 We have built an app that involves information transfer between the user and a database. As such, we needed to consider security vulunerabilities at several points in this pipeline: the access/retrieval of data, the transfer of data and the storage of that data.
 
-* Unauthenticated/unauthorised access: The identity of users should be authenticated so that their identity is known. This limits what the information the user is authorised to access, and what actions they can perform. In our case, users should only be able to view listings of users and search for users if they are signed up and logged in. Users should not be authorised to view other people's conversations and messages, or be authorised to edit or delete other people's profiles. 
+* Unauthenticated/unauthorised access: The identity of users should be authenticated so that their identity is known. This limits what the information the user is authorised to access, and what actions they can perform. In our case, users should only be able to view others users and search for users if they are signed up and logged in. Users should not be authorised to view other people's conversations and messages, or be authorised to edit or delete other people's profiles. 
 
 * Storage and access of sensitive information: Users' passwords should be encrypted. Users should only be able to retrieve forgotten passwords using an email associated with that password. Users' payment details should be encrypted and ideally stored offsite. 
 
@@ -419,7 +419,7 @@ We also deployed to Heroku which enforces SSL encryption for customer connection
 In accordance with the Australian Privacy Act, our legal obligations in relation to handling user data include:
 
 - Disclosing how the user's personal information is being collected, how it will be used and who it will be disclosed to.
-- Giving the user have the option of not identifying him/herself, or allowing them to use a pseudonym in certain circumstances.
+- Giving the user have the option of not identifying themselves, or allowing them to use a pseudonym in certain circumstances.
 - Giving the user access to their personal information
 - Giving the user the option of not receiving unwanted direct marketing
 - Correcting a user's personal information if it is incorrect.
