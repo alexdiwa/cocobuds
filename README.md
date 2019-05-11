@@ -187,18 +187,18 @@ We used Trello and Google Docs for project management. Our work was accomplished
   * Seeded profiles with pictures using HTTParty and UI Faces API
   * Began some styling using Bootstrap
 * Sun 5th May:
-  * Continued with inbox and messages back- and front-end
+  * Continued with inbox and messages back- and front-end, seeded messages
 * Mon 6th May:
   * Pagination of search results
   * Debugging messaging system and links to facilitate clean and easy interaction between users
   * Adding name search bar to search results filter
 * Tues 7th May:
-  * Implement favouriting/following system
+  * Implement favouriting/following system, seed favourites for users
   * Tidying up user flow throughout the site and redirects
   * Begin moodboarding and experimenting with front-end /design/UI elements
   * Start planning testing
 * Weds 8th May
-  * Tidying up code, particularly back end and database calls
+  * Tidying up code, particularly back end and database calls, sanitising input
   * Writing code comments
   * Attempt automated testing, but fall back on manual testing using a spreadsheet
   * Beginning short answer questions
