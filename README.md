@@ -72,6 +72,13 @@ Below are some screenshots from our app as of 10th May 2019.
 
 ## Instructions for use ##
 
+To use the live app, go to https://cocobuds.herokuapp.com and set up an account. To view as a user seeded with dummy conversations, favourites and messages, log in with the following credentials:
+
+```
+username: ama+1@test.com
+password: testpass
+```
+
 For local use of the app, perform the following operations in the CLI:
 
 1. Clone the git repository locally:
